@@ -1,6 +1,6 @@
 # LoveIt-Lite Theme | Hugo
 
-> **LoveIt-Lite** is a fork of the [LoveIt Theme](https://github.com/dillonzq/LoveIt) with a reduced feature set and some style changes.
+**LoveIt-Lite** is a fork of the [LoveIt Theme](https://github.com/dillonzq/LoveIt) with a reduced feature set and some style changes.
 
 LoveIt-Lite is made to work with [Hugo v0.145.0](https://github.com/gohugoio/hugo/releases/tag/v0.145.0) and will *not* be maintained for future versions unless required.
 
