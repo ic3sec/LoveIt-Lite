@@ -17,7 +17,7 @@ LoveIt-Lite is meant to be as lightweight and secure as possible with all dynami
 
 Some small style changes have been made including **colored headings** and **collapsing Table of Contents**.
 
-Unfortunately, LoveIt-Lite will only have documents updated in English - apologies for any inconvenice. I generally recommend the origina LoveIt theme over this unless it fits your specific use case.
+Unfortunately, LoveIt-Lite will only have documents updated in English - apologies for any inconvenice. I generally recommend the original LoveIt theme over this unless it fits your specific use case.
 
 ## Compatibility
 
