@@ -125,17 +125,17 @@ class Theme {
                 document.getElementById('menu-mobile').classList.remove('active');
                 $searchLoading.style.display = 'none';
                 $searchClear.style.display = 'none';
-                this._searchMobile && this._searchMobile.autocomplete.setVal('');
+                //this._searchMobile && this._searchMobile.autocomplete.setVal('');
             }, false);
             $searchClear.addEventListener('click', () => {
                 $searchClear.style.display = 'none';
-                this._searchMobile && this._searchMobile.autocomplete.setVal('');
+                //this._searchMobile && this._searchMobile.autocomplete.setVal('');
             }, false);
             this._searchMobileOnClickMask = this._searchMobileOnClickMask || (() => {
                 $header.classList.remove('open');
                 $searchLoading.style.display = 'none';
                 $searchClear.style.display = 'none';
-                this._searchMobile && this._searchMobile.autocomplete.setVal('');
+                //this._searchMobile && this._searchMobile.autocomplete.setVal('');
             });
             this.clickMaskEventSet.add(this._searchMobileOnClickMask);
         } else {
@@ -143,26 +143,190 @@ class Theme {
             $searchToggle.addEventListener('click', () => {
                 document.body.classList.add('blur');
                 $header.classList.add('open');
+                $searchInput.value = '';
                 $searchInput.focus();
             }, false);
             $searchClear.addEventListener('click', () => {
                 $searchClear.style.display = 'none';
-                this._searchDesktop && this._searchDesktop.autocomplete.setVal('');
+                $searchInput.value = '';
+                //this._searchDesktop && this._searchDesktop.autocomplete.setVal('');
             }, false);
             this._searchDesktopOnClickMask = this._searchDesktopOnClickMask || (() => {
                 $header.classList.remove('open');
                 $searchLoading.style.display = 'none';
                 $searchClear.style.display = 'none';
-                this._searchDesktop && this._searchDesktop.autocomplete.setVal('');
+                //this._searchDesktop && this._searchDesktop.autocomplete.setVal('');
             });
             this.clickMaskEventSet.add(this._searchDesktopOnClickMask);
         }
         $searchInput.addEventListener('input', () => {
-            if ($searchInput.value === '') $searchClear.style.display = 'none';
-            else $searchClear.style.display = 'inline';
+            if ($searchInput.value === '') 
+                $searchClear.style.display = 'none';
+            else {
+                $searchLoading.style.display = 'inline';
+                $searchClear.style.display = 'none';
+                const query = $searchInput.value;
+                const results = lunrSearch(query);
+                renderResults(results, query);
+                $searchLoading.style.display = 'none';
+                $searchClear.style.display = 'inline';
+            }
         }, false);
 
-        const initAutosearch = () => {
+        const lunrSearch = (query) => {
+            const search = (query) => {
+                const results = {};
+                this._index.search(query).forEach(({ ref, matchData: { metadata } }) => {
+                    const matchData = this._indexData[ref];
+                    let { uri, title, content: context } = matchData;
+                    if (results[uri]) return;
+                    let position = 0;
+                    Object.values(metadata).forEach(({ content }) => {
+                        if (content) {
+                            const matchPosition = content.position[0][0];
+                            if (matchPosition < position || position === 0) position = matchPosition;
+                        }
+                    });
+                    position -= snippetLength / 5;
+                    if (position > 0) {
+                        position += context.slice(position, position + 20).lastIndexOf(' ') + 1;
+                        context = '...' + context.slice(position, position + snippetLength);
+                    } else {
+                        context = context.slice(0, snippetLength);
+                    }
+                    Object.keys(metadata).forEach(key => {
+                        title = title.replace(new RegExp(`(${key})`, 'gi'), `<${highlightTag}>$1</${highlightTag}>`);
+                        context = context.replace(new RegExp(`(${key})`, 'gi'), `<${highlightTag}>$1</${highlightTag}>`);
+                    });
+                    results[uri] = {
+                        'uri': uri,
+                        'title' : title,
+                        'date' : matchData.date,
+                        'context' : context,
+                    };
+                });
+                return Object.values(results).slice(0, maxResultLength);
+            };
+            
+            if (!this._index) {
+                fetch(searchConfig.lunrIndexURL)
+                    .then(response => response.json())
+                    .then(data => {
+                        const indexData = {};
+                        this._index = lunr(function () {
+                            if (searchConfig.lunrLanguageCode) this.use(lunr[searchConfig.lunrLanguageCode]);
+                            this.ref('objectID');
+                            this.field('title', { boost: 50 });
+                            this.field('tags', { boost: 20 });
+                            this.field('categories', { boost: 20 });
+                            this.field('content', { boost: 10 });
+                            this.metadataWhitelist = ['position'];
+                            data.forEach((record) => {
+                                indexData[record.objectID] = record;
+                                this.add(record);
+                            });
+                        });
+                        this._indexData = indexData;
+                        return search(query);
+                    }).catch(err => {
+                        console.error(err); // TODO: implement failure/error case handling/display/return
+                    });
+            } else return search(query);
+        };
+
+        const renderResults = (results, query) => {
+            const containerId = `search-dropdown-${suffix}`;
+            const existingDropdown = document.getElementById(containerId);
+
+            if (existingDropdown) existingDropdown.remove();
+
+            const dropdown = document.createElement('div');
+            dropdown.id = containerId;
+            
+            const dropdownMenu = document.createElement('span');
+            dropdownMenu.className = 'dropdown-menu with-search';
+            dropdownMenu.setAttribute('role', 'listbox');
+
+            const dataset = document.createElement('div');
+            dataset.className = 'dataset-search';
+
+            const suggestions = document.createElement('span');
+            suggestions.className = 'suggestions';
+
+            dataset.appendChild(suggestions);
+            dropdownMenu.appendChild(dataset);
+            dropdown.appendChild(dropdownMenu);
+
+            if (!results) {
+                const emptyDiv = document.createElement('div');
+                emptyDiv.className = 'search-empty';
+                emptyDiv.innerHTML = `<div class="search-empty">${searchConfig.noResultsFound}: <span class="search-query">"${query}"</span></div>`;
+                dataset.appendChild(emptyDiv);
+            } else {
+                results.forEach((result, index) => {
+                    const suggestion = document.createElement('div');
+                    suggestion.id = `option-${index}`
+                    suggestion.className = 'suggestion';
+                    suggestion.setAttribute('role', 'option');
+                    suggestion.onclick = () => {
+                        window.location.href = result.uri;
+                    }
+
+                    const suggestionInfo = document.createElement('div');
+                    suggestionInfo.style = 'white-space: normal';
+
+                    const suggestionTitle = document.createElement('span');
+                    suggestionTitle.className = 'suggestion-title';
+                    suggestionTitle.innerHTML = result.title;
+
+                    const suggestionDate = document.createElement('span');
+                    suggestionDate.className = 'suggestion-date';
+                    suggestionDate.innerHTML = result.date;
+
+                    const suggestionContext = document.createElement('div');
+                    suggestionContext.className = 'suggestion-context';
+                    suggestionContext.innerHTML = result.context;
+
+                    suggestionInfo.appendChild(suggestionTitle);
+                    suggestionInfo.appendChild(suggestionDate);
+
+                    suggestion.appendChild(suggestionInfo);
+                    suggestion.appendChild(suggestionContext);
+
+                    suggestions.prepend(suggestion);
+                });
+            }
+
+            document.querySelector(`.search-dropdown.${suffix}`).appendChild(dropdown);
+        };
+
+        // const renderResults = (results, query) => {
+        //     dropdownMenuContainer = document.getElementById(`#search-dropdown-${suffix}`);
+
+        //     if (results.length === 0) {
+        //         dropdownMenuContainer.innerHTML = `<div class="search-empty">${searchConfig.noResultsFound}: <span class="search-query">"${query}"</span></div>`;
+        //     } else {
+        //         results.forEach(({ title, date, context }) => 
+        //             dropdownMenuContainer.insertAdjacentHTML('beforeend', `<div><span class="suggestion-title">${title}</span><span class="suggestion-date">${date}</span></div><div class="suggestion-context">${context}</div>`)
+        //         );
+        //     }
+
+        //     dropdownMenuContainer.insertAdjacentHTML('beforeend', `<div class="search-footer">Search by <a href="${href}" rel="noopener noreffer" target="_blank">${icon} ${searchType}</a></div>`);
+        // };
+
+        /**
+         *                   suggestion: ({ title, date, context }) => `<div><span class="suggestion-title">${title}</span><span class="suggestion-date">${date}</span></div><div class="suggestion-context">${context}</div>`,
+                    empty: ({ query }) => `<div class="search-empty">${searchConfig.noResultsFound}: <span class="search-query">"${query}"</span></div>`,
+                    footer: ({}) => {
+                        const { searchType, icon, href } = {
+                            searchType: 'Lunr.js',
+                            icon: '',
+                            href: 'https://lunrjs.com/',
+                        };
+                        return `<div class="search-footer">Search by <a href="${href}" rel="noopener noreffer" target="_blank">${icon} ${searchType}</a></div>`;},
+         */
+
+        /**const initAutosearch = () => {
             const autosearch = autocomplete(`#search-input-${suffix}`, {
                 hint: false,
                 autoselect: true,
@@ -259,26 +423,7 @@ class Theme {
             });
             if (isMobile) this._searchMobile = autosearch;
             else this._searchDesktop = autosearch;
-        };
-        if (searchConfig.lunrSegmentitURL && !document.getElementById('lunr-segmentit')) {
-            const script = document.createElement('script');
-            script.id = 'lunr-segmentit';
-            script.src = searchConfig.lunrSegmentitURL;
-            script.async = true;
-            if (script.readyState) {
-                script.onreadystatechange = () => {
-                    if (script.readyState === 'loaded' || script.readyState === 'complete'){
-                        script.onreadystatechange = null;
-                        initAutosearch();
-                    }
-                };
-            } else {
-                script.onload = () => {
-                    initAutosearch();
-                };
-            }
-            document.body.appendChild(script);
-        } else initAutosearch();
+        };**/
     }
 
     initDetails() {

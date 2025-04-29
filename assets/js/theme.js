@@ -1,10 +1,5 @@
 "use strict";
 
-function _objectDestructuringEmpty(t) { if (null == t) throw new TypeError("Cannot destructure " + t); }
-function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
-function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t.return || t.return(); } finally { if (u) throw o; } } }; }
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
@@ -175,17 +170,17 @@ var Theme = /*#__PURE__*/function () {
           document.getElementById('menu-mobile').classList.remove('active');
           $searchLoading.style.display = 'none';
           $searchClear.style.display = 'none';
-          //_this3._searchMobile && _this3._searchMobile.autocomplete.setVal('');
+          //this._searchMobile && this._searchMobile.autocomplete.setVal('');
         }, false);
         $searchClear.addEventListener('click', function () {
           $searchClear.style.display = 'none';
-          //_this3._searchMobile && _this3._searchMobile.autocomplete.setVal('');
+          //this._searchMobile && this._searchMobile.autocomplete.setVal('');
         }, false);
         this._searchMobileOnClickMask = this._searchMobileOnClickMask || function () {
           $header.classList.remove('open');
           $searchLoading.style.display = 'none';
           $searchClear.style.display = 'none';
-          //_this3._searchMobile && _this3._searchMobile.autocomplete.setVal('');
+          //this._searchMobile && this._searchMobile.autocomplete.setVal('');
         };
         this.clickMaskEventSet.add(this._searchMobileOnClickMask);
       } else {
@@ -193,45 +188,79 @@ var Theme = /*#__PURE__*/function () {
         $searchToggle.addEventListener('click', function () {
           document.body.classList.add('blur');
           $header.classList.add('open');
+          $searchInput.value = '';
           $searchInput.focus();
         }, false);
         $searchClear.addEventListener('click', function () {
           $searchClear.style.display = 'none';
           $searchInput.value = '';
-          //_this3._searchDesktop && _this3._searchDesktop.autocomplete.setVal('');
+          //this._searchDesktop && this._searchDesktop.autocomplete.setVal('');
         }, false);
         this._searchDesktopOnClickMask = this._searchDesktopOnClickMask || function () {
           $header.classList.remove('open');
           $searchLoading.style.display = 'none';
           $searchClear.style.display = 'none';
-          //_this3._searchDesktop && _this3._searchDesktop.autocomplete.setVal('');
+          //this._searchDesktop && this._searchDesktop.autocomplete.setVal('');
         };
         this.clickMaskEventSet.add(this._searchDesktopOnClickMask);
       }
       $searchInput.addEventListener('input', function () {
-        if ($searchInput.value === '')
-          $searchClear.style.display = 'none';
-        else {
+        if ($searchInput.value === '') $searchClear.style.display = 'none';else {
           $searchLoading.style.display = 'inline';
           $searchClear.style.display = 'none';
-          //var query = queryHandler($searchInput.value);
-          var results = lunrSearch($searchInput.value);
-          renderResults(results);
+          var query = $searchInput.value;
+          var results = lunrSearch(query);
+          renderResults(results, query);
           $searchLoading.style.display = 'none';
           $searchClear.style.display = 'inline';
         }
       }, false);
-      // var queryHandler = function queryHandler(query) {
-      //   return query.trim().toLowerCase().replace(/[^\w\s]/gi, '');
-      // };
       var lunrSearch = function lunrSearch(query) {
+        var search = function search(query) {
+          var results = {};
+          _this3._index.search(query).forEach(function (_ref) {
+            var ref = _ref.ref,
+              metadata = _ref.matchData.metadata;
+            var matchData = _this3._indexData[ref];
+            var uri = matchData.uri,
+              title = matchData.title,
+              context = matchData.content;
+            if (results[uri]) return;
+            var position = 0;
+            Object.values(metadata).forEach(function (_ref2) {
+              var content = _ref2.content;
+              if (content) {
+                var matchPosition = content.position[0][0];
+                if (matchPosition < position || position === 0) position = matchPosition;
+              }
+            });
+            position -= snippetLength / 5;
+            if (position > 0) {
+              position += context.slice(position, position + 20).lastIndexOf(' ') + 1;
+              context = '...' + context.slice(position, position + snippetLength);
+            } else {
+              context = context.slice(0, snippetLength);
+            }
+            Object.keys(metadata).forEach(function (key) {
+              title = title.replace(new RegExp("(".concat(key, ")"), 'gi'), "<".concat(highlightTag, ">$1</").concat(highlightTag, ">"));
+              context = context.replace(new RegExp("(".concat(key, ")"), 'gi'), "<".concat(highlightTag, ">$1</").concat(highlightTag, ">"));
+            });
+            results[uri] = {
+              'uri': uri,
+              'title': title,
+              'date': matchData.date,
+              'context': context
+            };
+          });
+          return Object.values(results).slice(0, maxResultLength);
+        };
         if (!_this3._index) {
           fetch(searchConfig.lunrIndexURL).then(function (response) {
-            console.log(`HERE - fetching lunr index url: ${searchConfig.lunrIndexURL}`)
             return response.json();
           }).then(function (data) {
             var indexData = {};
             _this3._index = lunr(function () {
+              var _this4 = this;
               if (searchConfig.lunrLanguageCode) this.use(lunr[searchConfig.lunrLanguageCode]);
               this.ref('objectID');
               this.field('title', {
@@ -249,173 +278,193 @@ var Theme = /*#__PURE__*/function () {
               this.metadataWhitelist = ['position'];
               data.forEach(function (record) {
                 indexData[record.objectID] = record;
+                _this4.add(record);
               });
             });
             _this3._indexData = indexData;
-            console.log(indexData); // TODO: remove
+            return search(query);
           }).catch(function (err) {
-            console.error(err);
-            // TODO: failure functionality - swap loading style + render error? or handle all in renderResults func
+            console.error(err); // TODO: implement failure/error case handling/display/return
+          });
+        } else return search(query);
+      };
+      var renderResults = function renderResults(results, query) {
+        var containerId = "search-dropdown-".concat(suffix);
+        var existingDropdown = document.getElementById(containerId);
+        if (existingDropdown) existingDropdown.remove();
+        var dropdown = document.createElement('div');
+        dropdown.id = containerId;
+        var dropdownMenu = document.createElement('span');
+        dropdownMenu.className = 'dropdown-menu with-search';
+        dropdownMenu.setAttribute('role', 'listbox');
+        //dropdownMenu.style = ''; // TODO: put in _header.scss instead?
+
+        var dataset = document.createElement('div');
+        dataset.className = 'dataset-search';
+        var suggestions = document.createElement('span');
+        suggestions.className = 'suggestions';
+        dataset.appendChild(suggestions);
+        dropdownMenu.appendChild(dataset);
+        dropdown.appendChild(dropdownMenu);
+        if (!results) {
+          var emptyDiv = document.createElement('div');
+          emptyDiv.className = 'search-empty';
+          emptyDiv.innerHTML = "<div class=\"search-empty\">".concat(searchConfig.noResultsFound, ": <span class=\"search-query\">\"").concat(query, "\"</span></div>");
+          dataset.appendChild(emptyDiv);
+        } else {
+          results.forEach(function (result, index) {
+            var suggestion = document.createElement('div');
+            suggestion.id = "option-".concat(index);
+            suggestion.className = 'suggestion';
+            suggestion.setAttribute('role', 'option');
+            suggestion.onclick = function () {
+              window.location.href = result.uri;
+            };
+            var suggestionInfo = document.createElement('div');
+            suggestionInfo.style = 'white-space: normal';
+            var suggestionTitle = document.createElement('span');
+            suggestionTitle.className = 'suggestion-title';
+            suggestionTitle.innerHTML = result.title;
+            var suggestionDate = document.createElement('span');
+            suggestionDate.className = 'suggestion-date';
+            suggestionDate.innerHTML = result.date;
+            var suggestionContext = document.createElement('div');
+            suggestionContext.className = 'suggestion-context';
+            suggestionContext.innerHTML = result.context;
+            suggestionInfo.appendChild(suggestionTitle);
+            suggestionInfo.appendChild(suggestionDate);
+            suggestion.appendChild(suggestionInfo);
+            suggestion.appendChild(suggestionContext);
+            suggestions.prepend(suggestion);
           });
         }
-        // _this3._index.search(query).forEach(function (_ref) {
-        //   var ref = _ref.ref, 
-        //       metadata = _ref.matchData.metadata;
-        //   var matchData = _this3.indexData[ref];
-        //   var uri = matchData.uri,
-        //       title = matchData.title,
-        //       context = matchData.content;
-        //   if (results[uri]) return;
-        // });
+        document.querySelector(".search-dropdown.".concat(suffix)).appendChild(dropdown);
       };
-      var renderResults = function renderResults(results) {
 
-      };
-      // var initAutosearch = function initAutosearch() {
-      //   var autosearch = autocomplete("#search-input-".concat(suffix), {
-      //     hint: false,
-      //     autoselect: true,
-      //     dropdownMenuContainer: "#search-dropdown-".concat(suffix),
-      //     clearOnSelected: true,
-      //     cssClasses: {
-      //       noPrefix: true
-      //     },
-      //     debug: true
-      //   }, {
-      //     name: 'search',
-      //     source: function source(query, callback) {
-      //       $searchLoading.style.display = 'inline';
-      //       $searchClear.style.display = 'none';
-      //       var finish = function finish(results) {
-      //         $searchLoading.style.display = 'none';
-      //         $searchClear.style.display = 'inline';
-      //         callback(results);
-      //       };
-      //       if (searchConfig.type === 'lunr') {
-      //         var search = function search() {
-      //           if (lunr.queryHandler) query = lunr.queryHandler(query);
-      //           var results = {};
-      //           _this3._index.search(query).forEach(function (_ref) {
-      //             var ref = _ref.ref,
-      //               metadata = _ref.matchData.metadata;
-      //             var matchData = _this3._indexData[ref];
-      //             var uri = matchData.uri,
-      //               title = matchData.title,
-      //               context = matchData.content;
-      //             if (results[uri]) return;
-      //             var position = 0;
-      //             Object.values(metadata).forEach(function (_ref2) {
-      //               var content = _ref2.content;
-      //               if (content) {
-      //                 var matchPosition = content.position[0][0];
-      //                 if (matchPosition < position || position === 0) position = matchPosition;
-      //               }
-      //             });
-      //             position -= snippetLength / 5;
-      //             if (position > 0) {
-      //               position += context.slice(position, position + 20).lastIndexOf(' ') + 1;
-      //               context = '...' + context.slice(position, position + snippetLength);
-      //             } else {
-      //               context = context.slice(0, snippetLength);
-      //             }
-      //             Object.keys(metadata).forEach(function (key) {
-      //               title = title.replace(new RegExp("(".concat(key, ")"), 'gi'), "<".concat(highlightTag, ">$1</").concat(highlightTag, ">"));
-      //               context = context.replace(new RegExp("(".concat(key, ")"), 'gi'), "<".concat(highlightTag, ">$1</").concat(highlightTag, ">"));
-      //             });
-      //             results[uri] = {
-      //               'uri': uri,
-      //               'title': title,
-      //               'date': matchData.date,
-      //               'context': context
-      //             };
-      //           });
-      //           return Object.values(results).slice(0, maxResultLength);
-      //         };
-      //         if (!_this3._index) {
-      //           fetch(searchConfig.lunrIndexURL).then(function (response) {
-      //             return response.json();
-      //           }).then(function (data) {
-      //             var indexData = {};
-      //             _this3._index = lunr(function () {
-      //               var _this4 = this;
-      //               if (searchConfig.lunrLanguageCode) this.use(lunr[searchConfig.lunrLanguageCode]);
-      //               this.ref('objectID');
-      //               this.field('title', {
-      //                 boost: 50
-      //               });
-      //               this.field('tags', {
-      //                 boost: 20
-      //               });
-      //               this.field('categories', {
-      //                 boost: 20
-      //               });
-      //               this.field('content', {
-      //                 boost: 10
-      //               });
-      //               this.metadataWhitelist = ['position'];
-      //               data.forEach(function (record) {
-      //                 indexData[record.objectID] = record;
-      //                 _this4.add(record);
-      //               });
-      //             });
-      //             _this3._indexData = indexData;
-      //             finish(search());
-      //           }).catch(function (err) {
-      //             console.error(err);
-      //             finish([]);
-      //           });
-      //         } else finish(search());
-      //       }
-      //     },
-      //     templates: {
-      //       suggestion: function suggestion(_ref5) {
-      //         var title = _ref5.title,
-      //           date = _ref5.date,
-      //           context = _ref5.context;
-      //         return "<div><span class=\"suggestion-title\">".concat(title, "</span><span class=\"suggestion-date\">").concat(date, "</span></div><div class=\"suggestion-context\">").concat(context, "</div>");
-      //       },
-      //       empty: function empty(_ref6) {
-      //         var query = _ref6.query;
-      //         return "<div class=\"search-empty\">".concat(searchConfig.noResultsFound, ": <span class=\"search-query\">\"").concat(query, "\"</span></div>");
-      //       },
-      //       footer: function footer(_ref7) {
-      //         _objectDestructuringEmpty(_ref7);
-      //         var _ref8 = {
-      //             searchType: 'Lunr.js',
-      //             icon: '',
-      //             href: 'https://lunrjs.com/'
-      //           },
-      //           searchType = _ref8.searchType,
-      //           icon = _ref8.icon,
-      //           href = _ref8.href;
-      //         return "<div class=\"search-footer\">Search by <a href=\"".concat(href, "\" rel=\"noopener noreffer\" target=\"_blank\">").concat(icon, " ").concat(searchType, "</a></div>");
-      //       }
+      // const renderResults = (results, query) => {
+      //     dropdownMenuContainer = document.getElementById(`#search-dropdown-${suffix}`);
+
+      //     if (results.length === 0) {
+      //         dropdownMenuContainer.innerHTML = `<div class="search-empty">${searchConfig.noResultsFound}: <span class="search-query">"${query}"</span></div>`;
+      //     } else {
+      //         results.forEach(({ title, date, context }) => 
+      //             dropdownMenuContainer.insertAdjacentHTML('beforeend', `<div><span class="suggestion-title">${title}</span><span class="suggestion-date">${date}</span></div><div class="suggestion-context">${context}</div>`)
+      //         );
       //     }
-      //   });
-      //   autosearch.on('autocomplete:selected', function (_event, suggestion, _dataset, _context) {
-      //     window.location.assign(suggestion.uri);
-      //   });
-      //   if (isMobile) _this3._searchMobile = autosearch;else _this3._searchDesktop = autosearch;
+
+      //     dropdownMenuContainer.insertAdjacentHTML('beforeend', `<div class="search-footer">Search by <a href="${href}" rel="noopener noreffer" target="_blank">${icon} ${searchType}</a></div>`);
       // };
-      // if (searchConfig.lunrSegmentitURL && !document.getElementById('lunr-segmentit')) {
-      //   var script = document.createElement('script');
-      //   script.id = 'lunr-segmentit';
-      //   script.src = searchConfig.lunrSegmentitURL;
-      //   script.async = true;
-      //   if (script.readyState) {
-      //     script.onreadystatechange = function () {
-      //       if (script.readyState === 'loaded' || script.readyState === 'complete') {
-      //         script.onreadystatechange = null;
-      //         initAutosearch();
-      //       }
-      //     };
-      //   } else {
-      //     script.onload = function () {
-      //       initAutosearch();
-      //     };
-      //   }
-      //   document.body.appendChild(script);
-      // } else initAutosearch();
+
+      /**
+       *                   suggestion: ({ title, date, context }) => `<div><span class="suggestion-title">${title}</span><span class="suggestion-date">${date}</span></div><div class="suggestion-context">${context}</div>`,
+                  empty: ({ query }) => `<div class="search-empty">${searchConfig.noResultsFound}: <span class="search-query">"${query}"</span></div>`,
+                  footer: ({}) => {
+                      const { searchType, icon, href } = {
+                          searchType: 'Lunr.js',
+                          icon: '',
+                          href: 'https://lunrjs.com/',
+                      };
+                      return `<div class="search-footer">Search by <a href="${href}" rel="noopener noreffer" target="_blank">${icon} ${searchType}</a></div>`;},
+       */
+
+      /**const initAutosearch = () => {
+          const autosearch = autocomplete(`#search-input-${suffix}`, {
+              hint: false,
+              autoselect: true,
+              dropdownMenuContainer: `#search-dropdown-${suffix}`,
+              clearOnSelected: true,
+              cssClasses: { noPrefix: true },
+              debug: true,
+          }, {
+              name: 'search',
+              source: (query, callback) => {
+                  $searchLoading.style.display = 'inline';
+                  $searchClear.style.display = 'none';
+                  const finish = (results) => {
+                      $searchLoading.style.display = 'none';
+                      $searchClear.style.display = 'inline';
+                      callback(results);
+                  };
+                  if (searchConfig.type === 'lunr') {
+                      const search = () => {
+                          if (lunr.queryHandler) query = lunr.queryHandler(query);
+                          const results = {};
+                          this._index.search(query).forEach(({ ref, matchData: { metadata } }) => {
+                              const matchData = this._indexData[ref];
+                              let { uri, title, content: context } = matchData;
+                              if (results[uri]) return;
+                              let position = 0;
+                              Object.values(metadata).forEach(({ content }) => {
+                                  if (content) {
+                                      const matchPosition = content.position[0][0];
+                                      if (matchPosition < position || position === 0) position = matchPosition;
+                                  }
+                              });
+                              position -= snippetLength / 5;
+                              if (position > 0) {
+                                  position += context.slice(position, position + 20).lastIndexOf(' ') + 1;
+                                  context = '...' + context.slice(position, position + snippetLength);
+                              } else {
+                                  context = context.slice(0, snippetLength);
+                              }
+                              Object.keys(metadata).forEach(key => {
+                                  title = title.replace(new RegExp(`(${key})`, 'gi'), `<${highlightTag}>$1</${highlightTag}>`);
+                                  context = context.replace(new RegExp(`(${key})`, 'gi'), `<${highlightTag}>$1</${highlightTag}>`);
+                              });
+                              results[uri] = {
+                                  'uri': uri,
+                                  'title' : title,
+                                  'date' : matchData.date,
+                                  'context' : context,
+                              };
+                          });
+                          return Object.values(results).slice(0, maxResultLength);
+                      }
+                      if (!this._index) {
+                          fetch(searchConfig.lunrIndexURL)
+                              .then(response => response.json())
+                              .then(data => {
+                                  const indexData = {};
+                                  this._index = lunr(function () {
+                                      if (searchConfig.lunrLanguageCode) this.use(lunr[searchConfig.lunrLanguageCode]);
+                                      this.ref('objectID');
+                                      this.field('title', { boost: 50 });
+                                      this.field('tags', { boost: 20 });
+                                      this.field('categories', { boost: 20 });
+                                      this.field('content', { boost: 10 });
+                                      this.metadataWhitelist = ['position'];
+                                      data.forEach((record) => {
+                                          indexData[record.objectID] = record;
+                                          this.add(record);
+                                      });
+                                  });
+                                  this._indexData = indexData;
+                                  finish(search());
+                              }).catch(err => {
+                                  console.error(err);
+                                  finish([]);
+                              });
+                      } else finish(search());
+                  }
+              },
+              templates: {
+                  suggestion: ({ title, date, context }) => `<div><span class="suggestion-title">${title}</span><span class="suggestion-date">${date}</span></div><div class="suggestion-context">${context}</div>`,
+                  empty: ({ query }) => `<div class="search-empty">${searchConfig.noResultsFound}: <span class="search-query">"${query}"</span></div>`,
+                  footer: ({}) => {
+                      const { searchType, icon, href } = {
+                          searchType: 'Lunr.js',
+                          icon: '',
+                          href: 'https://lunrjs.com/',
+                      };
+                      return `<div class="search-footer">Search by <a href="${href}" rel="noopener noreffer" target="_blank">${icon} ${searchType}</a></div>`;},
+              },
+          });
+          autosearch.on('autocomplete:selected', (_event, suggestion, _dataset, _context) => {
+              window.location.assign(suggestion.uri);
+          });
+          if (isMobile) this._searchMobile = autosearch;
+          else this._searchDesktop = autosearch;
+      };**/
     }
   }, {
     key: "initDetails",
@@ -580,8 +629,8 @@ var Theme = /*#__PURE__*/function () {
             securityLevel: 'loose'
           });
           Util.forEach($mermaidElements, function ($mermaid) {
-            mermaid.render('mermaid-svg-' + $mermaid.id, _this6.data[$mermaid.id]).then(function (_ref9) {
-              var svg = _ref9.svg;
+            mermaid.render('mermaid-svg-' + $mermaid.id, _this6.data[$mermaid.id]).then(function (_ref3) {
+              var svg = _ref3.svg;
               $mermaid.innerHTML = svg;
             });
           });
