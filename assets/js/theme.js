@@ -162,6 +162,7 @@ var Theme = /*#__PURE__*/function () {
         $searchInput.addEventListener('focus', function () {
           document.body.classList.add('blur');
           $header.classList.add('open');
+          $searchInput.value = '';
         }, false);
         document.getElementById('search-cancel-mobile').addEventListener('click', function () {
           $header.classList.remove('open');
@@ -170,17 +171,17 @@ var Theme = /*#__PURE__*/function () {
           document.getElementById('menu-mobile').classList.remove('active');
           $searchLoading.style.display = 'none';
           $searchClear.style.display = 'none';
-          //this._searchMobile && this._searchMobile.autocomplete.setVal('');
         }, false);
         $searchClear.addEventListener('click', function () {
           $searchClear.style.display = 'none';
-          //this._searchMobile && this._searchMobile.autocomplete.setVal('');
+          $searchInput.value = '';
+          if (_this3.dropdownContainer) _this3.dropdownContainer.remove();
         }, false);
         this._searchMobileOnClickMask = this._searchMobileOnClickMask || function () {
           $header.classList.remove('open');
           $searchLoading.style.display = 'none';
           $searchClear.style.display = 'none';
-          //this._searchMobile && this._searchMobile.autocomplete.setVal('');
+          if (_this3.dropdownContainer) _this3.dropdownContainer.remove();
         };
         this.clickMaskEventSet.add(this._searchMobileOnClickMask);
       } else {
@@ -194,13 +195,13 @@ var Theme = /*#__PURE__*/function () {
         $searchClear.addEventListener('click', function () {
           $searchClear.style.display = 'none';
           $searchInput.value = '';
-          //this._searchDesktop && this._searchDesktop.autocomplete.setVal('');
+          if (_this3.dropdownContainer) _this3.dropdownContainer.remove();
         }, false);
         this._searchDesktopOnClickMask = this._searchDesktopOnClickMask || function () {
           $header.classList.remove('open');
           $searchLoading.style.display = 'none';
           $searchClear.style.display = 'none';
-          //this._searchDesktop && this._searchDesktop.autocomplete.setVal('');
+          if (_this3.dropdownContainer) _this3.dropdownContainer.remove();
         };
         this.clickMaskEventSet.add(this._searchDesktopOnClickMask);
       }
@@ -289,16 +290,13 @@ var Theme = /*#__PURE__*/function () {
         } else return search(query);
       };
       var renderResults = function renderResults(results, query) {
-        var containerId = "search-dropdown-".concat(suffix);
-        var existingDropdown = document.getElementById(containerId);
-        if (existingDropdown) existingDropdown.remove();
+        _this3.dropdownContainer = document.getElementById("search-dropdown-".concat(suffix));
+        if (_this3.dropdownContainer) _this3.dropdownContainer.remove();
         var dropdown = document.createElement('div');
-        dropdown.id = containerId;
+        dropdown.id = "search-dropdown-".concat(suffix);
         var dropdownMenu = document.createElement('span');
         dropdownMenu.className = 'dropdown-menu with-search';
         dropdownMenu.setAttribute('role', 'listbox');
-        //dropdownMenu.style = ''; // TODO: put in _header.scss instead?
-
         var dataset = document.createElement('div');
         dataset.className = 'dataset-search';
         var suggestions = document.createElement('span');
@@ -306,6 +304,7 @@ var Theme = /*#__PURE__*/function () {
         dataset.appendChild(suggestions);
         dropdownMenu.appendChild(dataset);
         dropdown.appendChild(dropdownMenu);
+        _this3.dropdownContainer = dropdown;
         if (!results) {
           var emptyDiv = document.createElement('div');
           emptyDiv.className = 'search-empty';
@@ -340,131 +339,6 @@ var Theme = /*#__PURE__*/function () {
         }
         document.querySelector(".search-dropdown.".concat(suffix)).appendChild(dropdown);
       };
-
-      // const renderResults = (results, query) => {
-      //     dropdownMenuContainer = document.getElementById(`#search-dropdown-${suffix}`);
-
-      //     if (results.length === 0) {
-      //         dropdownMenuContainer.innerHTML = `<div class="search-empty">${searchConfig.noResultsFound}: <span class="search-query">"${query}"</span></div>`;
-      //     } else {
-      //         results.forEach(({ title, date, context }) => 
-      //             dropdownMenuContainer.insertAdjacentHTML('beforeend', `<div><span class="suggestion-title">${title}</span><span class="suggestion-date">${date}</span></div><div class="suggestion-context">${context}</div>`)
-      //         );
-      //     }
-
-      //     dropdownMenuContainer.insertAdjacentHTML('beforeend', `<div class="search-footer">Search by <a href="${href}" rel="noopener noreffer" target="_blank">${icon} ${searchType}</a></div>`);
-      // };
-
-      /**
-       *                   suggestion: ({ title, date, context }) => `<div><span class="suggestion-title">${title}</span><span class="suggestion-date">${date}</span></div><div class="suggestion-context">${context}</div>`,
-                  empty: ({ query }) => `<div class="search-empty">${searchConfig.noResultsFound}: <span class="search-query">"${query}"</span></div>`,
-                  footer: ({}) => {
-                      const { searchType, icon, href } = {
-                          searchType: 'Lunr.js',
-                          icon: '',
-                          href: 'https://lunrjs.com/',
-                      };
-                      return `<div class="search-footer">Search by <a href="${href}" rel="noopener noreffer" target="_blank">${icon} ${searchType}</a></div>`;},
-       */
-
-      /**const initAutosearch = () => {
-          const autosearch = autocomplete(`#search-input-${suffix}`, {
-              hint: false,
-              autoselect: true,
-              dropdownMenuContainer: `#search-dropdown-${suffix}`,
-              clearOnSelected: true,
-              cssClasses: { noPrefix: true },
-              debug: true,
-          }, {
-              name: 'search',
-              source: (query, callback) => {
-                  $searchLoading.style.display = 'inline';
-                  $searchClear.style.display = 'none';
-                  const finish = (results) => {
-                      $searchLoading.style.display = 'none';
-                      $searchClear.style.display = 'inline';
-                      callback(results);
-                  };
-                  if (searchConfig.type === 'lunr') {
-                      const search = () => {
-                          if (lunr.queryHandler) query = lunr.queryHandler(query);
-                          const results = {};
-                          this._index.search(query).forEach(({ ref, matchData: { metadata } }) => {
-                              const matchData = this._indexData[ref];
-                              let { uri, title, content: context } = matchData;
-                              if (results[uri]) return;
-                              let position = 0;
-                              Object.values(metadata).forEach(({ content }) => {
-                                  if (content) {
-                                      const matchPosition = content.position[0][0];
-                                      if (matchPosition < position || position === 0) position = matchPosition;
-                                  }
-                              });
-                              position -= snippetLength / 5;
-                              if (position > 0) {
-                                  position += context.slice(position, position + 20).lastIndexOf(' ') + 1;
-                                  context = '...' + context.slice(position, position + snippetLength);
-                              } else {
-                                  context = context.slice(0, snippetLength);
-                              }
-                              Object.keys(metadata).forEach(key => {
-                                  title = title.replace(new RegExp(`(${key})`, 'gi'), `<${highlightTag}>$1</${highlightTag}>`);
-                                  context = context.replace(new RegExp(`(${key})`, 'gi'), `<${highlightTag}>$1</${highlightTag}>`);
-                              });
-                              results[uri] = {
-                                  'uri': uri,
-                                  'title' : title,
-                                  'date' : matchData.date,
-                                  'context' : context,
-                              };
-                          });
-                          return Object.values(results).slice(0, maxResultLength);
-                      }
-                      if (!this._index) {
-                          fetch(searchConfig.lunrIndexURL)
-                              .then(response => response.json())
-                              .then(data => {
-                                  const indexData = {};
-                                  this._index = lunr(function () {
-                                      if (searchConfig.lunrLanguageCode) this.use(lunr[searchConfig.lunrLanguageCode]);
-                                      this.ref('objectID');
-                                      this.field('title', { boost: 50 });
-                                      this.field('tags', { boost: 20 });
-                                      this.field('categories', { boost: 20 });
-                                      this.field('content', { boost: 10 });
-                                      this.metadataWhitelist = ['position'];
-                                      data.forEach((record) => {
-                                          indexData[record.objectID] = record;
-                                          this.add(record);
-                                      });
-                                  });
-                                  this._indexData = indexData;
-                                  finish(search());
-                              }).catch(err => {
-                                  console.error(err);
-                                  finish([]);
-                              });
-                      } else finish(search());
-                  }
-              },
-              templates: {
-                  suggestion: ({ title, date, context }) => `<div><span class="suggestion-title">${title}</span><span class="suggestion-date">${date}</span></div><div class="suggestion-context">${context}</div>`,
-                  empty: ({ query }) => `<div class="search-empty">${searchConfig.noResultsFound}: <span class="search-query">"${query}"</span></div>`,
-                  footer: ({}) => {
-                      const { searchType, icon, href } = {
-                          searchType: 'Lunr.js',
-                          icon: '',
-                          href: 'https://lunrjs.com/',
-                      };
-                      return `<div class="search-footer">Search by <a href="${href}" rel="noopener noreffer" target="_blank">${icon} ${searchType}</a></div>`;},
-              },
-          });
-          autosearch.on('autocomplete:selected', (_event, suggestion, _dataset, _context) => {
-              window.location.assign(suggestion.uri);
-          });
-          if (isMobile) this._searchMobile = autosearch;
-          else this._searchDesktop = autosearch;
-      };**/
     }
   }, {
     key: "initDetails",
