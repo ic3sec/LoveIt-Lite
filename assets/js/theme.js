@@ -159,6 +159,7 @@ var Theme = /*#__PURE__*/function () {
       var $searchClear = document.getElementById("search-clear-".concat(suffix));
       if (isMobile) {
         this._searchMobileOnce = true;
+        $searchInput.className = 'input';
         $searchInput.addEventListener('focus', function () {
           document.body.classList.add('blur');
           $header.classList.add('open');
@@ -171,6 +172,8 @@ var Theme = /*#__PURE__*/function () {
           document.getElementById('menu-mobile').classList.remove('active');
           $searchLoading.style.display = 'none';
           $searchClear.style.display = 'none';
+          $searchInput.value = '';
+          if (_this3.dropdownContainer) _this3.dropdownContainer.remove();
         }, false);
         $searchClear.addEventListener('click', function () {
           $searchClear.style.display = 'none';
@@ -181,6 +184,7 @@ var Theme = /*#__PURE__*/function () {
           $header.classList.remove('open');
           $searchLoading.style.display = 'none';
           $searchClear.style.display = 'none';
+          $searchInput.value = '';
           if (_this3.dropdownContainer) _this3.dropdownContainer.remove();
         };
         this.clickMaskEventSet.add(this._searchMobileOnClickMask);

@@ -114,6 +114,7 @@ class Theme {
         const $searchClear = document.getElementById(`search-clear-${suffix}`);
         if (isMobile) {
             this._searchMobileOnce = true;
+            $searchInput.className = 'input';
             $searchInput.addEventListener('focus', () => {
                 document.body.classList.add('blur');
                 $header.classList.add('open');
@@ -126,6 +127,8 @@ class Theme {
                 document.getElementById('menu-mobile').classList.remove('active');
                 $searchLoading.style.display = 'none';
                 $searchClear.style.display = 'none';
+                $searchInput.value = '';
+                if (this.dropdownContainer) this.dropdownContainer.remove();
             }, false);
             $searchClear.addEventListener('click', () => {
                 $searchClear.style.display = 'none';
@@ -136,6 +139,7 @@ class Theme {
                 $header.classList.remove('open');
                 $searchLoading.style.display = 'none';
                 $searchClear.style.display = 'none';
+                $searchInput.value = '';
                 if (this.dropdownContainer) this.dropdownContainer.remove();
             });
             this.clickMaskEventSet.add(this._searchMobileOnClickMask);
@@ -230,7 +234,7 @@ class Theme {
                         this._indexData = indexData;
                         return search(query);
                     }).catch(err => {
-                        console.error(err); // TODO: implement failure/error case handling/display/return
+                        console.error(err);
                     });
             } else return search(query);
         };
