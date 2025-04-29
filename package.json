@@ -12,7 +12,7 @@
   },
   "scripts": {
     "preinstall": "npx npm-force-resolutions",
-    "prepare": "husky install",
+    "prepare": "install --save-dev husky",
     "compile": "npx babel src/js --out-file assets/js/theme.js",
     "hugo": "hugo --source exampleSite --buildDrafts --gc",
     "hugo-development": "hugo --source exampleSite --buildDrafts --gc --minify --environment development",
