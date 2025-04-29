@@ -97,8 +97,8 @@
 
   # Search config
   [params.search]
-    enable = false
-    # type of search engine ["lunr", "algolia"]
+    enable = true
+    # type of search engine ["lunr"]
     type = "lunr"
     # max index length of the chunked content
     contentLength = 4000
@@ -112,10 +112,6 @@
     highlightTag = "em"
     # whether to use the absolute URL based on the baseURL in search index
     absoluteURL = false
-    [params.search.algolia]
-      index = ""
-      appID = ""
-      searchKey = ""
 
   # Home page config
   [params.home]

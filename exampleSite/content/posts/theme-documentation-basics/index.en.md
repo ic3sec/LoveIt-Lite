@@ -363,7 +363,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   # {{< version 0.2.0 >}} Search config
   [params.search]
     enable = true
-    # type of search engine ["lunr", "algolia"]
+    # type of search engine ["lunr"]
     type = "lunr"
     # max index length of the chunked content
     contentLength = 4000
@@ -377,10 +377,6 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     highlightTag = "em"
     # {{< version 0.2.4 >}} whether to use the absolute URL based on the baseURL in search index
     absoluteURL = false
-    [params.search.algolia]
-      index = ""
-      appID = ""
-      searchKey = ""
 
   # Home page config
   [params.home]
@@ -1108,7 +1104,7 @@ By the way, as these translations could be used by other people, please take the
 
 {{< version 0.2.0 >}}
 
-Based on [Lunr.js](https://lunrjs.com/) or [algolia](https://www.algolia.com/), searching is supported in **LoveIt** theme.
+Based on [Lunr.js](https://lunrjs.com/), searching is supported in **LoveIt** theme.
 
 ### 5.1 Output Configuration
 
@@ -1128,7 +1124,7 @@ Here is the search configuration in your [site configuration](#site-configuratio
 ```toml
 [params.search]
   enable = true
-  # type of search engine ["lunr", "algolia"]
+  # type of search engine ["lunr"]
   type = "lunr"
   # max index length of the chunked content
   contentLength = 4000
@@ -1142,10 +1138,6 @@ Here is the search configuration in your [site configuration](#site-configuratio
   highlightTag = "em"
   # {{< version 0.2.4 >}} whether to use the absolute URL based on the baseURL in search index
   absoluteURL = false
-  [params.search.algolia]
-    index = ""
-    appID = ""
-    searchKey = ""
 ```
 
 {{< admonition note "How to choose search engine?" >}}
@@ -1153,16 +1145,7 @@ The following is a comparison of two search engines:
 
 * `lunr`: simple, no need to synchronize `index.json`, no limit for `contentLength`,
   but high bandwidth and low performance (Especially for Chinese which needs a large segmentit library)
-* `algolia`: high performance and low bandwidth, but need to synchronize `index.json` and limit for `contentLength`
 
 {{< version 0.2.3 >}} The content of the post is separated by `h2` and `h3` HTML tag to improve query performance and basically implement full-text search.
 `contentLength` is used to limit the max index length of the part starting with `h2` and `h3` HTML tag.
-{{< /admonition >}}
-
-{{< admonition tip "Tips about algolia" >}}
-You need to upload `index.json` files to algolia to activate searching.
-You could upload the `index.json` files by browsers but a CLI tool may be better.
-The official [Algolia CLI](https://github.com/algolia/algolia-cli) is a good choice.
-To be compatible with Hugo multilingual mode,
-you need to upload different `index.json` for each language to the different index of algolia, such as `zh-cn/index.json` or `fr/index.json`...
 {{< /admonition >}}

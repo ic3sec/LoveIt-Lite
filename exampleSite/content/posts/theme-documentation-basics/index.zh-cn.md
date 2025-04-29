@@ -365,7 +365,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   # {{< version 0.2.0 >}} 搜索配置
   [params.search]
     enable = true
-    # 搜索引擎的类型 ["lunr", "algolia"]
+    # 搜索引擎的类型 ["lunr"]
     type = "lunr"
     # 文章内容最长索引长度
     contentLength = 4000
@@ -379,10 +379,6 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     highlightTag = "em"
     # {{< version 0.2.4 >}} 是否在搜索索引中使用基于 baseURL 的绝对路径
     absoluteURL = false
-    [params.search.algolia]
-      index = ""
-      appID = ""
-      searchKey = ""
 
   # 主页配置
   [params.home]
@@ -1110,7 +1106,7 @@ defaultContentLanguage = "zh-cn"
 
 {{< version 0.2.0 >}}
 
-基于 [Lunr.js](https://lunrjs.com/) 或 [algolia](https://www.algolia.com/), **LoveIt** 主题支持搜索功能.
+基于 [Lunr.js](https://lunrjs.com/), **LoveIt** 主题支持搜索功能.
 
 ### 5.1 输出配置
 
@@ -1130,7 +1126,7 @@ defaultContentLanguage = "zh-cn"
 ```toml
 [params.search]
   enable = true
-  # 搜索引擎的类型 ["lunr", "algolia"]
+  # 搜索引擎的类型 ["lunr"]
   type = "lunr"
   # 文章内容最长索引长度
   contentLength = 4000
@@ -1144,24 +1140,13 @@ defaultContentLanguage = "zh-cn"
   highlightTag = "em"
   # {{< version 0.2.4 >}} 是否在搜索索引中使用基于 baseURL 的绝对路径
   absoluteURL = false
-  [params.search.algolia]
-    index = ""
-    appID = ""
-    searchKey = ""
 ```
 
 {{< admonition note "怎样选择搜索引擎?" >}}
 以下是两种搜索引擎的对比:
 
 * `lunr`: 简单, 无需同步 `index.json`, 没有 `contentLength` 的限制, 但占用带宽大且性能低 (特别是中文需要一个较大的分词依赖库)
-* `algolia`: 高性能并且占用带宽低, 但需要同步 `index.json` 且有 `contentLength` 的限制
 
 {{< version 0.2.3 >}} 文章内容被 `h2` 和 `h3` HTML 标签切分来提高查询效果并且基本实现全文搜索.
 `contentLength` 用来限制 `h2` 和 `h3` HTML 标签开头的内容部分的最大长度.
-{{< /admonition >}}
-
-{{< admonition tip "关于 algolia 的使用技巧" >}}
-你需要上传 `index.json` 到 algolia 来激活搜索功能. 你可以使用浏览器来上传 `index.json` 文件但是一个自动化的脚本可能效果更好.
-官方提供的 [Algolia CLI](https://github.com/algolia/algolia-cli) 是一个不错的选择.
-为了兼容 Hugo 的多语言模式, 你需要上传不同语言的 `index.json` 文件到对应的 algolia index, 例如 `zh-cn/index.json` 或 `fr/index.json`...
 {{< /admonition >}}

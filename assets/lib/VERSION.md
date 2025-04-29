@@ -2,10 +2,8 @@
 
 | Dependency Library                                                                  | Directory         | Version |
 |:------------------------------------------------------------------------------------|:------------------|--------:|
-| [Algolia Search Client](https://github.com/algolia/algoliasearch-client-javascript) | algoliasearch     |  5.20.2 |
 | [Animate.css](https://github.com/daneden/animate.css)                               | animate           |   4.1.1 |
 | [APlayer](https://github.com/MoePlayer/APlayer)                                     | aplayer           |  1.10.1 |
-| [Autocomplete](https://github.com/algolia/autocomplete)                             | autocomplete      |  0.38.1 |
 | [clipboard.js](https://github.com/zenorocha/clipboard.js)                           | clipboard         |  2.0.11 |
 | [Cookie Consent](https://github.com/osano/cookieconsent)                            | cookieconsent     |   3.1.1 |
 | [Apache ECharts](https://github.com/apache/echarts)                                 | echarts           |   5.6.0 |
