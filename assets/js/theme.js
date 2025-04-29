@@ -191,13 +191,11 @@ var Theme = /*#__PURE__*/function () {
       } else {
         this._searchDesktopOnce = true;
         $searchToggle.addEventListener('click', function () {
-          console.log("CLICKED SEARCH TOGGLE");
           document.body.classList.add('blur');
           $header.classList.add('open');
           $searchInput.focus();
         }, false);
         $searchClear.addEventListener('click', function () {
-          console.log("CLICKED SEARCH CLEAR");
           $searchClear.style.display = 'none';
           $searchInput.value = '';
           //_this3._searchDesktop && _this3._searchDesktop.autocomplete.setVal('');
@@ -213,9 +211,66 @@ var Theme = /*#__PURE__*/function () {
       $searchInput.addEventListener('input', function () {
         if ($searchInput.value === '')
           $searchClear.style.display = 'none';
-        else
+        else {
+          $searchLoading.style.display = 'inline';
+          $searchClear.style.display = 'none';
+          //var query = queryHandler($searchInput.value);
+          var results = lunrSearch($searchInput.value);
+          renderResults(results);
+          $searchLoading.style.display = 'none';
           $searchClear.style.display = 'inline';
+        }
       }, false);
+      // var queryHandler = function queryHandler(query) {
+      //   return query.trim().toLowerCase().replace(/[^\w\s]/gi, '');
+      // };
+      var lunrSearch = function lunrSearch(query) {
+        if (!_this3._index) {
+          fetch(searchConfig.lunrIndexURL).then(function (response) {
+            console.log(`HERE - fetching lunr index url: ${searchConfig.lunrIndexURL}`)
+            return response.json();
+          }).then(function (data) {
+            var indexData = {};
+            _this3._index = lunr(function () {
+              if (searchConfig.lunrLanguageCode) this.use(lunr[searchConfig.lunrLanguageCode]);
+              this.ref('objectID');
+              this.field('title', {
+                boost: 50
+              });
+              this.field('tags', {
+                boost: 20
+              });
+              this.field('categories', {
+                boost: 20
+              });
+              this.field('content', {
+                boost: 10
+              });
+              this.metadataWhitelist = ['position'];
+              data.forEach(function (record) {
+                indexData[record.objectID] = record;
+              });
+            });
+            _this3._indexData = indexData;
+            console.log(indexData); // TODO: remove
+          }).catch(function (err) {
+            console.error(err);
+            // TODO: failure functionality - swap loading style + render error? or handle all in renderResults func
+          });
+        }
+        // _this3._index.search(query).forEach(function (_ref) {
+        //   var ref = _ref.ref, 
+        //       metadata = _ref.matchData.metadata;
+        //   var matchData = _this3.indexData[ref];
+        //   var uri = matchData.uri,
+        //       title = matchData.title,
+        //       context = matchData.content;
+        //   if (results[uri]) return;
+        // });
+      };
+      var renderResults = function renderResults(results) {
+
+      };
       // var initAutosearch = function initAutosearch() {
       //   var autosearch = autocomplete("#search-input-".concat(suffix), {
       //     hint: false,
