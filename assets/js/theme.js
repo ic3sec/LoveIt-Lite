@@ -289,7 +289,7 @@ var Theme = /*#__PURE__*/function () {
             _this3._indexData = indexData;
             return search(query);
           }).catch(function (err) {
-            console.error(err); // TODO: implement failure/error case handling/display/return
+            console.error(err);
           });
         } else return search(query);
       };

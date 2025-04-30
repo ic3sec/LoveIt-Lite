@@ -421,16 +421,14 @@ header {
           }
         }
 
-        &.cursor {
+        &:hover {
+          cursor: pointer;
+          
           background: darken($code-background-color, 5%);
 
           [theme=dark] & {
             background: lighten($code-background-color-dark, 5%);
           }
-        }
-
-        &:hover {
-          cursor: pointer;
         }
       }
     }
