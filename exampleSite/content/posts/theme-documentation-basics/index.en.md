@@ -6,7 +6,7 @@ lastmod: 2020-03-06T21:29:01+08:00
 draft: false
 author: "Dillon"
 authorLink: "https://dillonzq.com"
-description: "Discover what the Hugo - LoveIt theme is all about and the core-concepts behind it."
+description: "Discover what the Hugo - LoveIt-Lite theme is all about and the core-concepts behind it."
 images: []
 resources:
 - name: "featured-image"
@@ -21,7 +21,7 @@ toc:
   auto: false
 ---
 
-Discover what the Hugo - **LoveIt** theme is all about and the core-concepts behind it.
+Discover what the Hugo - **LoveIt-Lite** theme is all about and the core-concepts behind it.
 
 <!--more-->
 
@@ -29,13 +29,7 @@ Discover what the Hugo - **LoveIt** theme is all about and the core-concepts beh
 
 Thanks to the simplicity of Hugo, [Hugo](https://gohugo.io/) is the only dependency of this theme.
 
-Just install latest edition of [:(far fa-file-archive fa-fw): Hugo](https://gohugo.io/getting-started/installing/) for your OS (**Windows**, **Linux**, **macOS**).
-
-{{< admonition note "When you need to use Hugo extended edition?" false >}}
-When you want [style customization](#style-customization), you need to use the Hugo **extended edition** for correct rendering.
-
-![Hugo extended edition](hugo-extended-edition.png "Hugo extended edition")
-{{< /admonition >}}
+Install [Hugo Extended v0.145.0](https://github.com/gohugoio/hugo/releases/tag/v0.145.0) for your OS (**Windows**, **Linux**, **macOS**).
 
 ## 2 Installation
 
@@ -52,42 +46,40 @@ cd my_website
 
 ### 2.2 Install the Theme
 
-The **LoveIt** theme's repository is: [https://github.com/dillonzq/LoveIt](https://github.com/dillonzq/LoveIt).
+The **LoveIt-Lite** theme's repository is: [https://github.com/ic3sec/LoveIt-Lite](https://github.com/ic3sec/LoveIt-Lite).
 
-You can download the [release :(far fa-file-archive fa-fw): .zip file](https://github.com/dillonzq/LoveIt/releases) of the theme and extract it in the `themes` directory.
+You can download the [master :(far fa-file-archive fa-fw): .zip file](https://github.com/ic3sec/LoveIt-Lite/archive/refs/heads/master.zip) of the theme and extract it in the `themes` directory.
 
 Alternatively, clone this repository to the `themes` directory:
 
 ```bash
-git clone https://github.com/dillonzq/LoveIt.git themes/LoveIt
+git clone https://github.com/ic3sec/LoveIt-Lite.git themes/LoveIt-Lite
 ```
 
 Or, create an empty git repository and make this repository a submodule of your site directory:
 
 ```bash
 git init
-git submodule add https://github.com/dillonzq/LoveIt.git themes/LoveIt
+git submodule add https://github.com/ic3sec/LoveIt-Lite.git themes/LoveIt-Lite
 ```
 
-{{< admonition note "LoveIt theme's compatibility" >}}
+{{< admonition note "LoveIt-Lite theme's compatibility" >}}
 
-| LoveIt branch or version | Supported Hugo versions |
+| LoveIt-Lite branch or version | Supported Hugo versions |
 |:-------------------------|:-----------------------:|
-| master(Unstable)         |        ≥ 0.128.0        |
-| **0.3.X(Recommended)**   |    0.128.0 - 0.145.0    |
-| 0.2.X(Outdated)          |    0.68.0 - 0.127.0     |
+| master(Unstable)         |         0.145.0         |
 
 {{< /admonition >}}
 
 ### 2.3 Basic Configuration {#basic-configuration}
 
-The following is a basic configuration for the LoveIt theme:
+The following is a basic configuration for the LoveIt-Lite theme:
 
 ```toml
 baseURL = "http://example.org/"
 
 # Change the default theme to be use when building the site with Hugo
-theme = "LoveIt"
+theme = "LoveIt-Lite"
 
 # website title
 title = "My New Hugo Site"
@@ -131,7 +123,7 @@ languageName = "English"
 [markup]
   # Syntax Highlighting (https://gohugo.io/content-management/syntax-highlighting)
   [markup.highlight]
-    # false is a necessary configuration (https://github.com/dillonzq/LoveIt/issues/158)
+    # false is a necessary configuration (https://github.com/dillonzq/LoveIt-Lite/issues/158)
     noClasses = false
 ```
 
@@ -198,7 +190,7 @@ Alternatively, you can use [AWS Amplify](https://gohugo.io/hosting-and-deploymen
 
 ### 3.1 Site Configuration {#site-configuration}
 
-In addition to [Hugo global configuration](https://gohugo.io/overview/configuration/) and [menu configuration](#basic-configuration), **LoveIt** lets you define the following parameters in your site configuration (here is a `hugo.toml`, whose values are default).
+In addition to [Hugo global configuration](https://gohugo.io/overview/configuration/) and [menu configuration](#basic-configuration), **LoveIt-Lite** lets you define the following parameters in your site configuration (here is a `hugo.toml`, whose values are default).
 
 Please open the code block below to view the complete sample configuration :(far fa-hand-point-down fa-fw)::
 
@@ -206,7 +198,7 @@ Please open the code block below to view the complete sample configuration :(far
 baseURL = "http://example.org/"
 
 # Change the default theme to be use when building the site with Hugo
-theme = "LoveIt"
+theme = "LoveIt-Lite"
 
 # website title
 title = "My New Hugo Site"
@@ -621,7 +613,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         serverURLs = ""
         # {{< version 0.2.6 >}} emoji data file name, default is "google.yml"
         # ["apple.yml", "google.yml", "facebook.yml", "twitter.yml"]
-        # located in "themes/LoveIt/assets/lib/valine/emoji/" directory
+        # located in "themes/LoveIt-Lite/assets/lib/valine/emoji/" directory
         # you can store your own data files in the same path under your project:
         # "assets/lib/valine/emoji/"
         emoji = ""
@@ -755,7 +747,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   [params.cdn]
     # CDN data file name, disabled by default
     # ["jsdelivr.yml"]
-    # located in "themes/LoveIt/assets/data/cdn/" directory
+    # located in "themes/LoveIt-Lite/assets/data/cdn/" directory
     # you can store your own data files in the same path under your project:
     # "assets/data/cdn/"
     data = ""
@@ -776,7 +768,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     lineNos = true
     lineNumbersInTable = true
     # false is a necessary configuration
-    # ({{< link "https://github.com/dillonzq/LoveIt/issues/158" >}})
+    # ({{< link "https://github.com/dillonzq/LoveIt-Lite/issues/158" >}})
     noClasses = false
   # Goldmark is from Hugo 0.60 the default library used for Markdown
   [markup.goldmark]
@@ -860,7 +852,7 @@ You could enable these features with `hugo serve -e production`.
   data = ""
 ````
 
-The default CDN data file is located in `themes/LoveIt/assets/data/cdn/` directory.
+The default CDN data file is located in `themes/LoveIt-Lite/assets/data/cdn/` directory.
 You can store your own data file in the same path under your project: `assets/data/cdn/`.
 {{< /admonition >}}
 
@@ -891,7 +883,7 @@ Or You can set more options through a dict:
     title = "Mastodon"
 ```
 
-The default data of all supported social links is located in `themes/LoveIt/assets/data/social.yaml`,
+The default data of all supported social links is located in `themes/LoveIt-Lite/assets/data/social.yaml`,
 which is you can refer to.
 {{< /admonition >}}
 
@@ -921,11 +913,11 @@ Since Hugo need to processes :(fab fa-sass fa-fw): SCSS to :(fab fa-css3 fa-fw):
 Hugo **extended** version is necessary for the style customization.
 {{< /admonition >}}
 
-**LoveIt** theme has been built to be as configurable as possible by defining custom `.scss` style files.
+**LoveIt-Lite** theme has been built to be as configurable as possible by defining custom `.scss` style files.
 
 The directory including the custom `.scss` style files is `assets/css` relative to **your project root directory**.
 
-In `assets/css/_override.scss`, you can override the variables in `themes/LoveIt/assets/css/_variables.scss` to customize the style.
+In `assets/css/_override.scss`, you can override the variables in `themes/LoveIt-Lite/assets/css/_variables.scss` to customize the style.
 
 Here is a example:
 
@@ -936,175 +928,11 @@ $code-font-family: Fira Mono, Source Code Pro, Menlo, Consolas, Monaco, monospac
 
 In `assets/css/_custom.scss`, you can add some css style code to customize the style.
 
-## 4 Multilingual and i18n
-
-**LoveIt** theme is fully compatible with Hugo multilingual mode, which provides in-browser language switching.
-
-![Language Switch](language-switch.gif "Language Switch")
-
-### 4.1 Compatibility {#language-compatibility}
-
-{{< version 0.2.10 changed >}}
-
-| Language            | Hugo Code | HTML `lang` Attribute |          Theme Docs           |        Lunr.js Support        |
-|:--------------------|:---------:|:---------------------:|:-----------------------------:|:-----------------------------:|
-| English             |   `en`    |         `en`          | :(far fa-check-square fa-fw): | :(far fa-check-square fa-fw): |
-| Simplified Chinese  |  `zh-cn`  |        `zh-CN`        | :(far fa-check-square fa-fw): | :(far fa-check-square fa-fw): |
-| Traditional Chinese |  `zh-tw`  |        `zh-TW`        |    :(far fa-square fa-fw):    | :(far fa-check-square fa-fw): |
-| French              |   `fr`    |         `fr`          |    :(far fa-square fa-fw):    | :(far fa-check-square fa-fw): |
-| Polish              |   `pl`    |         `pl`          |    :(far fa-square fa-fw):    |    :(far fa-square fa-fw):    |
-| Portuguese (Brazil) |  `pt-br`  |        `pt-BR`        |    :(far fa-square fa-fw):    | :(far fa-check-square fa-fw): |
-| Italian             |   `it`    |         `it`          |    :(far fa-square fa-fw):    | :(far fa-check-square fa-fw): |
-| Spanish             |   `es`    |         `es`          |    :(far fa-square fa-fw):    | :(far fa-check-square fa-fw): |
-| German              |   `de`    |         `de`          |    :(far fa-square fa-fw):    | :(far fa-check-square fa-fw): |
-| German              |   `de`    |         `de`          |    :(far fa-square fa-fw):    | :(far fa-check-square fa-fw): |
-| Serbian             |   `sr`    |         `sr`          |    :(far fa-square fa-fw):    |    :(far fa-square fa-fw):    |
-| Russian             |   `ru`    |         `ru`          |    :(far fa-square fa-fw):    | :(far fa-check-square fa-fw): |
-| Romanian            |   `ro`    |         `ro`          |    :(far fa-square fa-fw):    | :(far fa-check-square fa-fw): |
-| Vietnamese          |   `vi`    |         `vi`          |    :(far fa-square fa-fw):    | :(far fa-check-square fa-fw): |
-| Arabic              |   `ar`    |         `ar`          |    :(far fa-square fa-fw):    | :(far fa-check-square fa-fw): |
-| Catalan             |   `ca`    |         `ca`          |    :(far fa-square fa-fw):    |    :(far fa-square fa-fw):    |
-| Thai                |   `th`    |         `th`          |    :(far fa-square fa-fw):    | :(far fa-check-square fa-fw): |
-| Telugu              |   `te`    |         `te`          |    :(far fa-square fa-fw):    |    :(far fa-square fa-fw):    |
-| Indonesian          |   `id`    |         `id`          |    :(far fa-square fa-fw):    |    :(far fa-square fa-fw):    |
-| Turkish             |   `tr`    |         `tr`          |    :(far fa-square fa-fw):    | :(far fa-check-square fa-fw): |
-| Korean              |   `ko`    |         `ko`          |    :(far fa-square fa-fw):    |    :(far fa-square fa-fw):    |
-| Hindi               |   `hi`    |         `hi`          |    :(far fa-square fa-fw):    |    :(far fa-square fa-fw):    |
-| Dutch               |   `nl`    |         `nl`          |    :(far fa-square fa-fw):    | :(far fa-check-square fa-fw): |
-| Bengali             |   `hi`    |         `hi`          |    :(far fa-square fa-fw):    |    :(far fa-square fa-fw):    |
-
-### 4.2 Basic Configuration
-
-After learning [how Hugo handle multilingual websites](https://gohugo.io/content-management/multilingual), define your languages in your [site configuration](#site-configuration).
-
-For example with English, Chinese and French website:
-
-```toml
-# determines default content language ["en", "zh-cn", "fr", "pl", ...]
-defaultContentLanguage = "en"
-
-[languages]
-  [languages.en]
-    weight = 1
-    title = "My New Hugo Site"
-    languageCode = "en"
-    languageName = "English"
-    [[languages.en.menu.main]]
-      weight = 1
-      identifier = "posts"
-      pre = ""
-      post = ""
-      name = "Posts"
-      url = "/posts/"
-      title = ""
-    [[languages.en.menu.main]]
-      weight = 2
-      identifier = "tags"
-      pre = ""
-      post = ""
-      name = "Tags"
-      url = "/tags/"
-      title = ""
-    [[languages.en.menu.main]]
-      weight = 3
-      identifier = "categories"
-      pre = ""
-      post = ""
-      name = "Categories"
-      url = "/categories/"
-      title = ""
-
-  [languages.zh-cn]
-    weight = 2
-    title = "我的全新 Hugo 网站"
-    languageCode = "zh-CN"
-    languageName = "简体中文"
-    hasCJKLanguage = true
-    [[languages.zh-cn.menu.main]]
-      weight = 1
-      identifier = "posts"
-      pre = ""
-      post = ""
-      name = "文章"
-      url = "/posts/"
-      title = ""
-    [[languages.zh-cn.menu.main]]
-      weight = 2
-      identifier = "tags"
-      pre = ""
-      post = ""
-      name = "标签"
-      url = "/tags/"
-      title = ""
-    [[languages.zh-cn.menu.main]]
-      weight = 3
-      identifier = "categories"
-      pre = ""
-      post = ""
-      name = "分类"
-      url = "/categories/"
-      title = ""
-
-  [languages.fr]
-    weight = 3
-    title = "Mon nouveau site Hugo"
-    languageCode = "fr"
-    languageName = "Français"
-    [[languages.fr.menu.main]]
-      weight = 1
-      identifier = "posts"
-      pre = ""
-      post = ""
-      name = "Postes"
-      url = "/posts/"
-      title = ""
-    [[languages.fr.menu.main]]
-      weight = 2
-      identifier = "tags"
-      pre = ""
-      post = ""
-      name = "Balises"
-      url = "/tags/"
-      title = ""
-    [[languages.fr.menu.main]]
-      weight = 3
-      identifier = "categories"
-      name = "Catégories"
-      pre = ""
-      post = ""
-      url = "/categories/"
-      title = ""
-```
-
-Then, for each new page, append the language code to the file name.
-
-Single file `my-page.md` is split in three files:
-
-* in English: `my-page.en.md`
-* in Chinese: `my-page.zh-cn.md`
-* in French: `my-page.fr.md`
-
-{{< admonition >}}
-Be aware that only translated pages are displayed in menu. It’s not replaced with default language content.
-{{< /admonition >}}
-
-{{< admonition tip >}}
-Use [Front Matter parameter](https://gohugo.io/content-management/multilingual#translate-your-content) to translate urls too.
-{{< /admonition >}}
-
-### 4.3 Overwrite Translation Strings
-
-Translations strings are used for common default values used in the theme. Translations are available in [some languages](#language-compatibility), but you may use another language or want to override default values.
-
-To override these values, create a new file in your local i18n folder `i18n/<languageCode>.toml` and inspire yourself from `themes/LoveIt/i18n/en.toml`.
-
-By the way, as these translations could be used by other people, please take the time to propose a translation by [:(fas fa-code-branch fa-fw): making a PR](https://github.com/dillonzq/LoveIt/pulls) to the theme!
-
-## 5 Search
+## 4 Search
 
 {{< version 0.2.0 >}}
 
-Based on [Lunr.js](https://lunrjs.com/), searching is supported in **LoveIt** theme.
+Based on [Lunr.js](https://lunrjs.com/), searching is supported in **LoveIt-Lite** theme.
 
 ### 5.1 Output Configuration
 
@@ -1144,7 +972,7 @@ Here is the search configuration in your [site configuration](#site-configuratio
 The following is a comparison of two search engines:
 
 * `lunr`: simple, no need to synchronize `index.json`, no limit for `contentLength`,
-  but high bandwidth and low performance (Especially for Chinese which needs a large segmentit library)
+  but high bandwidth and low performance
 
 {{< version 0.2.3 >}} The content of the post is separated by `h2` and `h3` HTML tag to improve query performance and basically implement full-text search.
 `contentLength` is used to limit the max index length of the part starting with `h2` and `h3` HTML tag.
