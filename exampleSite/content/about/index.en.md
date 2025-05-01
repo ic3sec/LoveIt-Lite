@@ -56,7 +56,6 @@ math:
 * :(fas fa-share-square fa-fw): Up to **27** share sites supported
 * :(far fa-comments fa-fw): **Facebook comments** system supported by [Facebook](https://developers.facebook.com/docs/plugins/comments/)
 * :(fas fa-comment fa-fw): **Telegram comments** system supported by [Comments](https://comments.app/)
-* :(fas fa-comment-alt fa-fw): **utterances** comment system supported by [utterances](https://utteranc.es/)
 * :(fas fa-comments fa-fw): **giscus** comment system supported by [giscus](https://giscus.app/)
 
 ### Extended Features

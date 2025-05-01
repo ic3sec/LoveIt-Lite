@@ -670,27 +670,6 @@ var Theme = /*#__PURE__*/function () {
     value: function initComment() {
       var _this10 = this;
       if (this.config.comment) {
-        if (this.config.comment.utterances) {
-          var utterancesConfig = this.config.comment.utterances;
-          var script = document.createElement('script');
-          script.src = 'https://utteranc.es/client.js';
-          script.setAttribute('repo', utterancesConfig.repo);
-          script.setAttribute('issue-term', utterancesConfig.issueTerm);
-          if (utterancesConfig.label) script.setAttribute('label', utterancesConfig.label);
-          script.setAttribute('theme', this.isDark ? utterancesConfig.darkTheme : utterancesConfig.lightTheme);
-          script.crossOrigin = 'anonymous';
-          script.async = true;
-          document.getElementById('utterances').appendChild(script);
-          this._utterancesOnSwitchTheme = this._utterancesOnSwitchTheme || function () {
-            var message = {
-              type: 'set-theme',
-              theme: _this10.isDark ? utterancesConfig.darkTheme : utterancesConfig.lightTheme
-            };
-            var iframe = document.querySelector('.utterances-frame');
-            iframe.contentWindow.postMessage(message, 'https://utteranc.es');
-          };
-          this.switchThemeEventSet.add(this._utterancesOnSwitchTheme);
-        }
         if (this.config.comment.giscus) {
           var giscusConfig = this.config.comment.giscus;
           var giscusScript = document.createElement('script');
