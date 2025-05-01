@@ -324,13 +324,6 @@
         enable = false
         # Disqus shortname to use Disqus in posts
         shortname = ""
-      # Gitalk comment config (https://github.com/gitalk/gitalk)
-      [params.page.comment.gitalk]
-        enable = false
-        owner = ""
-        repo = ""
-        clientId = ""
-        clientSecret = ""
       # Facebook comment config (https://developers.facebook.com/docs/plugins/comments)
       [params.page.comment.facebook]
         enable = false

@@ -670,11 +670,6 @@ var Theme = /*#__PURE__*/function () {
     value: function initComment() {
       var _this10 = this;
       if (this.config.comment) {
-        if (this.config.comment.gitalk) {
-          this.config.comment.gitalk.body = decodeURI(window.location.href);
-          var gitalk = new Gitalk(this.config.comment.gitalk);
-          gitalk.render('gitalk');
-        }
         if (this.config.comment.utterances) {
           var utterancesConfig = this.config.comment.utterances;
           var script = document.createElement('script');

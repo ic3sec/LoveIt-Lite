@@ -40,9 +40,6 @@ libFiles:
   # aplayer@1.10.1 https://github.com/MoePlayer/APlayer
   aplayerCSS: aplayer/1.10.1/APlayer.min.css
   #aplayerJS: aplayer/1.10.1/APlayer.min.js
-  # gitalk@1.7.2 https://github.com/gitalk/gitalk
-  gitalkCSS: gitalk/1.7.2/gitalk.min.css
-  gitalkJS: gitalk/1.7.2/gitalk.min.js
   # cookieconsent@3.1.1 https://github.com/osano/cookieconsent
   cookieconsentCSS: cookieconsent/3.1.1/cookieconsent.min.css
   cookieconsentJS: cookieconsent/3.1.1/cookieconsent.min.js

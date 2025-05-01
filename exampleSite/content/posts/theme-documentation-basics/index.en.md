@@ -585,14 +585,6 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         enable = false
         # Disqus shortname to use Disqus in posts
         shortname = ""
-      # {{< link "https://github.com/gitalk/gitalk" Gitalk >}} comment config
-      [params.page.comment.gitalk]
-        # {{< version 0.1.1 >}}
-        enable = false
-        owner = ""
-        repo = ""
-        clientId = ""
-        clientSecret = ""
       # {{< link "https://developers.facebook.com/docs/plugins/comments" "Facebook comment" >}} config
       [params.page.comment.facebook]
         enable = false

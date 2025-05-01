@@ -591,11 +591,6 @@ class Theme {
 
     initComment() {
         if (this.config.comment) {
-            if (this.config.comment.gitalk) {
-                this.config.comment.gitalk.body = decodeURI(window.location.href);
-                const gitalk = new Gitalk(this.config.comment.gitalk);
-                gitalk.render('gitalk');
-            }
             if (this.config.comment.utterances) {
                 const utterancesConfig = this.config.comment.utterances;
                 const script = document.createElement('script');

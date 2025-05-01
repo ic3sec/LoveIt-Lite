@@ -55,7 +55,6 @@ math:
 * :(far fa-id-card fa-fw): Up to **81** social links supported
 * :(fas fa-share-square fa-fw): Up to **27** share sites supported
 * :(far fa-comment fa-fw): **Disqus** comment system supported by [Disqus](https://disqus.com)
-* :(far fa-comment-dots fa-fw): **Gitalk** comment system supported by [Gitalk](https://github.com/gitalk/gitalk)
 * :(far fa-comments fa-fw): **Facebook comments** system supported by [Facebook](https://developers.facebook.com/docs/plugins/comments/)
 * :(fas fa-comment fa-fw): **Telegram comments** system supported by [Comments](https://comments.app/)
 * :(fas fa-comment-dots fa-fw): **Commento** comment system supported by [Commento](https://commento.io/)
@@ -115,5 +114,4 @@ Thanks to the authors of following resources included in the theme:
 * [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js)
 * [APlayer](https://github.com/MoePlayer/APlayer)
 * [MetingJS](https://github.com/metowolf/MetingJS)
-* [Gitalk](https://github.com/gitalk/gitalk)
 * [cookieconsent](https://github.com/osano/cookieconsent)
