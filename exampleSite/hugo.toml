@@ -383,14 +383,6 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # Comment config
     [params.page.comment]
       enable = true
-      # Facebook comment config (https://developers.facebook.com/docs/plugins/comments)
-      [params.page.comment.facebook]
-        enable = false
-        width = "100%"
-        numPosts = 10
-        appId = ""
-        # automatically adapt the current theme i18n configuration when empty
-        languageCode = ""
       # Telegram comments config (https://comments.app/)
       [params.page.comment.telegram]
         enable = false
