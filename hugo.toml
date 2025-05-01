@@ -319,11 +319,6 @@
     # Comment config
     [params.page.comment]
       enable = false
-      # Disqus comment config (https://disqus.com/)
-      [params.page.comment.disqus]
-        enable = false
-        # Disqus shortname to use Disqus in posts
-        shortname = ""
       # Facebook comment config (https://developers.facebook.com/docs/plugins/comments)
       [params.page.comment.facebook]
         enable = false

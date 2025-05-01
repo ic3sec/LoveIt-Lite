@@ -579,12 +579,6 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # {{< version 0.2.0 changed >}} Comment config
     [params.page.comment]
       enable = false
-      # {{< link "https://disqus.com/" Disqus >}} comment config
-      [params.page.comment.disqus]
-        # {{< version 0.1.1 >}}
-        enable = false
-        # Disqus shortname to use Disqus in posts
-        shortname = ""
       # {{< link "https://developers.facebook.com/docs/plugins/comments" "Facebook comment" >}} config
       [params.page.comment.facebook]
         enable = false

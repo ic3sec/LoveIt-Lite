@@ -54,7 +54,6 @@ math:
 * :(fas fa-user-circle fa-fw): Local **Avatar** supported
 * :(far fa-id-card fa-fw): Up to **81** social links supported
 * :(fas fa-share-square fa-fw): Up to **27** share sites supported
-* :(far fa-comment fa-fw): **Disqus** comment system supported by [Disqus](https://disqus.com)
 * :(far fa-comments fa-fw): **Facebook comments** system supported by [Facebook](https://developers.facebook.com/docs/plugins/comments/)
 * :(fas fa-comment fa-fw): **Telegram comments** system supported by [Comments](https://comments.app/)
 * :(fas fa-comment-dots fa-fw): **Commento** comment system supported by [Commento](https://commento.io/)

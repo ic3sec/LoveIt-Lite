@@ -5,17 +5,6 @@
 
 {{- if $comment.enable -}}
     <div id="comments">
-        {{- /* Disqus Comment System */ -}}
-        {{- $disqus := $comment.disqus | default dict -}}
-        {{- if $disqus.enable -}}
-            <div id="disqus_thread" class="comment"></div>
-            {{- $source := printf "https://%v.disqus.com/embed.js" $disqus.shortname -}}
-            {{- dict "Source" $source "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-            <noscript>
-                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
-            </noscript>
-        {{- end -}}
-
         {{- /* Facebook Comment System */ -}}
         {{- $facebook := $comment.facebook | default dict -}}
         {{- if $facebook.enable -}}
