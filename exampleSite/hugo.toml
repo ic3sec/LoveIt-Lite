@@ -401,9 +401,6 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         colorful = true
         dislikes = false
         outlined = false
-      # Commento comment config (https://commento.io/)
-      [params.page.comment.commento]
-        enable = false
       # utterances comment config (https://utteranc.es/)
       [params.page.comment.utterances]
         enable = false
