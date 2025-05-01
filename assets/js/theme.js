@@ -666,46 +666,6 @@ var Theme = /*#__PURE__*/function () {
       }
     }
   }, {
-    key: "initComment",
-    value: function initComment() {
-      var _this10 = this;
-      if (this.config.comment) {
-        if (this.config.comment.giscus) {
-          var giscusConfig = this.config.comment.giscus;
-          var giscusScript = document.createElement('script');
-          giscusScript.src = 'https://giscus.app/client.js';
-          giscusScript.setAttribute('data-repo', giscusConfig.repo);
-          giscusScript.setAttribute('data-repo-id', giscusConfig.repoId);
-          giscusScript.setAttribute('data-category', giscusConfig.category);
-          giscusScript.setAttribute('data-category-id', giscusConfig.categoryId);
-          giscusScript.setAttribute('data-lang', giscusConfig.lang);
-          giscusScript.setAttribute('data-mapping', giscusConfig.mapping);
-          giscusScript.setAttribute('data-reactions-enabled', giscusConfig.reactionsEnabled);
-          giscusScript.setAttribute('data-emit-metadata', giscusConfig.emitMetadata);
-          giscusScript.setAttribute('data-input-position', giscusConfig.inputPosition);
-          if (giscusConfig.lazyLoading) giscusScript.setAttribute('data-loading', 'lazy');
-          giscusScript.setAttribute('data-theme', this.isDark ? giscusConfig.darkTheme : giscusConfig.lightTheme);
-          giscusScript.crossOrigin = 'anonymous';
-          giscusScript.async = true;
-          document.getElementById('giscus').appendChild(giscusScript);
-          this._giscusOnSwitchTheme = this._giscusOnSwitchTheme || function () {
-            var message = {
-              setConfig: {
-                theme: _this10.isDark ? giscusConfig.darkTheme : giscusConfig.lightTheme,
-                reactionsEnabled: false
-              }
-            };
-            var iframe = document.querySelector('iframe.giscus-frame');
-            if (!iframe) return;
-            iframe.contentWindow.postMessage({
-              giscus: message
-            }, 'https://giscus.app');
-          };
-          this.switchThemeEventSet.add(this._giscusOnSwitchTheme);
-        }
-      }
-    }
-  }, {
     key: "initCookieconsent",
     value: function initCookieconsent() {
       if (this.config.cookieconsent) cookieconsent.initialise(this.config.cookieconsent);
@@ -713,22 +673,16 @@ var Theme = /*#__PURE__*/function () {
   }, {
     key: "onScroll",
     value: function onScroll() {
-      var _this11 = this;
+      var _this10 = this;
       var $headers = [];
       if (document.body.getAttribute('data-header-desktop') === 'auto') $headers.push(document.getElementById('header-desktop'));
       if (document.body.getAttribute('data-header-mobile') === 'auto') $headers.push(document.getElementById('header-mobile'));
-      if (document.getElementById('comments')) {
-        var $viewComments = document.getElementById('view-comments');
-        $viewComments.href = "#comments";
-        $viewComments.parentElement.removeChild($viewComments);
-        document.getElementById('fixed-buttons').appendChild($viewComments);
-      }
       var $fixedButtons = document.getElementById('fixed-buttons');
       var ACCURACY = 20,
         MINIMUM = 100;
       window.addEventListener('scroll', function () {
-        _this11.newScrollTop = Util.getScrollTop();
-        var scroll = _this11.newScrollTop - _this11.oldScrollTop;
+        _this10.newScrollTop = Util.getScrollTop();
+        var scroll = _this10.newScrollTop - _this10.oldScrollTop;
         var isMobile = Util.isMobile();
         Util.forEach($headers, function ($header) {
           if (scroll > ACCURACY) {
@@ -739,7 +693,7 @@ var Theme = /*#__PURE__*/function () {
             Util.animateCSS($header, ['animate__fadeInDown', 'animate__faster'], true);
           }
         });
-        if (_this11.newScrollTop > MINIMUM) {
+        if (_this10.newScrollTop > MINIMUM) {
           if (isMobile && scroll > ACCURACY) {
             $fixedButtons.classList.remove('animate__fadeIn');
             Util.animateCSS($fixedButtons, ['animate__fadeOut', 'animate__faster'], true);
@@ -755,7 +709,7 @@ var Theme = /*#__PURE__*/function () {
           }
           $fixedButtons.style.display = 'none';
         }
-        var _iterator2 = _createForOfIteratorHelper(_this11.scrollEventSet),
+        var _iterator2 = _createForOfIteratorHelper(_this10.scrollEventSet),
           _step2;
         try {
           for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
@@ -767,18 +721,18 @@ var Theme = /*#__PURE__*/function () {
         } finally {
           _iterator2.f();
         }
-        _this11.oldScrollTop = _this11.newScrollTop;
+        _this10.oldScrollTop = _this10.newScrollTop;
       }, false);
     }
   }, {
     key: "onResize",
     value: function onResize() {
-      var _this12 = this;
+      var _this11 = this;
       window.addEventListener('resize', function () {
-        if (!_this12._resizeTimeout) {
-          _this12._resizeTimeout = window.setTimeout(function () {
-            _this12._resizeTimeout = null;
-            var _iterator3 = _createForOfIteratorHelper(_this12.resizeEventSet),
+        if (!_this11._resizeTimeout) {
+          _this11._resizeTimeout = window.setTimeout(function () {
+            _this11._resizeTimeout = null;
+            var _iterator3 = _createForOfIteratorHelper(_this11.resizeEventSet),
               _step3;
             try {
               for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
@@ -790,9 +744,9 @@ var Theme = /*#__PURE__*/function () {
             } finally {
               _iterator3.f();
             }
-            _this12.initToc();
-            _this12.initMermaid();
-            _this12.initSearch();
+            _this11.initToc();
+            _this11.initMermaid();
+            _this11.initSearch();
           }, 100);
         }
       }, false);
@@ -800,9 +754,9 @@ var Theme = /*#__PURE__*/function () {
   }, {
     key: "onClickMask",
     value: function onClickMask() {
-      var _this13 = this;
+      var _this12 = this;
       document.getElementById('mask').addEventListener('click', function () {
-        var _iterator4 = _createForOfIteratorHelper(_this13.clickMaskEventSet),
+        var _iterator4 = _createForOfIteratorHelper(_this12.clickMaskEventSet),
           _step4;
         try {
           for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
@@ -820,7 +774,7 @@ var Theme = /*#__PURE__*/function () {
   }, {
     key: "init",
     value: function init() {
-      var _this14 = this;
+      var _this13 = this;
       try {
         this.initRaw();
         this.initSVGIcon();
@@ -842,11 +796,10 @@ var Theme = /*#__PURE__*/function () {
         console.error(err);
       }
       window.setTimeout(function () {
-        _this14.initToc();
-        _this14.initComment();
-        _this14.onScroll();
-        _this14.onResize();
-        _this14.onClickMask();
+        _this13.initToc();
+        _this13.onScroll();
+        _this13.onResize();
+        _this13.onClickMask();
       }, 100);
     }
   }]);
