@@ -49,6 +49,30 @@ body {
     color: $global-font-color-dark;
     background-color: $global-background-color-dark;
   }
+
+  h1 {
+    color: #2a8aff;
+  }
+  
+  h2 {
+    color: #59d5f0;
+  }
+
+  h3 {
+    color: #49da9a;
+  }
+
+  h4 {
+    color: #9ff369;
+  }
+
+  h5 {
+    color: #ffd98c;
+  }
+
+  h6 {
+    color: #f37b84;
+  }
 }
 
 @include link(true, true);
