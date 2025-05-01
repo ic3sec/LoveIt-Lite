@@ -23,5 +23,3 @@
 | [Simple Icons](https://github.com/simple-icons/simple-icons)                        | simple-icons      |  14.9.0 |
 | [Twemoji](https://github.com/twitter/twemoji)                                       | twemoji           |  14.0.2 |
 | [TypeIt](https://github.com/alexmacarthur/typeit)                                   | typeit            |   8.6.0 |
-| [Valine](https://github.com/xCss/Valine)                                            | valine            |   1.5.3 |
-| [Waline](https://github.com/walinejs/waline)                                        | waline            |   2.6.1 |

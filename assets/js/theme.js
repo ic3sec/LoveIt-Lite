@@ -675,7 +675,6 @@ var Theme = /*#__PURE__*/function () {
           var gitalk = new Gitalk(this.config.comment.gitalk);
           gitalk.render('gitalk');
         }
-        if (this.config.comment.valine) new Valine(this.config.comment.valine);
         if (this.config.comment.utterances) {
           var utterancesConfig = this.config.comment.utterances;
           var script = document.createElement('script');
@@ -730,7 +729,6 @@ var Theme = /*#__PURE__*/function () {
           };
           this.switchThemeEventSet.add(this._giscusOnSwitchTheme);
         }
-        if (this.config.comment.waline) Waline.init(this.config.comment.waline);
       }
     }
   }, {
