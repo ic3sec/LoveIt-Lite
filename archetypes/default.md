@@ -41,9 +41,6 @@ mapbox:
 share:
   enable: true
   # ...
-comment:
-  enable: true
-  # ...
 library:
   css:
     # someCSS = "some.css"

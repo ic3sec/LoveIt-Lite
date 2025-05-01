@@ -576,19 +576,6 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       Diaspora = true # {{< version 0.3.1 >}}
       Mix = false
       Telegram = true # {{< version 0.3.1 >}}
-    # {{< version 0.2.0 changed >}} Comment config
-    [params.page.comment]
-      enable = false
-      # {{< version 0.2.0 >}} {{< link "https://comments.app/" "Telegram comments" >}} config
-      [params.page.comment.telegram]
-        enable = false
-        siteID = ""
-        limit = 5
-        height = ""
-        color = ""
-        colorful = true
-        dislikes = false
-        outlined = false
     # {{< version 0.2.7 >}} Third-party library config
     [params.page.library]
       [params.page.library.css]
@@ -762,7 +749,7 @@ Note that some of these parameters are explained in details in other sections of
 Default environments are `development` with `hugo serve` and `production` with `hugo`.
 
 Due to limitations in the local `development` environment,
-the **comment system**, **CDN** and **fingerprint** will not be enabled in the `development` environment.
+the **CDN** and **fingerprint** will not be enabled in the `development` environment.
 
 You could enable these features with `hugo serve -e production`.
 {{< /admonition >}}

@@ -15,15 +15,8 @@
     {{- .Scratch.Set "cdn" $cdn -}}
     {{- .Scratch.Set "fingerprint" .Site.Params.fingerprint -}}
     {{- .Scratch.Set "analytics" .Site.Params.analytics -}}
-    {{- .Scratch.Set "comment" $params.comment -}}
-    {{- if eq .Params.comment true -}}
-        {{- .Scratch.Set "comment" .Site.Params.comment -}}
-    {{- else if eq .Params.comment false -}}
-        {{- .Scratch.Set "comment" dict -}}
-    {{- end -}}
 {{- else if eq .Site .Sites.Default -}}
-    {{- warnf "Current environment is not \"production\". The \"comment system\", \"CDN\" and \"fingerprint\" will be disabled.\n" -}}
-    {{- warnf "当前运行环境不是 \"production\". \"评论系统\", \"CDN\" 和 \"fingerprint\" 不会启用.\n" -}}
+    {{- warnf "Current environment is not \"production\". The \"CDN\" and \"fingerprint\" will be disabled.\n" -}}
 {{- end -}}
 
 {{- .Scratch.Set "params" $params -}}

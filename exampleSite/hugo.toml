@@ -380,19 +380,6 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       Diaspora = true
       Mix = false
       Telegram = true
-    # Comment config
-    [params.page.comment]
-      enable = true
-      # Telegram comments config (https://comments.app/)
-      [params.page.comment.telegram]
-        enable = false
-        siteID = ""
-        limit = 5
-        height = ""
-        color = ""
-        colorful = true
-        dislikes = false
-        outlined = false
     # Third-party library config
     [params.page.library]
       [params.page.library.css]

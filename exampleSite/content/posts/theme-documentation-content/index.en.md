@@ -111,9 +111,6 @@ mapbox:
 share:
   enable: true
   # ...
-comment:
-  enable: true
-  # ...
 library:
   css:
     # someCSS = "some.css"
@@ -163,7 +160,6 @@ seo:
 * **math**: {{< version 0.2.0 changed >}} the same as the `params.page.math` part in the [site configuration](../theme-documentation-basics#site-configuration).
 * **mapbox**: {{< version 0.2.0 >}} the same as the `params.page.mapbox` part in the [site configuration](../theme-documentation-basics#site-configuration).
 * **share**: the same as the `params.page.share` part in the [site configuration](../theme-documentation-basics#site-configuration).
-* **comment**: {{< version 0.2.0 changed >}} the same as the `params.page.comment` part in the [site configuration](../theme-documentation-basics#site-configuration).
 * **library**: {{< version 0.2.7 >}} the same as the `params.page.library` part in the [site configuration](../theme-documentation-basics#site-configuration).
 * **seo**: {{< version 0.2.10 >}} the same as the `params.page.seo` part in the [site configuration](../theme-documentation-basics#site-configuration).
 

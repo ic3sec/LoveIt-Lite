@@ -54,7 +54,6 @@ math:
 * :(fas fa-user-circle fa-fw): Local **Avatar** supported
 * :(far fa-id-card fa-fw): Up to **81** social links supported
 * :(fas fa-share-square fa-fw): Up to **27** share sites supported
-* :(fas fa-comment fa-fw): **Telegram comments** system supported by [Comments](https://comments.app/)
 
 ### Extended Features
 

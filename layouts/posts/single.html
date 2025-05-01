@@ -54,7 +54,6 @@
                 {{- end -}}
                 <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;{{ T "wordCount" .WordCount }}&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;{{ T "readingTime" .ReadingTime }}&nbsp;
-                {{- $comment := .Scratch.Get "comment" | default dict -}}
             </div>
         </div>
 
@@ -90,7 +89,5 @@
         {{- /* Footer */ -}}
         {{- partial "single/footer.html" . -}}
 
-        {{- /* Comment */ -}}
-        {{- partial "comment.html" . -}}
     </article>
 {{- end -}}
