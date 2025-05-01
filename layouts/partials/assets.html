@@ -13,14 +13,6 @@
         {{- end -}}
         {{- $source := $cdn.lunrJS | default "lib/lunr/lunr.min.js" -}}
         {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-        {{- if T "lunrLanguageLib" -}}
-            {{- $config = T "lunrLanguageCode" | dict "lunrLanguageCode" | dict "search" | merge $config -}}
-            {{- with T "lunrSegmentitLib" -}}
-                {{- $config = dict "lunrSegmentitURL" (resources.Get .).RelPermalink | dict "search" | merge $config -}}
-            {{- end -}}
-            {{- dict "Source" "lib/lunr/lunr.stemmer.support.js" "Minify" true "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-            {{- dict "Source" (T "lunrLanguageLib") "Minify" true "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-        {{- end -}}
     {{- end -}}
 {{- end -}}
 
