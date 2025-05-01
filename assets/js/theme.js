@@ -440,6 +440,7 @@ var Theme = /*#__PURE__*/function () {
         $toc.style.visibility = 'visible';
         var $tocLinkElements = $tocCore.querySelectorAll('a:first-child');
         var $tocLiElements = $tocCore.getElementsByTagName('li');
+        var $tocTopLiElements = $tocCore.querySelectorAll(':scope > ul > li');
         var $headerLinkElements = document.getElementsByClassName('headerLink');
         var headerIsFixed = document.body.getAttribute('data-header-desktop') !== 'normal';
         var headerHeight = document.getElementById('header-desktop').offsetHeight;
@@ -485,6 +486,22 @@ var Theme = /*#__PURE__*/function () {
             }
           }
         };
+        this._tocOnMutation = this._tocOnMutation || function () {
+          $tocTopLiElements.forEach(function (li) {
+            var subList = li.querySelector(':scope > ul');
+            if (subList) {
+              subList.style.display = li.classList.contains('has-active') ? 'block' : 'none';
+            }
+          });
+        };
+        var tocMutationObserver = new MutationObserver(this._tocOnMutation);
+        $tocTopLiElements.forEach(function (li) {
+          tocMutationObserver.observe(li, {
+            attributes: true,
+            attributeFilter: ['class']
+          });
+        });
+        this._tocOnMutation();
         this._tocOnScroll();
         this.scrollEventSet.add(this._tocOnScroll);
       }

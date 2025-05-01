@@ -394,6 +394,7 @@ class Theme {
             $toc.style.visibility = 'visible';
             const $tocLinkElements = $tocCore.querySelectorAll('a:first-child');
             const $tocLiElements = $tocCore.getElementsByTagName('li');
+            const $tocTopLiElements = $tocCore.querySelectorAll(':scope > ul > li');
             const $headerLinkElements = document.getElementsByClassName('headerLink');
             const headerIsFixed = document.body.getAttribute('data-header-desktop') !== 'normal';
             const headerHeight = document.getElementById('header-desktop').offsetHeight;
@@ -437,6 +438,20 @@ class Theme {
                     }
                 }
             });
+            this._tocOnMutation = this._tocOnMutation || (() => {
+                $tocTopLiElements.forEach(li => {
+                    const subList = li.querySelector(':scope > ul');
+
+                    if (subList) {
+                        subList.style.display = li.classList.contains('has-active') ? 'block' : 'none';
+                    }
+                });
+            });
+            const tocMutationObserver = new MutationObserver(this._tocOnMutation);
+            $tocTopLiElements.forEach(li => {
+                tocMutationObserver.observe(li, {attributes: true, attributeFilter: ['class']});
+            });
+            this._tocOnMutation();
             this._tocOnScroll();
             this.scrollEventSet.add(this._tocOnScroll);
         }
