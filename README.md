@@ -14,6 +14,7 @@ Compared to the original LoveIt theme, the following changes have been made:
 * **Removed** algolia search support
 * **Removed** Gravatar support
 * **Removed** i18n configs and lunr language/segmentit
+* **Removed** Lightbox support
 
 LoveIt-Lite is meant to be as lightweight and secure as possible with all dynamic content generation options removed.
 
