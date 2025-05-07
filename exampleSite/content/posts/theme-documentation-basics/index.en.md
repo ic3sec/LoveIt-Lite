@@ -15,8 +15,6 @@ resources:
 tags: ["installation", "configuration"]
 categories: ["documentation"]
 
-lightgallery: true
-
 toc:
   auto: false
 ---
@@ -491,8 +489,6 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     hiddenFromSearch = false
     # {{< version 0.2.0 >}} whether to enable twemoji
     twemoji = false
-    # whether to enable lightgallery
-    lightgallery = false
     # {{< version 0.2.0 >}} whether to enable the ruby extended syntax
     ruby = true
     # {{< version 0.2.0 >}} whether to enable the fraction extended syntax

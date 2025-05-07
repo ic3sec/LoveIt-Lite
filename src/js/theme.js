@@ -316,22 +316,6 @@ class Theme {
         });
     }
 
-    initLightGallery() {
-        if (this.config.lightgallery) lightGallery(document.getElementById('content'), {
-            plugins: [lgThumbnail, lgZoom],
-            selector: '.lightgallery',
-            speed: 400,
-            hideBarsDelay: 2000,
-            allowMediaOverlap: true,
-            exThumbImage: 'data-thumbnail',
-            toggleThumb: true,
-            thumbWidth: 80,
-            thumbHeight: '60px',
-            actualSize: false,
-            showZoomInOutIcons: true,
-        });
-    }
-
     initHighlight() {
         Util.forEach(document.querySelectorAll('.code-block'), $codeBlock => {
             const $codeTitle = $codeBlock.querySelector('.code-header > .code-title');
@@ -663,7 +647,6 @@ class Theme {
             this.initSwitchTheme();
             this.initSearch();
             this.initDetails();
-            this.initLightGallery();
             this.initHighlight();
             this.initHeaderLink();
             this.initMath();

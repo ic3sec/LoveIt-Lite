@@ -11,7 +11,6 @@
 | [Font Awesome Free](https://github.com/FortAwesome/Font-Awesome)                    | fontawesome-free  |   6.7.2 |
 | [KaTeX](https://github.com/KaTeX/KaTeX)                                             | katex             | 0.16.21 |
 | [lazysizes](https://github.com/aFarkas/lazysizes)                                   | lazysizes         |   5.3.2 |
-| [lightGallery](https://github.com/sachinchoolur/lightgallery)                       | lightgallery      |   2.5.0 |
 | [Lunr.js](https://github.com/olivernn/lunr.js)                                      | lunr              |   2.3.9 |
 | [Mapbox GL JS](https://github.com/mapbox/mapbox-gl-js)                              | mapbox-gl         |   2.9.1 |
 | [Mermaid](https://github.com/mermaid-js/mermaid)                                    | mermaid           |  11.5.0 |

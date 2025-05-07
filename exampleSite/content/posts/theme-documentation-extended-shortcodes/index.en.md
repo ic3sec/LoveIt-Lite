@@ -17,8 +17,6 @@ resources:
 tags: ["shortcodes"]
 categories: ["documentation"]
 
-lightgallery: true
-
 math:
   enable: true
 ---
@@ -125,75 +123,7 @@ The rendered output looks like this (hover over the link, there should be a tool
 
 {{< link "https://github.com/upstage/" Upstage "Visit Upstage!" >}}
 
-## 3 image {#image}
-
-{{< version 0.2.0 changed >}}
-
-`image` shortcode is an alternative to [`figure` shortcode](../theme-documentation-built-in-shortcodes#figure). `image` shortcode can take full advantage of the dependent libraries of [lazysizes](https://github.com/aFarkas/lazysizes) and [lightGallery](https://github.com/sachinchoolur/lightgallery).
-
-{{< version 0.2.10 >}} The complete usage of [local resource references](../theme-documentation-content#contents-organization) is supported.
-
-The `image` shortcode has the following named parameters:
-
-* **src** *[required]* (**first** positional parameter)
-
-    URL of the image to be displayed.
-
-* **alt** *[optional]* (**second** positional parameter)
-
-    Alternate text for the image if the image cannot be displayed, default value is the value of **src** parameter.
-
-    *Markdown or HTML format is supported.*
-
-* **caption** *[optional]* (**third** positional parameter)
-
-    Image caption.
-
-    *Markdown or HTML format is supported.*
-
-* **title** *[optional]*
-
-    Image title that will be shown when hovering on the image.
-
-* **class** *[optional]*
-
-    `class` attribute of the HTML `figure` tag.
-
-* **src_s** *[optional]*
-
-    URL of the image thumbnail, used for lightgallery, default value is the value of **src** parameter.
-
-* **src_l** *[optional]*
-
-    URL of the HD image, used for lightgallery, default value is the value of **src** parameter.
-
-* **height** *[optional]*
-
-    `height` attribute of the image.
-
-* **width** *[optional]*
-
-    `width` attribute of the image.
-
-* **linked** *[optional]*
-
-    Whether the image needs to be hyperlinked, default value is `true`.
-
-* **rel** *[optional]*
-
-    Additional `rel` attributes of the HTML `a` tag, if **linked** parameter is set to `true`.
-
-Example `image` input:
-
-```markdown
-{{</* image src="/images/lighthouse.jpg" caption="Lighthouse (`image`)" src_s="/images/lighthouse-small.jpg" src_l="/images/lighthouse-large.jpg" */>}}
-```
-
-The rendered output looks like this:
-
-{{< image src="/images/lighthouse.jpg" caption="Lighthouse (`image`)" src_s="/images/lighthouse-small.jpg" src_l="/images/lighthouse-large.jpg" >}}
-
-## 4 admonition
+## 3 admonition
 
 The `admonition` shortcode supports **12** types of banners to help you put notice in your page.
 
@@ -279,19 +209,19 @@ The rendered output looks like this:
 A **tip** banner
 {{< /admonition >}}
 
-## 5 mermaid
+## 4 mermaid
 
 The `mermaid` shortcode supports diagrams in Hugo with [Mermaid](https://mermaidjs.github.io/) library.
 
 The full documentation is provided in [Theme Documentation - mermaid Shortcode](../theme-documentation-mermaid-shortcode).
 
-## 6 echarts
+## 5 echarts
 
 The `echarts` shortcode supports data visualization in Hugo with [ECharts](https://echarts.apache.org/) library.
 
 The full documentation is provided in [Theme Documentation - echarts Shortcode](../theme-documentation-echarts-shortcode).
 
-## 7 mapbox
+## 6 mapbox
 
 {{< version 0.2.0 >}}
 
@@ -299,13 +229,13 @@ The `mapbox` shortcode supports interactive maps in Hugo with [Mapbox GL JS](htt
 
 The full documentation is provided in [Theme Documentation - mapbox Shortcode](../theme-documentation-mapbox-shortcode).
 
-## 8 music
+## 7 music
 
 The `music` shortcode embeds a responsive music player based on [APlayer](https://github.com/MoePlayer/APlayer) and [MetingJS](https://github.com/metowolf/MetingJS) library.
 
 The full documentation is provided in [Theme Documentation - music Shortcode](../theme-documentation-music-shortcode).
 
-## 9 bilibili
+## 8 bilibili
 
 {{< version 0.2.0 changed >}}
 
@@ -313,13 +243,13 @@ The `bilibili` shortcode embeds a responsive video player for bilibili videos.
 
 The full documentation is provided in [Theme Documentation - bilibili Shortcode](../theme-documentation-bilibili-shortcode).
 
-## 10 typeit
+## 9 typeit
 
 The `typeit` shortcode provides typing animation based on [TypeIt](https://typeitjs.com/) library.
 
 The full documentation is provided in [Theme Documentation - typeit Shortcode](../theme-documentation-typeit-shortcode).
 
-## 11 script
+## 10 script
 
 {{< version 0.2.8 >}}
 
@@ -343,7 +273,7 @@ You can see the output in the console of the developer tool.
 console.log('Hello LoveIt!');
 {{< /script >}}
 
-## 12 raw
+## 11 raw
 
 {{< version 0.2.11 >}}
 
@@ -376,7 +306,7 @@ Block Formula:
 
 Raw content using Markdown syntax: {{< raw >}}**Hello**{{< /raw >}}
 
-## 13 person
+## 12 person
 
 `person` is a shortcode to insert a link to a personal webpage marked up as [h-card](https://microformats.org/wiki/h-card).
 

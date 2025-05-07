@@ -355,23 +355,6 @@ var Theme = /*#__PURE__*/function () {
       });
     }
   }, {
-    key: "initLightGallery",
-    value: function initLightGallery() {
-      if (this.config.lightgallery) lightGallery(document.getElementById('content'), {
-        plugins: [lgThumbnail, lgZoom],
-        selector: '.lightgallery',
-        speed: 400,
-        hideBarsDelay: 2000,
-        allowMediaOverlap: true,
-        exThumbImage: 'data-thumbnail',
-        toggleThumb: true,
-        thumbWidth: 80,
-        thumbHeight: '60px',
-        actualSize: false,
-        showZoomInOutIcons: true
-      });
-    }
-  }, {
     key: "initHighlight",
     value: function initHighlight() {
       Util.forEach(document.querySelectorAll('.code-block'), function ($codeBlock) {
@@ -783,7 +766,6 @@ var Theme = /*#__PURE__*/function () {
         this.initSwitchTheme();
         this.initSearch();
         this.initDetails();
-        this.initLightGallery();
         this.initHighlight();
         this.initHeaderLink();
         this.initMath();

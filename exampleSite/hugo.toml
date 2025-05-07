@@ -292,8 +292,6 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     hiddenFromSearch = false
     # whether to enable twemoji
     twemoji = false
-    # whether to enable lightgallery
-    lightgallery = false
     # whether to enable the ruby extended syntax
     ruby = true
     # whether to enable the fraction extended syntax

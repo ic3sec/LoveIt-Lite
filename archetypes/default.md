@@ -19,7 +19,6 @@ featuredImagePreview: ""
 hiddenFromHomePage: false
 hiddenFromSearch: false
 twemoji: false
-lightgallery: true
 ruby: true
 fraction: true
 fontawesome: true
