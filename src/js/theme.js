@@ -609,7 +609,6 @@ class Theme {
 
         window.setTimeout(() => {
             this.initToc();
-
             this.onScroll();
             this.onResize();
             this.onClickMask();
