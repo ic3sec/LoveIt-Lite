@@ -17,6 +17,8 @@
     "hugo": "hugo --source exampleSite --buildDrafts --gc",
     "hugo-development": "hugo --source exampleSite --buildDrafts --gc --minify --environment development",
     "hugo-production": "hugo --source exampleSite --gc --minify --environment production",
+    "hugo-clean-development": "hugo --source exampleSite --cleanDestinationDir --buildDrafts --gc --minify --environment development",
+    "hugo-clean-production": "hugo --source exampleSite --cleanDestinationDir --gc --minify --environment production",
     "hugo-server": "hugo server --source exampleSite --buildDrafts --disableFastRender",
     "hugo-server-development": "hugo server --source exampleSite --buildDrafts --disableFastRender --environment development",
     "hugo-server-production": "hugo server --source exampleSite --minify --disableFastRender --environment production",

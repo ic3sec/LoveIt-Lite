@@ -221,14 +221,6 @@ The `echarts` shortcode supports data visualization in Hugo with [ECharts](https
 
 The full documentation is provided in [Theme Documentation - echarts Shortcode](../theme-documentation-echarts-shortcode).
 
-## 6 mapbox
-
-{{< version 0.2.0 >}}
-
-The `mapbox` shortcode supports interactive maps in Hugo with [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js) library.
-
-The full documentation is provided in [Theme Documentation - mapbox Shortcode](../theme-documentation-mapbox-shortcode).
-
 ## 7 music
 
 The `music` shortcode embeds a responsive music player based on [APlayer](https://github.com/MoePlayer/APlayer) and [MetingJS](https://github.com/metowolf/MetingJS) library.

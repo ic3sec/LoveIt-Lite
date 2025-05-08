@@ -526,22 +526,6 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       copy = true
       # the maximum number of lines of displayed code by default
       maxShownLines = 50
-    # {{< version 0.2.0 >}} {{< link "https://docs.mapbox.com/mapbox-gl-js" "Mapbox GL JS" >}} config
-    [params.page.mapbox]
-      # access token of Mapbox GL JS
-      accessToken = ""
-      # style for the light theme
-      lightStyle = "mapbox://styles/mapbox/light-v10?optimize=true"
-      # style for the dark theme
-      darkStyle = "mapbox://styles/mapbox/dark-v10?optimize=true"
-      # whether to add {{< link "https://docs.mapbox.com/mapbox-gl-js/api#navigationcontrol" NavigationControl >}}
-      navigation = true
-      # whether to add {{< link "https://docs.mapbox.com/mapbox-gl-js/api#geolocatecontrol" GeolocateControl >}}
-      geolocate = true
-      # whether to add {{< link "https://docs.mapbox.com/mapbox-gl-js/api#scalecontrol" ScaleControl >}}
-      scale = true
-      # whether to add {{< link "https://docs.mapbox.com/mapbox-gl-js/api#fullscreencontrol" FullscreenControl >}}
-      fullscreen = true
     # {{< version 0.2.0 changed >}} social share links in post page
     [params.page.share]
       enable = true

@@ -549,74 +549,9 @@ var Theme = /*#__PURE__*/function () {
       }
     }
   }, {
-    key: "initMapbox",
-    value: function initMapbox() {
-      var _this8 = this;
-      if (this.config.mapbox) {
-        mapboxgl.accessToken = this.config.mapbox.accessToken;
-        mapboxgl.setRTLTextPlugin(this.config.mapbox.RTLTextPlugin);
-        this._mapboxArr = this._mapboxArr || [];
-        Util.forEach(document.getElementsByClassName('mapbox'), function ($mapbox) {
-          var _this8$data$$mapbox$i = _this8.data[$mapbox.id],
-            lng = _this8$data$$mapbox$i.lng,
-            lat = _this8$data$$mapbox$i.lat,
-            zoom = _this8$data$$mapbox$i.zoom,
-            lightStyle = _this8$data$$mapbox$i.lightStyle,
-            darkStyle = _this8$data$$mapbox$i.darkStyle,
-            marked = _this8$data$$mapbox$i.marked,
-            navigation = _this8$data$$mapbox$i.navigation,
-            geolocate = _this8$data$$mapbox$i.geolocate,
-            scale = _this8$data$$mapbox$i.scale,
-            fullscreen = _this8$data$$mapbox$i.fullscreen;
-          var mapbox = new mapboxgl.Map({
-            container: $mapbox,
-            center: [lng, lat],
-            zoom: zoom,
-            minZoom: .2,
-            style: _this8.isDark ? darkStyle : lightStyle,
-            attributionControl: false
-          });
-          if (marked) {
-            new mapboxgl.Marker().setLngLat([lng, lat]).addTo(mapbox);
-          }
-          if (navigation) {
-            mapbox.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
-          }
-          if (geolocate) {
-            mapbox.addControl(new mapboxgl.GeolocateControl({
-              positionOptions: {
-                enableHighAccuracy: true
-              },
-              showUserLocation: true,
-              trackUserLocation: true
-            }), 'bottom-right');
-          }
-          if (scale) {
-            mapbox.addControl(new mapboxgl.ScaleControl());
-          }
-          if (fullscreen) {
-            mapbox.addControl(new mapboxgl.FullscreenControl());
-          }
-          mapbox.addControl(new MapboxLanguage());
-          _this8._mapboxArr.push(mapbox);
-        });
-        this._mapboxOnSwitchTheme = this._mapboxOnSwitchTheme || function () {
-          Util.forEach(_this8._mapboxArr, function (mapbox) {
-            var $mapbox = mapbox.getContainer();
-            var _this8$data$$mapbox$i2 = _this8.data[$mapbox.id],
-              lightStyle = _this8$data$$mapbox$i2.lightStyle,
-              darkStyle = _this8$data$$mapbox$i2.darkStyle;
-            mapbox.setStyle(_this8.isDark ? darkStyle : lightStyle);
-            mapbox.addControl(new MapboxLanguage());
-          });
-        };
-        this.switchThemeEventSet.add(this._mapboxOnSwitchTheme);
-      }
-    }
-  }, {
     key: "initTypeit",
     value: function initTypeit() {
-      var _this9 = this;
+      var _this8 = this;
       if (this.config.typeit) {
         var typeitConfig = this.config.typeit;
         var speed = typeitConfig.speed ? typeitConfig.speed : 100;
@@ -626,7 +561,7 @@ var Theme = /*#__PURE__*/function () {
           var _typeone = function typeone(i) {
             var id = group[i];
             new TypeIt("#".concat(id), {
-              strings: _this9.data[id],
+              strings: _this8.data[id],
               speed: speed,
               lifeLike: true,
               cursorSpeed: cursorSpeed,
@@ -656,7 +591,7 @@ var Theme = /*#__PURE__*/function () {
   }, {
     key: "onScroll",
     value: function onScroll() {
-      var _this10 = this;
+      var _this9 = this;
       var $headers = [];
       if (document.body.getAttribute('data-header-desktop') === 'auto') $headers.push(document.getElementById('header-desktop'));
       if (document.body.getAttribute('data-header-mobile') === 'auto') $headers.push(document.getElementById('header-mobile'));
@@ -664,8 +599,8 @@ var Theme = /*#__PURE__*/function () {
       var ACCURACY = 20,
         MINIMUM = 100;
       window.addEventListener('scroll', function () {
-        _this10.newScrollTop = Util.getScrollTop();
-        var scroll = _this10.newScrollTop - _this10.oldScrollTop;
+        _this9.newScrollTop = Util.getScrollTop();
+        var scroll = _this9.newScrollTop - _this9.oldScrollTop;
         var isMobile = Util.isMobile();
         Util.forEach($headers, function ($header) {
           if (scroll > ACCURACY) {
@@ -676,7 +611,7 @@ var Theme = /*#__PURE__*/function () {
             Util.animateCSS($header, ['animate__fadeInDown', 'animate__faster'], true);
           }
         });
-        if (_this10.newScrollTop > MINIMUM) {
+        if (_this9.newScrollTop > MINIMUM) {
           if (isMobile && scroll > ACCURACY) {
             $fixedButtons.classList.remove('animate__fadeIn');
             Util.animateCSS($fixedButtons, ['animate__fadeOut', 'animate__faster'], true);
@@ -692,7 +627,7 @@ var Theme = /*#__PURE__*/function () {
           }
           $fixedButtons.style.display = 'none';
         }
-        var _iterator2 = _createForOfIteratorHelper(_this10.scrollEventSet),
+        var _iterator2 = _createForOfIteratorHelper(_this9.scrollEventSet),
           _step2;
         try {
           for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
@@ -704,18 +639,18 @@ var Theme = /*#__PURE__*/function () {
         } finally {
           _iterator2.f();
         }
-        _this10.oldScrollTop = _this10.newScrollTop;
+        _this9.oldScrollTop = _this9.newScrollTop;
       }, false);
     }
   }, {
     key: "onResize",
     value: function onResize() {
-      var _this11 = this;
+      var _this10 = this;
       window.addEventListener('resize', function () {
-        if (!_this11._resizeTimeout) {
-          _this11._resizeTimeout = window.setTimeout(function () {
-            _this11._resizeTimeout = null;
-            var _iterator3 = _createForOfIteratorHelper(_this11.resizeEventSet),
+        if (!_this10._resizeTimeout) {
+          _this10._resizeTimeout = window.setTimeout(function () {
+            _this10._resizeTimeout = null;
+            var _iterator3 = _createForOfIteratorHelper(_this10.resizeEventSet),
               _step3;
             try {
               for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
@@ -727,9 +662,9 @@ var Theme = /*#__PURE__*/function () {
             } finally {
               _iterator3.f();
             }
-            _this11.initToc();
-            _this11.initMermaid();
-            _this11.initSearch();
+            _this10.initToc();
+            _this10.initMermaid();
+            _this10.initSearch();
           }, 100);
         }
       }, false);
@@ -737,9 +672,9 @@ var Theme = /*#__PURE__*/function () {
   }, {
     key: "onClickMask",
     value: function onClickMask() {
-      var _this12 = this;
+      var _this11 = this;
       document.getElementById('mask').addEventListener('click', function () {
-        var _iterator4 = _createForOfIteratorHelper(_this12.clickMaskEventSet),
+        var _iterator4 = _createForOfIteratorHelper(_this11.clickMaskEventSet),
           _step4;
         try {
           for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
@@ -757,7 +692,7 @@ var Theme = /*#__PURE__*/function () {
   }, {
     key: "init",
     value: function init() {
-      var _this13 = this;
+      var _this12 = this;
       try {
         this.initRaw();
         this.initSVGIcon();
@@ -772,16 +707,15 @@ var Theme = /*#__PURE__*/function () {
         this.initMermaid();
         this.initEcharts();
         this.initTypeit();
-        this.initMapbox();
         this.initCookieconsent();
       } catch (err) {
         console.error(err);
       }
       window.setTimeout(function () {
-        _this13.initToc();
-        _this13.onScroll();
-        _this13.onResize();
-        _this13.onClickMask();
+        _this12.initToc();
+        _this12.onScroll();
+        _this12.onResize();
+        _this12.onClickMask();
       }, 100);
     }
   }]);
