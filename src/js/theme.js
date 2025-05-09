@@ -349,7 +349,7 @@ class Theme {
         for (let num = 1; num <= 6; num++) {
             Util.forEach(document.querySelectorAll('.single .content > h' + num), $header => {
                 $header.classList.add('headerLink');
-                $header.insertAdjacentHTML('afterbegin', `<a href="#${$header.id}" class="header-mark"></a>`);
+                $header.innerHTML = `<a href="#${$header.id}" class="header-mark">${$header.innerHTML}</a>`;
             });
         }
     }
@@ -402,7 +402,7 @@ class Theme {
 
                 Util.forEach($tocLinkElements, $tocLink => { $tocLink.classList.remove('active'); });
                 Util.forEach($tocLiElements, $tocLi => { $tocLi.classList.remove('has-active'); });
-                const INDEX_SPACING = 20 + (headerIsFixed ? headerHeight : 0);
+                const INDEX_SPACING = 25 + (headerIsFixed ? headerHeight : 0);
                 let activeTocIndex = $headerLinkElements.length - 1;
                 for (let i = 0; i < $headerLinkElements.length - 1; i++) {
                     const thisTop = $headerLinkElements[i].getBoundingClientRect().top;

@@ -392,7 +392,7 @@ var Theme = /*#__PURE__*/function () {
       for (var num = 1; num <= 6; num++) {
         Util.forEach(document.querySelectorAll('.single .content > h' + num), function ($header) {
           $header.classList.add('headerLink');
-          $header.insertAdjacentHTML('afterbegin', "<a href=\"#".concat($header.id, "\" class=\"header-mark\"></a>"));
+          $header.innerHTML = "<a href=\"#".concat($header.id, "\" class=\"header-mark\">").concat($header.innerHTML, "</a>");
         });
       }
     }
@@ -450,7 +450,7 @@ var Theme = /*#__PURE__*/function () {
           Util.forEach($tocLiElements, function ($tocLi) {
             $tocLi.classList.remove('has-active');
           });
-          var INDEX_SPACING = 20 + (headerIsFixed ? headerHeight : 0);
+          var INDEX_SPACING = 25 + (headerIsFixed ? headerHeight : 0);
           var activeTocIndex = $headerLinkElements.length - 1;
           for (var i = 0; i < $headerLinkElements.length - 1; i++) {
             var thisTop = $headerLinkElements[i].getBoundingClientRect().top;
