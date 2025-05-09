@@ -404,13 +404,15 @@ class Theme {
                 Util.forEach($tocLiElements, $tocLi => { $tocLi.classList.remove('has-active'); });
                 const INDEX_SPACING = 25 + (headerIsFixed ? headerHeight : 0);
                 let activeTocIndex = $headerLinkElements.length - 1;
-                for (let i = 0; i < $headerLinkElements.length - 1; i++) {
-                    const thisTop = $headerLinkElements[i].getBoundingClientRect().top;
-                    const nextTop = $headerLinkElements[i + 1].getBoundingClientRect().top;
-                    if ((i === 0 && thisTop > INDEX_SPACING)
-                     || (thisTop <= INDEX_SPACING && nextTop > INDEX_SPACING)) {
-                        activeTocIndex = i;
-                        break;
+                if (!(window.innerHeight + document.documentElement.scrollTop > document.body.offsetHeight)) {
+                    for (let i = 0; i < $headerLinkElements.length - 1; i++) {
+                        const thisTop = $headerLinkElements[i].getBoundingClientRect().top;
+                        const nextTop = $headerLinkElements[i + 1].getBoundingClientRect().top;
+                        if ((i === 0 && thisTop > INDEX_SPACING)
+                        || (thisTop <= INDEX_SPACING && nextTop > INDEX_SPACING)) {
+                            activeTocIndex = i;
+                            break;
+                        }
                     }
                 }
                 if (activeTocIndex !== -1) {
