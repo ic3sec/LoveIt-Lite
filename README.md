@@ -11,10 +11,11 @@ Compared to the original LoveIt theme, the following changes have been made:
 * **Added** collapsing Table of Contents based on scroll location
 * **Added** colored html headings
 * **Removed** all comment system support
-* **Removed** algolia search support
+* **Removed** Algolia search support
 * **Removed** Gravatar support
 * **Removed** i18n configs and lunr language/segmentit
 * **Removed** Lightbox support
+* **Removed** Mapbox support
 
 LoveIt-Lite is meant to be as lightweight and secure as possible with all dynamic content generation options removed.
 
