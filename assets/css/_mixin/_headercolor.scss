@@ -1,0 +1,41 @@
+$light-colors: (
+  h1: #2a8aff,
+  h2: #59d5f0,
+  h3: #49da9a,
+  h4: #9ff369,
+  h5: #ffd98c,
+  h6: #f37b84
+);
+
+$dark-colors: (
+  h1: #2a8aff,
+  h2: #59d5f0,
+  h3: #49da9a,
+  h4: #9ff369,
+  h5: #ffd98c,
+  h6: #f37b84
+);
+
+@mixin headercolor($excluded: ()) {
+  @each $header, $color in $light-colors {
+    $level: str-slice($header, 2);
+
+    @if not index($excluded, $level) {
+      #{$header}, #{$header} > .header-mark {
+        color: $color;
+      }
+    }
+  }
+
+  [theme=dark] & {
+    @each $header, $color in $dark-colors {
+      $level: str-slice($header, 2);
+
+      @if not index($excluded, $level) {
+        #{$header}, #{$header} > .header-mark {
+          color: $color;
+        }
+      }
+    }
+  }
+}

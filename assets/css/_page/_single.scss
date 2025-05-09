@@ -96,7 +96,7 @@
       }
     }
 
-    > h2,
+    /*> h2,
     > h3,
     > h4,
     > h5,
@@ -110,11 +110,7 @@
           color: $single-link-color-dark;
         }
       }
-    }
-
-    > h2 > .header-mark::before {
-      content: "#";
-    }
+    }*/
 
     p {
       margin: .5rem 0;
@@ -140,6 +136,13 @@
 
     [theme=dark] a:hover b, [theme=dark] a:hover strong {
       color: $single-link-hover-color-dark;
+    }
+
+    @include headercolor();
+
+    a.header-mark:hover {
+      color: inherit;
+      text-decoration: underline;
     }
 
     ul, ol {
