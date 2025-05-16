@@ -333,13 +333,19 @@ class Theme {
             const $copy = $codeBlock.querySelector('.code-header .copy');
             if ($copy) {
                 const $code = $codeBlock.querySelector('code');
+                const $icon = $copy.querySelector('.icon use');
                 $copy.setAttribute('data-clipboard-text', $code.innerText);
                 const clipboard = new ClipboardJS($copy);
                 const $codeLines = $code.querySelectorAll('span.cl');
                 clipboard.on('success', _e => {
-                    if ($codeLines) {
-                        Util.forEach($codeLines, $codeLine => Util.animateCSS($codeLine, 'animate__flash'))
-                    }
+                    $icon.setAttribute('href', '#icon-check');
+                    //$icon.classList.add('check');
+                    
+                    setTimeout(() => {
+                        //$icon.classList.remove('check');
+                        //$icon.classList.add('copy');
+                        $icon.setAttribute('href', '#icon-copy');
+                    }, 1500);
                 });
             }
         });

@@ -101,9 +101,9 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       logo = ""
       # title name
       name = "LoveIt-Lite"
-      # you can add extra information before the name (HTML format is supported), such as icons
-      pre = "<i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i>"
-      # you can add extra information after the name (HTML format is supported), such as icons
+      # you can add extra information before the name (HTML format is supported)
+      pre = ""
+      # you can add extra information after the name (HTML format is supported)
       post = ""
       # whether to use typeit animation for title name
       typeit = false

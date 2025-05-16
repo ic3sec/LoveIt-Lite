@@ -88,16 +88,23 @@ code, pre {
 
     .copy {
       display: none;
-      padding: .4rem;
+      padding: .2rem;
 
       &:hover {
         cursor: pointer;
-        color: $global-link-hover-color;
+        fill: $global-link-hover-color;
 
         [theme=dark] & {
-          color: $global-link-hover-color-dark;
+          fill: $global-link-hover-color-dark;
         }
       }
+    }
+
+    .icon {
+      width: 1.75em;
+      height: 1.75em;
+      vertical-align: -0.125em;
+      overflow: visible;
     }
   }
 
