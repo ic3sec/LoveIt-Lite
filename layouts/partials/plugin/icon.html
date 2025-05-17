@@ -1,6 +1,6 @@
 {{- with .Name -}}
     {{- $Name := . -}}
-    {{- with $.class -}}
+    {{- with $.Class -}}
         <svg class="{{ . }}" aria-hidden="true">
             <use href="#icon-{{ $Name }}"></use>
         </svg>
