@@ -333,18 +333,23 @@ class Theme {
             const $copy = $codeBlock.querySelector('.code-header .copy');
             if ($copy) {
                 const $code = $codeBlock.querySelector('code');
-                const $icon = $copy.querySelector('.icon use');
+                const $icon = $copy.querySelector('.icon');
+                const $iconHref = $copy.querySelector('.icon use');
                 $copy.setAttribute('data-clipboard-text', $code.innerText);
                 const clipboard = new ClipboardJS($copy);
-                const $codeLines = $code.querySelectorAll('span.cl');
                 clipboard.on('success', _e => {
-                    $icon.setAttribute('href', '#icon-check');
-                    //$icon.classList.add('check');
+                    $icon.classList.remove('copy');
+                    $icon.classList.remove('icon-copy');
+                    $icon.classList.add('check');
+                    $icon.classList.add('icon-check');
+                    $iconHref.setAttribute('href', '#icon-check');
                     
                     setTimeout(() => {
-                        //$icon.classList.remove('check');
-                        //$icon.classList.add('copy');
-                        $icon.setAttribute('href', '#icon-copy');
+                        $icon.classList.remove('check');
+                        $icon.classList.remove('icon-check');
+                        $icon.classList.add('copy');
+                        $icon.classList.add('icon-copy');
+                        $iconHref.setAttribute('href', '#icon-copy');
                     }, 1500);
                 });
             }

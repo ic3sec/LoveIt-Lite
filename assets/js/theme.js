@@ -373,18 +373,22 @@ var Theme = /*#__PURE__*/function () {
         var $copy = $codeBlock.querySelector('.code-header .copy');
         if ($copy) {
           var $code = $codeBlock.querySelector('code');
-          var $icon = $copy.querySelector('.icon use');
+          var $icon = $copy.querySelector('.icon');
+          var $iconHref = $copy.querySelector('.icon use');
           $copy.setAttribute('data-clipboard-text', $code.innerText);
           var clipboard = new ClipboardJS($copy);
-          var $codeLines = $code.querySelectorAll('span.cl');
           clipboard.on('success', function (_e) {
-            $icon.setAttribute('href', '#icon-check');
-            //$icon.classList.add('check');
-
+            $icon.classList.remove('copy');
+            $icon.classList.remove('icon-copy');
+            $icon.classList.add('check');
+            $icon.classList.add('icon-check');
+            $iconHref.setAttribute('href', '#icon-check');
             setTimeout(function () {
-              //$icon.classList.remove('check');
-              //$icon.classList.add('copy');
-              $icon.setAttribute('href', '#icon-copy');
+              $icon.classList.remove('check');
+              $icon.classList.remove('icon-check');
+              $icon.classList.add('copy');
+              $icon.classList.add('icon-copy');
+              $iconHref.setAttribute('href', '#icon-copy');
             }, 1500);
           });
         }
