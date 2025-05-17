@@ -22,35 +22,35 @@
     {{- /* 003: Facebook */ -}}
     {{- if $share.Facebook -}}
         <a href="javascript:void(0);" title="{{ T `shareOn` }} Facebook" data-sharer="facebook" data-url="{{ .Permalink }}"{{ with .Params.tags }} data-hashtag="{{ index . 0 }}"{{ end }}>
-            {{- dict "Name" "fab fa-facebook-square fa-fw" | partial "plugin/icon.html" -}}
+            {{- dict "Name" "facebook" | partial "plugin/icon.html" -}}
         </a>
     {{- end -}}
 
     {{- /* 004: Linkedin */ -}}
     {{- if $share.Linkedin -}}
         <a href="javascript:void(0);" title="{{ T `shareOn` }} Linkedin" data-sharer="linkedin" data-url="{{ .Permalink }}">
-            {{- dict "Name" "fab fa-linkedin fa-fw" | partial "plugin/icon.html" -}}
+            {{- dict "Name" "linkedin" | partial "plugin/icon.html" -}}
         </a>
     {{- end -}}
 
     {{- /* 005: WhatsApp */ -}}
     {{- if $share.Whatsapp -}}
         <a href="javascript:void(0);" title="{{ T `shareOn` }} WhatsApp" data-sharer="whatsapp" data-url="{{ .Permalink }}" data-title="{{ .Title }}" data-web>
-            {{- dict "Name" "fab fa-whatsapp fa-fw" | partial "plugin/icon.html" -}}
+            {{- dict "Name" "whatsapp" | partial "plugin/icon.html" -}}
         </a>
     {{- end -}}
 
     {{- /* 006: Hacker News */ -}}
     {{- if $share.Hackernews -}}
         <a href="javascript:void(0);" title="{{ T `shareOn` }} Hacker News" data-sharer="hackernews" data-url="{{ .Permalink }}" data-title="{{ .Title }}">
-            {{- dict "Name" "fab fa-hacker-news fa-fw" | partial "plugin/icon.html" -}}
+            {{- dict "Name" "hacker-news" | partial "plugin/icon.html" -}}
         </a>
     {{- end -}}
 
     {{- /* 007: Reddit */ -}}
     {{- if $share.Reddit -}}
         <a href="javascript:void(0);" title="{{ T `shareOn` }} Reddit" data-sharer="reddit" data-url="{{ .Permalink }}">
-            {{- dict "Name" "fab fa-reddit fa-fw" | partial "plugin/icon.html" -}}
+            {{- dict "Name" "reddit" | partial "plugin/icon.html" -}}
         </a>
     {{- end -}}
 
