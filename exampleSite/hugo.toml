@@ -343,23 +343,8 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       Pinterest = false
       Tumblr = false
       HackerNews = true
-      Reddit = false
-      VK = false
-      Buffer = false
-      Xing = false
+      Reddit = true
       Line = true
-      Instapaper = false
-      Pocket = false
-      Flipboard = false
-      Weibo = true
-      Blogger = false
-      Baidu = false
-      Odnoklassniki = false
-      Evernote = false
-      Skype = false
-      Trello = false
-      Diaspora = true
-      Mix = false
       Telegram = true
     # Third-party library config
     [params.page.library]
