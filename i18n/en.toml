@@ -49,23 +49,6 @@ other = "Switch Theme"
 other = "Powered by {{ .Hugo }} | Theme - {{ .Theme }}"
 # === partials/footer.html ===
 
-# === partials/comment.html ===
-[valineLang]
-other = "en"
-
-[valinePlaceholder]
-other = "Your comment ..."
-
-[facebookLanguageCode]
-other = "en_US"
-
-[giscusLang]
-other = "en"
-
-[walineLang]
-other = "en"
-# === partials/comment.html ===
-
 # === partials/assets.html ===
 [search]
 other = "Search"
