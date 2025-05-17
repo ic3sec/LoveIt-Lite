@@ -324,9 +324,9 @@ class Theme {
                     $codeBlock.classList.toggle('open');
                 }, false);
             }
-            const $ellipses = $codeBlock.querySelector('.code-header .ellipses');
-            if ($ellipses) {
-                $ellipses.addEventListener('click', () => {
+            const $ellipsis = $codeBlock.querySelector('.code-header .ellipsis');
+            if ($ellipsis) {
+                $ellipsis.addEventListener('click', () => {
                     $codeBlock.classList.toggle('open');
                 }, false);
             }

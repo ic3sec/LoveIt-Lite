@@ -14,8 +14,8 @@
 <div class="code-block{{ if $lineNos }} code-line-numbers{{ end }}{{ if le $lines $maxShownLines }} open{{ end }}" style="counter-reset: code-block {{ sub $lineNoStart 1 }}">
     <div class="code-header language-{{ $lang }}">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
-        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        {{ if $copy }}<span class="copy" title="{{ T "copyToClipboard" }}">{{partial "svg-icon.html" (dict "name" "copy" "class" "icon copy icon-copy")}}</span>{{ end }}
+        <span class="ellipsis">{{- partial "plugin/icon.html" (dict "Name" "ellipsis") -}}</i></span>
+        {{- if $copy }}<span class="copy" title="{{ T "copyToClipboard" }}">{{- partial "plugin/icon.html" (dict "Name" "copy") -}}</span>{{ end -}}
     </div>
     {{- $result -}}
 </div>

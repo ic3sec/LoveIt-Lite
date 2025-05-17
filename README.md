@@ -10,6 +10,9 @@ Compared to the original LoveIt theme, the following changes have been made:
 
 * **Added** collapsing Table of Contents based on scroll location
 * **Added** colored html headings (with light/dark mode and exclude options)
+* **Reduced** social link/share options (can be added back, but associated icons will need to be added manually)
+* **Replaced** FontAwesome library with SVG icons and custom icon partial
+* **Replaced** SimpleIcons library with SVG icons and custom icon partial
 * **Replaced** header-mark ::before text with linked header text
 * **Removed** all comment system support
 * **Removed** Algolia search support
@@ -29,8 +32,6 @@ Unfortunately, LoveIt-Lite will only have documentation and functionality update
 | LoveIt branch or version | Supported Hugo versions |
 |:-------------------------|:-----------------------:|
 | master(Stable)           |        ≥ 0.145.0        |
-
-Please refer to the original [LoveIt Repo](https://github.com/dillonzq/LoveIt) for documentation and examples of the theme.
 
 ## License
 

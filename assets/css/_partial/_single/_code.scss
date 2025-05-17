@@ -82,8 +82,8 @@ code, pre {
       @include transition(transform 0.2s ease);
     }
 
-    .ellipses {
-      padding: .4rem;
+    .ellipsis {
+      padding: .2rem;
     }
 
     .copy {
@@ -170,7 +170,7 @@ code, pre {
         @include transform(rotate(90deg));
       }
 
-      .ellipses {
+      .ellipsis {
         display: none;
       }
 

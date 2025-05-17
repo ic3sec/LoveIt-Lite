@@ -4,7 +4,7 @@ github:
   Prefix: https://github.com/
   Title: GitHub
   Icon:
-    Class: fab fa-github fa-fw
+    Name: github
 
 # 002: LinkedIn
 linkedin:
@@ -12,7 +12,7 @@ linkedin:
   Prefix: https://linkedin.com/in/
   Title: LinkedIn
   Icon:
-    Class: fab fa-linkedin fa-fw
+    Name: linkedin
 
 # 003: Instagram
 instagram:
@@ -20,7 +20,7 @@ instagram:
   Prefix: https://www.instagram.com/
   Title: Instagram
   Icon:
-    Class: fab fa-instagram fa-fw
+    Name: instagram
 
 # 004: Facebook
 facebook:
@@ -28,7 +28,7 @@ facebook:
   Prefix: https://facebook.com/
   Title: facebook
   Icon:
-    Class: fab fa-facebook fa-fw
+    Name: facebook
 
 # 005: GitLab
 gitlab:
@@ -36,7 +36,7 @@ gitlab:
   Prefix: https://gitlab.com/
   Title: GitLab
   Icon:
-    Class: fab fa-gitlab fa-fw
+    Name: gitlab
 
 # 006: YouTube Legacy
 youtubelegacy:
@@ -44,7 +44,7 @@ youtubelegacy:
   Prefix: https://www.youtube.com/user/
   Title: YouTube
   Icon:
-    Class: fab fa-youtube fa-fw
+    Name: youtube
 
 # 007: YouTube Custom
 youtubecustom:
@@ -52,7 +52,7 @@ youtubecustom:
   Prefix: https://www.youtube.com/c/
   Title: YouTube
   Icon:
-    Class: fab fa-youtube fa-fw
+    Name: youtube
 
 # 008: YouTube Channel
 youtubechannel:
@@ -60,7 +60,7 @@ youtubechannel:
   Prefix: https://www.youtube.com/channel/
   Title: YouTube
   Icon:
-    Class: fab fa-youtube fa-fw
+    Name: youtube
 
 # 009: Reddit
 reddit:
@@ -68,7 +68,7 @@ reddit:
   Prefix: https://www.reddit.com/user/
   Title: Reddit
   Icon:
-    Class: fab fa-reddit fa-fw
+    Name: reddit
 
 # 010: Stack Overflow
 stackoverflow:
@@ -76,7 +76,7 @@ stackoverflow:
   Prefix: https://stackoverflow.com/users/
   Title: Stack Overflow
   Icon:
-    Class: fab fa-stack-overflow fa-fw
+    Name: stack-overflow
 
 # 011: PayPal
 paypal:
@@ -84,7 +84,7 @@ paypal:
   Prefix: https://paypal.me/
   Title: PayPal
   Icon:
-    Class: fab fa-paypal fa-fw
+    Name: paypal
 
 # 012: Hacker News
 hackernews:
@@ -92,7 +92,7 @@ hackernews:
   Template: https://news.ycombinator.com/user?id=%v
   Title: Hacker News
   Icon:
-    Class: fab fa-hacker-news fa-fw
+    Name: hacker-news
 
 # 013: Twitch
 twitch:
@@ -100,7 +100,7 @@ twitch:
   Prefix: https://www.twitch.tv/
   Title: Twitch
   Icon:
-    Class: fab fa-twitch fa-fw
+    Name: twitch
 
 # 014: Google Scholar
 googlescholar:
@@ -108,7 +108,7 @@ googlescholar:
   Template: https://scholar.google.com/citations?%v
   Title: Google Scholar
   Icon:
-    Simpleicons: googlescholar
+    Name: google-scholar
 
 # 015: Discord User Profile
 discord:
@@ -116,7 +116,7 @@ discord:
   Prefix: https://discordapp.com/users/
   Title: Discord
   Icon:
-    Class: fab fa-discord fa-fw
+    Name: discord
 
 # 016: Discord Server Invite Link
 discordInvite:
@@ -124,7 +124,7 @@ discordInvite:
   Prefix: https://discord.gg/
   Title: Discord
   Icon:
-    Class: fab fa-discord fa-fw
+    Name: discord
 
 # 017: Hack The Box
 hackthebox:
@@ -132,7 +132,7 @@ hackthebox:
   Title: Hack The Box
   Prefix: https://app.hackthebox.com/profile/
   Icon:
-    Simpleicons: hackthebox
+    Name: hackthebox
 
 # 018: Root-Me
 rootme:
@@ -140,7 +140,7 @@ rootme:
   Title: Root-Me
   Prefix: https://www.root-me.org/
   Icon:
-    Simpleicons: rootme
+    Name: rootme
 
 # 019: TryHackMe
 tryhackme:
@@ -148,7 +148,7 @@ tryhackme:
   Title: TryHackMe
   Prefix: https://tryhackme.com/p/
   Icon:
-    Simpleicons: tryhackme
+    Name: tryhackme
 
 # 020: Threads
 threads:
@@ -156,7 +156,7 @@ threads:
   Title: Threads
   Prefix: https://www.threads.net/@
   Icon:
-    Class: fab fa-threads fa-fw
+    Name: threads
 
 # Email
 email:
@@ -164,7 +164,7 @@ email:
   Template: mailto:%v
   Title: Email
   Icon:
-    Class: far fa-envelope fa-fw
+    Name: email
 
 # RSS
 rss:
@@ -173,4 +173,4 @@ rss:
   Title: RSS
   Newtab: true
   Icon:
-    Class: fas fa-rss fa-fw
+    Name: rss

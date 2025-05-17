@@ -364,9 +364,9 @@ var Theme = /*#__PURE__*/function () {
             $codeBlock.classList.toggle('open');
           }, false);
         }
-        var $ellipses = $codeBlock.querySelector('.code-header .ellipses');
-        if ($ellipses) {
-          $ellipses.addEventListener('click', function () {
+        var $ellipsis = $codeBlock.querySelector('.code-header .ellipsis');
+        if ($ellipsis) {
+          $ellipsis.addEventListener('click', function () {
             $codeBlock.classList.toggle('open');
           }, false);
         }

@@ -569,10 +569,10 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       [[languages.en.menu.main]]
         weight = 6
         identifier = "github"
-        pre = "<i class='fab fa-github fa-fw' aria-hidden='true'></i>"
+        pre = "<svg class='icon github icon-github' aria-hidden='true'><use href='#icon-github'></use></svg>"
         post = ""
         name = ""
-        url = "https://github.com/dillonzq/LoveIt"
+        url = "https://github.com/ic3sec/LoveIt-Lite"
         title = "GitHub"
     [languages.en.params]
       [languages.en.params.search]
@@ -596,16 +596,5 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
           disclaimer = ""
       [languages.en.params.social]
         GitHub = "xxxx"
-        X = "xxxx"
-        Instagram = "xxxx"
-        Facebook = "xxxx"
-        Telegram = "xxxx"
         Youtubelegacy = "xxxx"
-        HuggingFace = "xxxx"
-        Threads = "xxxx"
-        Phone = "555-555-555"
-        Email = "xxxx@xxxx.com"
         RSS = true
-        [languages.en.params.social.Mastodon]
-          id = "@xxxx"
-          prefix = "https://mastodon.technology/"
