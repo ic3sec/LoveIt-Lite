@@ -46,7 +46,7 @@ cd my_website
 
 The **LoveIt-Lite** theme's repository is: [https://github.com/ic3sec/LoveIt-Lite](https://github.com/ic3sec/LoveIt-Lite).
 
-You can download the [master :(far fa-file-archive fa-fw): .zip file](https://github.com/ic3sec/LoveIt-Lite/archive/refs/heads/master.zip) of the theme and extract it in the `themes` directory.
+You can download the [master .zip file](https://github.com/ic3sec/LoveIt-Lite/archive/refs/heads/master.zip) of the theme and extract it in the `themes` directory.
 
 Alternatively, clone this repository to the `themes` directory:
 
@@ -190,7 +190,7 @@ Alternatively, you can use [AWS Amplify](https://gohugo.io/hosting-and-deploymen
 
 In addition to [Hugo global configuration](https://gohugo.io/overview/configuration/) and [menu configuration](#basic-configuration), **LoveIt-Lite** lets you define the following parameters in your site configuration (here is a `hugo.toml`, whose values are default).
 
-Please open the code block below to view the complete sample configuration :(far fa-hand-point-down fa-fw)::
+Please open the code block below to view the complete sample configuration:
 
 ```toml
 baseURL = "http://example.org/"
@@ -801,7 +801,7 @@ Customize `browserconfig.xml` and `site.webmanifest` to set theme-color and back
 {{< version 0.2.8 changed >}}
 
 {{< admonition note "Hugo extended version is necessary" >}}
-Since Hugo need to processes :(fab fa-sass fa-fw): SCSS to :(fab fa-css3 fa-fw): CSS,
+Since Hugo need to processes SCSS to CSS,
 Hugo **extended** version is necessary for the style customization.
 {{< /admonition >}}
 
