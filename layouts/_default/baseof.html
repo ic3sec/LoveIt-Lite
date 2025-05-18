@@ -39,5 +39,15 @@
 
         {{- /* Load JavaScript scripts and CSS */ -}}
         {{- partial "assets.html" . -}}
+
+        <script>
+            // Firefox FOUC fix
+            document.querySelectorAll("svg.icon").forEach(icon => {
+                icon.classList.add("reload");
+                setTimeout(() => {
+                    icon.classList.remove("reload");
+                }, 10);
+            });
+        </script>
     </body>
 </html>
