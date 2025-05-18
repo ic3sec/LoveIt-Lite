@@ -59,7 +59,6 @@ math:
 * **Twemoji** supported
 * Automatically **highlighting** code
 * **Copy code** to clipboard with one click
-* Extended Markdown syntax for **[Font Awesome](https://fontawesome.com/) icons**
 * Extended Markdown syntax for **ruby annotation**
 * Extended Markdown syntax for **fraction**
 * **Mathematical formula** supported by [$\KaTeX$](https://katex.org/)
@@ -85,7 +84,7 @@ Check the [LICENSE file](https://github.com/dillonzq/LoveIt/blob/master/LICENSE)
 Thanks to the authors of following resources included in the theme:
 
 * [modern-normalize](https://github.com/sindresorhus/modern-normalize)
-* [Font Awesome](https://fontawesome.com/)
+* [Font Awesome Icons](https://fontawesome.com/)
 * [Simple Icons](https://github.com/simple-icons/simple-icons)
 * [Animate.css](https://daneden.github.io/animate.css/)
 * [Lunr.js](https://lunrjs.com/)

@@ -15,11 +15,13 @@
     padding: .5rem 0;
   }
 
-  i.icon {
+  svg.icon:not(.angle-right) {
     font-size: 0.85rem;
     position: absolute;
     top: .6rem;
     left: .4rem;
+    height: 1rem;
+    width: 1rem;
   }
 
   .details-icon {
@@ -42,7 +44,7 @@
         background-color: $background-color;
       }
 
-      i.icon {
+      svg.icon:not(.angle-right) {
         color: $color;
       }
     } @else {
@@ -59,7 +61,7 @@
           background-color: $background-color;
         }
 
-        i.icon {
+        svg.icon:not(.angle-right) {
           color: $color;
         }
       }

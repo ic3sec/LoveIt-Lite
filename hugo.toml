@@ -233,8 +233,6 @@
     ruby = true
     # whether to enable the fraction extended syntax
     fraction = true
-    # whether to enable the fontawesome extended syntax
-    fontawesome = true
     # whether to show link to Raw Markdown content of the content
     linkToMarkdown = true
     # whether to show the full text content in RSS

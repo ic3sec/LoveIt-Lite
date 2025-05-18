@@ -8,7 +8,6 @@
 | [Cookie Consent](https://github.com/osano/cookieconsent)                            | cookieconsent     |   3.1.1 |
 | [Apache ECharts](https://github.com/apache/echarts)                                 | echarts           |   5.6.0 |
 | [emoji-data](https://github.com/iamcal/emoji-data)                                  | emoji-data        |  15.1.2 |
-| [Font Awesome Free](https://github.com/FortAwesome/Font-Awesome)                    | fontawesome-free  |   6.7.2 |
 | [KaTeX](https://github.com/KaTeX/KaTeX)                                             | katex             | 0.16.21 |
 | [lazysizes](https://github.com/aFarkas/lazysizes)                                   | lazysizes         |   5.3.2 |
 | [Lunr.js](https://github.com/olivernn/lunr.js)                                      | lunr              |   2.3.9 |

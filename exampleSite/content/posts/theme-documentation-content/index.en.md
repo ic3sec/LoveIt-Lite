@@ -90,7 +90,6 @@ hiddenFromSearch: false
 twemoji: false
 ruby: true
 fraction: true
-fontawesome: true
 linkToMarkdown: true
 rssFullText: false
 
@@ -145,7 +144,6 @@ seo:
 * **twemoji**: {{< version 0.2.0 >}} if `true`, the content will enable the twemoji.
 * **ruby**: {{< version 0.2.0 >}} if `true`, the content will enable the [ruby extended syntax](#ruby).
 * **fraction**: {{< version 0.2.0 >}} if `true`, the content will enable the [fraction extended syntax](#fraction).
-* **fontawesome**: {{< version 0.2.0 >}} if `true`, the content will enable the [Font Awesome extended syntax](#fontawesome).
 * **linkToMarkdown**: if `true`, the footer of the content will be shown the link to the orignal Markdown file.
 * **rssFullText**: {{< version 0.2.4 >}} if `true`, the full text content will be shown in RSS.
 

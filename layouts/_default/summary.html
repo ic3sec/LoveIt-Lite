@@ -27,7 +27,7 @@
         {{- $author := $params.author | default .Site.Params.Author.name | default (T "author") -}}
         {{- $authorLink := $params.authorlink | default .Site.Params.Author.link | default .Site.Home.RelPermalink -}}
         <span class="post-author">
-            {{- $options := dict "Class" "author" "Destination" $authorLink "Title" "Author" "Rel" "author" "Icon" (dict "Class" "fas fa-user-circle fa-fw") "Content" $author -}}
+            {{- $options := dict "Class" "author" "Destination" $authorLink "Title" "Author" "Rel" "author" "Icon" (dict "Name" "user-circle") "Content" $author -}}
             {{- partial "plugin/a.html" $options -}}
         </span>
 
@@ -52,7 +52,7 @@
     {{- /* Summary content */ -}}
     <div class="content">
         {{- with .Summary -}}
-            {{- dict "Content" . "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+            {{- dict "Content" . "Ruby" $params.ruby "Fraction" $params.fraction | partial "function/content.html" | safeHTML -}}
         {{- else -}}
             {{- .Description | safeHTML -}}
         {{- end -}}

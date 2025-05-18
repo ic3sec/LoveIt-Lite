@@ -1,8 +1,6 @@
 prefix:
   libFiles: https://fastly.jsdelivr.net/npm/
 libFiles:
-  # fontawesome-free@6.7.2 https://fontawesome.com/
-  fontawesomeFreeCSS: '@fortawesome/fontawesome-free@6.7.2/css/all.min.css'
   # animate.css@4.1.1 https://github.com/daneden/animate.css
   animateCSS: animate.css@4.1.1/animate.min.css
   # lunr.js@2.3.9 https://lunrjs.com/

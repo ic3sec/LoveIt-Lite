@@ -47,10 +47,10 @@
                             {{- partial "plugin/icon" (dict "Name" "search") -}}
                         </a>
                         <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="{{ T `clear` }}">
-                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                            {{- partial "plugin/icon" (dict "Name" "times-circle") -}}
                         </a>
                         <span class="search-button search-loading" id="search-loading-desktop">
-                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                            {{- partial "plugin/icon" (dict "Name" "spinner") -}}
                         </span>
                     </span>
                 {{- end -}}
@@ -103,10 +103,10 @@
                             {{- partial "plugin/icon" (dict "Name" "search") -}}
                         </a>
                         <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="{{ T `clear` }}">
-                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                            {{- partial "plugin/icon" (dict "Name" "times-circle") -}}
                         </a>
                         <span class="search-button search-loading" id="search-loading-mobile">
-                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                            {{- partial "plugin/icon" (dict "Name" "spinner") -}}
                         </span>
                     </div>
                     <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">

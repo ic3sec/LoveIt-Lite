@@ -33,7 +33,7 @@
                 {{- $author := $params.author | default .Site.Params.Author.name | default (T "author") -}}
                 {{- $authorLink := $params.authorlink | default .Site.Params.Author.link | default .Site.Home.RelPermalink -}}
                 <span class="post-author">
-                    {{- $options := dict "Class" "author" "Destination" $authorLink "Title" "Author" "Rel" "author" "Icon" (dict "Class" "fas fa-user-circle fa-fw") "Content" $author -}}
+                    {{- $options := dict "Class" "author" "Destination" $authorLink "Title" "Author" "Rel" "author" "Icon" (dict "Name" "user-circle") "Content" $author -}}
                     {{- partial "plugin/a.html" $options -}}
                 </span>
 
@@ -76,14 +76,14 @@
                     <span>{{- partial "plugin/icon" (dict "Name" "angle-right" "Class" "icon angle-right icon-angle-right details-icon") -}}</span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static">
-                    {{- dict "Content" .TableOfContents "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+                    {{- dict "Content" .TableOfContents "Ruby" $params.ruby "Fraction" $params.fraction | partial "function/content.html" | safeHTML -}}
                 </div>
             </div>
         {{- end -}}
 
         {{- /* Content */ -}}
         <div class="content" id="content">
-            {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+            {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction | partial "function/content.html" | safeHTML -}}
         </div>
 
         {{- /* Footer */ -}}

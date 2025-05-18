@@ -493,8 +493,6 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     ruby = true
     # {{< version 0.2.0 >}} whether to enable the fraction extended syntax
     fraction = true
-    # {{< version 0.2.0 >}} whether to enable the fontawesome extended syntax
-    fontawesome = true
     # whether to show link to Raw Markdown content of the content
     linkToMarkdown = true
     # {{< version 0.2.4 >}} whether to show the full text content in RSS

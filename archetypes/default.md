@@ -21,7 +21,6 @@ hiddenFromSearch: false
 twemoji: false
 ruby: true
 fraction: true
-fontawesome: true
 linkToMarkdown: true
 rssFullText: false
 
