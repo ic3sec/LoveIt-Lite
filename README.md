@@ -10,6 +10,7 @@ Compared to the original LoveIt theme, the following changes have been made:
 
 * **Added** collapsing Table of Contents based on scroll location
 * **Added** colored html headings (with light/dark mode and exclude options)
+* **Added** Firefox FOUC workaround fix (prevents icons loading incorrectly)
 * **Added** ToC highlighting for last element when page bottom is reached
 * **Reduced** miscellaneous page/text animations (most default animations removed, e.g. page titles)
 * **Reduced** social link/share options (can be added back, but associated icons will need to be added manually)
