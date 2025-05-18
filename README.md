@@ -19,6 +19,7 @@ Compared to the original LoveIt theme, the following changes have been made:
 * **Replaced** header-mark ::before text with linked header text
 * **Removed** all comment system support
 * **Removed** Algolia search support
+* **Removed** AnimateCSS support (replaced with pure CSS animations)
 * **Removed** Gravatar support
 * **Removed** i18n configs and lunr language/segmentit
 * **Removed** Lightbox support
