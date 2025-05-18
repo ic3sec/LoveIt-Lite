@@ -12,13 +12,12 @@
 {{- $iconMap  = dict "bug" "fas fa-bug fa-fw" | merge $iconMap -}}
 {{- $iconMap  = dict "example" "fas fa-list-ol fa-fw" | merge $iconMap -}}
 {{- $iconMap  = dict "quote" "fas fa-quote-right fa-fw" | merge $iconMap -}}
-{{- $iconDetails := "fas fa-angle-right fa-fw" -}}
 
 {{- if .IsNamedParams -}}
     {{- $type := .Get "type" | default "note" -}}
     <div class="details admonition {{ $type }}{{ if .Get `open` | ne false }} open{{ end }}">
         <div class="details-summary admonition-title">
-            <i class="icon {{ index $iconMap $type | default (index $iconMap "note") }}" aria-hidden="true"></i>{{ .Get "title" | default (T $type) }}<i class="details-icon {{ $iconDetails }}" aria-hidden="true"></i>
+            <i class="icon {{ index $iconMap $type | default (index $iconMap "note") }}" aria-hidden="true"></i>{{ .Get "title" | default (T $type) }}{{- partial "plugin/icon" (dict "Name" "angle-right" "Class" "icon angle-right icon-angle-right details-icon") -}}
         </div>
         <div class="details-content">
             <div class="admonition-content">
@@ -30,7 +29,7 @@
     {{- $type := .Get 0 | default "note" -}}
     <div class="details admonition {{ $type }}{{ if .Get 2 | ne false }} open{{ end }}">
         <div class="details-summary admonition-title">
-            <i class="icon {{ index $iconMap $type | default (index $iconMap "note") }}" aria-hidden="true"></i>{{ .Get 1 | default (T $type) }}<i class="details-icon {{ $iconDetails }}" aria-hidden="true"></i>
+            <i class="icon {{ index $iconMap $type | default (index $iconMap "note") }}" aria-hidden="true"></i>{{ .Get 1 | default (T $type) }}{{- partial "plugin/icon" (dict "Name" "angle-right" "Class" "icon angle-right icon-angle-right details-icon") -}}
         </div>
         <div class="details-content">
             <div class="admonition-content">

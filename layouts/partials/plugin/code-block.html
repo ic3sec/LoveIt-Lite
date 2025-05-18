@@ -13,7 +13,7 @@
 {{- $result := transform.Highlight $content $lang $options -}}
 <div class="code-block{{ if $lineNos }} code-line-numbers{{ end }}{{ if le $lines $maxShownLines }} open{{ end }}" style="counter-reset: code-block {{ sub $lineNoStart 1 }}">
     <div class="code-header language-{{ $lang }}">
-        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="code-title">{{- partial "plugin/icon" (dict "Name" "angle-right" "Class" "icon angle-right icon-angle-right arrow") -}}</i></span>
         <span class="ellipsis">{{- partial "plugin/icon.html" (dict "Name" "ellipsis") -}}</i></span>
         {{- if $copy }}<span class="copy" title="{{ T "copyToClipboard" }}">{{- partial "plugin/icon.html" (dict "Name" "copy") -}}</span>{{ end -}}
     </div>

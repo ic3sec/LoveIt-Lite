@@ -48,7 +48,7 @@
     <div class="post-info-more">
         <section class="post-tags">
             {{- with .Params.tags -}}
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;
+                {{- partial "plugin/icon" (dict "Name" "tags") -}}&nbsp;
                 {{- range $index, $value := . -}}
                     {{- if gt $index 0 }},&nbsp;{{ end -}}
                     {{- $tag := partialCached "function/path.html" $value $value | printf "/tags/%v" | $.Site.GetPage -}}
@@ -76,10 +76,10 @@
             {{- $nextPage = .NextInSection -}}
         {{- end -}}
         {{- with $prevPage -}}
-            <a href="{{ .RelPermalink }}" class="prev" rel="prev" title="{{ .Title }}"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>{{ .Title | emojify }}</a>
+            <a href="{{ .RelPermalink }}" class="prev" rel="prev" title="{{ .Title }}">{{- partial "plugin/icon" (dict "Name" "angle-right" "Class" "icon angle-left icon-angle-left") -}}{{ .Title | emojify }}</a>
         {{- end -}}
         {{ with $nextPage }}
-            <a href="{{ .RelPermalink }}" class="next" rel="next" title="{{ .Title }}">{{ .Title | emojify }}<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a>
+            <a href="{{ .RelPermalink }}" class="next" rel="next" title="{{ .Title }}">{{ .Title | emojify }}{{- partial "plugin/icon" (dict "Name" "angle-right") -}}</i></a>
         {{- end -}}
     </div>
 </div>

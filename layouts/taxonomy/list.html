@@ -10,7 +10,7 @@
             {{- if eq $taxonomy "category" -}}
                 <i class="far fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;{{ .Title }}
             {{- else if eq $taxonomy "tag" -}}
-                <i class="fas fa-tag fa-fw" aria-hidden="true"></i>&nbsp;{{ .Title }}
+                {{- partial "plugin/icon" (dict "Name" "tag") -}}&nbsp;{{ .Title }}
             {{- else -}}
                 {{- printf "%v - %v" (T $taxonomy | default $taxonomy) .Title -}}
             {{- end -}}

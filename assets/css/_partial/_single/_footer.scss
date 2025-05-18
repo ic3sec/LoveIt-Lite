@@ -100,4 +100,13 @@
       @include transform(translateX(4px));
     }
   }
+
+  .angle-right, .angle-left {
+    width: 1em;
+    height: 1em;
+  }
+
+  .angle-left {
+    transform: rotate(180deg);
+  }
 }
