@@ -485,3 +485,33 @@ svg.github, svg.search, svg.adjust {
 svg.adjust {
   transform: rotate(215deg);
 }
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+.fade-in-down {
+  animation: fadeInDown 0.5s ease-out forwards;
+}
+
+.fade-out-up {
+  animation: fadeOutUp 0.5s ease-in forwards;
+}

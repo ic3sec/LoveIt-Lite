@@ -86,7 +86,6 @@ Thanks to the authors of following resources included in the theme:
 * [modern-normalize](https://github.com/sindresorhus/modern-normalize)
 * [Font Awesome Icons](https://fontawesome.com/)
 * [Simple Icons](https://github.com/simple-icons/simple-icons)
-* [Animate.css](https://daneden.github.io/animate.css/)
 * [Lunr.js](https://lunrjs.com/)
 * [lazysizes](https://github.com/aFarkas/lazysizes)
 * [object-fit-images](https://github.com/fregante/object-fit-images)

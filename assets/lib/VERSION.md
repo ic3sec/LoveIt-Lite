@@ -2,7 +2,6 @@
 
 | Dependency Library                                                                  | Directory         | Version |
 |:------------------------------------------------------------------------------------|:------------------|--------:|
-| [Animate.css](https://github.com/daneden/animate.css)                               | animate           |   4.1.1 |
 | [APlayer](https://github.com/MoePlayer/APlayer)                                     | aplayer           |  1.10.1 |
 | [clipboard.js](https://github.com/zenorocha/clipboard.js)                           | clipboard         |  2.0.11 |
 | [Cookie Consent](https://github.com/osano/cookieconsent)                            | cookieconsent     |   3.1.1 |

@@ -1,8 +1,6 @@
 prefix:
   libFiles: https://cdn.jsdelivr.net/npm/
 libFiles:
-  # animate.css@4.1.1 https://github.com/daneden/animate.css
-  animateCSS: animate.css@4.1.1/animate.min.css
   # lunr.js@2.3.9 https://lunrjs.com/
   lunrJS: lunr@2.3.9/lunr.min.js
   # lazysizes@5.3.2 https://github.com/aFarkas/lazysizes

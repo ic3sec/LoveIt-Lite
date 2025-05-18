@@ -1,13 +1,9 @@
 "use strict";
 
 function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t.return || t.return(); } finally { if (u) throw o; } } }; }
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
 function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
 function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
@@ -37,20 +33,6 @@ var Util = /*#__PURE__*/function () {
     key: "isTocStatic",
     value: function isTocStatic() {
       return window.matchMedia('only screen and (max-width: 960px)').matches;
-    }
-  }, {
-    key: "animateCSS",
-    value: function animateCSS(element, animation, reserved, callback) {
-      var _element$classList;
-      if (!Array.isArray(animation)) animation = [animation];
-      (_element$classList = element.classList).add.apply(_element$classList, ['animate__animated'].concat(_toConsumableArray(animation)));
-      var _handler = function handler() {
-        var _element$classList2;
-        (_element$classList2 = element.classList).remove.apply(_element$classList2, ['animate__animated'].concat(_toConsumableArray(animation)));
-        element.removeEventListener('animationend', _handler);
-        if (typeof callback === 'function') callback();
-      };
-      if (!reserved) element.addEventListener('animationend', _handler, false);
     }
   }]);
 }();
@@ -614,26 +596,26 @@ var Theme = /*#__PURE__*/function () {
         var isMobile = Util.isMobile();
         Util.forEach($headers, function ($header) {
           if (scroll > ACCURACY) {
-            $header.classList.remove('animate__fadeInDown');
-            Util.animateCSS($header, ['animate__fadeOutUp', 'animate__faster'], true);
+            $header.classList.remove('fade-in-down');
+            $header.classList.add('fade-out-up');
           } else if (scroll < -ACCURACY) {
-            $header.classList.remove('animate__fadeOutUp');
-            Util.animateCSS($header, ['animate__fadeInDown', 'animate__faster'], true);
+            $header.classList.remove('fade-out-up');
+            $header.classList.add('fade-in-down');
           }
         });
         if (_this9.newScrollTop > MINIMUM) {
           if (isMobile && scroll > ACCURACY) {
-            $fixedButtons.classList.remove('animate__fadeIn');
-            Util.animateCSS($fixedButtons, ['animate__fadeOut', 'animate__faster'], true);
+            $fixedButtons.classList.remove('fade-in-down');
+            $fixedButtons.classList.add('fade-out-up');
           } else if (!isMobile || scroll < -ACCURACY) {
             $fixedButtons.style.display = 'block';
-            $fixedButtons.classList.remove('animate__fadeOut');
-            Util.animateCSS($fixedButtons, ['animate__fadeIn', 'animate__faster'], true);
+            $fixedButtons.classList.remove('fade-out-up');
+            $fixedButtons.classList.add('fade-in-down');
           }
         } else {
           if (!isMobile) {
-            $fixedButtons.classList.remove('animate__fadeIn');
-            Util.animateCSS($fixedButtons, ['animate__fadeOut', 'animate__faster'], true);
+            $fixedButtons.classList.remove('fade-in-down');
+            $fixedButtons.classList.add('fade-out-up');
           }
           $fixedButtons.style.display = 'none';
         }

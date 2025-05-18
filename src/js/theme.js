@@ -15,17 +15,6 @@ class Util {
     static isTocStatic() {
         return window.matchMedia('only screen and (max-width: 960px)').matches;
     }
-
-    static animateCSS(element, animation, reserved, callback) {
-        if (!Array.isArray(animation)) animation = [animation];
-        element.classList.add('animate__animated', ...animation);
-        const handler = () => {
-            element.classList.remove('animate__animated', ...animation);
-            element.removeEventListener('animationend', handler);
-            if (typeof callback === 'function') callback();
-        };
-        if (!reserved) element.addEventListener('animationend', handler, false);
-    }
 }
 
 class Theme {
@@ -551,26 +540,26 @@ class Theme {
             const isMobile = Util.isMobile();
             Util.forEach($headers, $header => {
                 if (scroll > ACCURACY) {
-                    $header.classList.remove('animate__fadeInDown');
-                    Util.animateCSS($header, ['animate__fadeOutUp', 'animate__faster'], true);
+                    $header.classList.remove('fade-in-down');
+                    $header.classList.add('fade-out-up');
                 } else if (scroll < - ACCURACY) {
-                    $header.classList.remove('animate__fadeOutUp');
-                    Util.animateCSS($header, ['animate__fadeInDown', 'animate__faster'], true);
+                    $header.classList.remove('fade-out-up');
+                    $header.classList.add('fade-in-down');
                 }
             });
             if (this.newScrollTop > MINIMUM) {
                 if (isMobile && scroll > ACCURACY) {
-                    $fixedButtons.classList.remove('animate__fadeIn');
-                    Util.animateCSS($fixedButtons, ['animate__fadeOut', 'animate__faster'], true);
+                    $fixedButtons.classList.remove('fade-in-down');
+                    $fixedButtons.classList.add('fade-out-up');
                 } else if (!isMobile || scroll < - ACCURACY) {
                     $fixedButtons.style.display = 'block';
-                    $fixedButtons.classList.remove('animate__fadeOut');
-                    Util.animateCSS($fixedButtons, ['animate__fadeIn', 'animate__faster'], true);
+                    $fixedButtons.classList.remove('fade-out-up');
+                    $fixedButtons.classList.add('fade-in-down');
                 }
             } else {
                 if (!isMobile) {
-                    $fixedButtons.classList.remove('animate__fadeIn');
-                    Util.animateCSS($fixedButtons, ['animate__fadeOut', 'animate__faster'], true);
+                    $fixedButtons.classList.remove('fade-in-down');
+                    $fixedButtons.classList.add('fade-out-up');
                 }
                 $fixedButtons.style.display = 'none';
             }
