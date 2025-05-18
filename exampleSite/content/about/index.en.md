@@ -17,7 +17,7 @@ math:
 [![GitHub forks](https://img.shields.io/github/forks/dillonzq/LoveIt?style=social)](https://github.com/dillonzq/LoveIt/fork)
 {{< /style >}}
 
-> [LoveIt-Lite](https://github.com/ic3sec/LoveIt-Lite) is a **clean**, **elegant** but **advanced** blog theme for [Hugo](https://gohugo.io/) developed by {{< person "https://dillonzq.com/" Dillon "author of the LoveIt theme" "/Dillon.png" >}}.
+> [LoveIt-Lite](https://github.com/ic3sec/LoveIt-Lite) is a **clean**, **elegant** but **advanced** blog theme for [Hugo](https://gohugo.io/).
 >
 > It is based on the original [LeaveIt Theme](https://github.com/liuzc/LeaveIt) and [KeepIt Theme](https://github.com/Fastbyte01/KeepIt).
 
@@ -72,7 +72,6 @@ math:
 * **Custom script** shortcode
 * **Animated typing** supported by [TypeIt](https://typeitjs.com/)
 * **Cookie consent banner** supported by [cookieconsent](https://github.com/osano/cookieconsent)
-* **Person** shortcode
 * ...
 
 ## License

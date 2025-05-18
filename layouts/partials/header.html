@@ -57,28 +57,6 @@
                 <a href="javascript:void(0);" class="menu-item theme-switch" title="{{ T "switchTheme" }}">
                     {{- partial "plugin/icon" (dict "Name" "adjust") -}}
                 </a>
-                {{- if hugo.IsMultilingual -}}
-                <a href="javascript:void(0);" class="menu-item language" title="{{ T "selectLanguage" }}">
-                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>                      
-                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;">
-                        {{- if eq .Kind "404" -}}
-                            {{- /* https://github.com/dillonzq/LoveIt/issues/378 */ -}}
-                            {{- range .Sites -}}
-                                {{- $link := printf "%v/404.html" .LanguagePrefix -}}
-                                <option value="{{ $link }}"{{ if eq . $.Site }} selected{{ end }}>
-                                    {{- .Language.LanguageName -}}
-                                </option>
-                            {{- end -}}
-                        {{- else -}}
-                            {{- range .AllTranslations -}}
-                                <option value="{{ .RelPermalink }}"{{ if eq .Lang $.Lang }} selected{{ end }}>
-                                    {{- .Language.LanguageName -}}
-                                </option>
-                            {{- end -}}
-                        {{- end -}}
-                    </select>
-                </a>
-            {{- end -}}
             </div>
         </div>
     </div>
@@ -149,29 +127,6 @@
             <a href="javascript:void(0);" class="menu-item theme-switch" title="{{ T "switchTheme" }}">
                 {{- partial "plugin/icon" (dict "Name" "adjust") -}}
             </a>
-            {{- if hugo.IsMultilingual -}}
-            
-                <a href="javascript:void(0);" class="menu-item" title="{{ T "selectLanguage" }}">
-                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
-                    <select class="language-select" onchange="location = this.value;">
-                        {{- if eq .Kind "404" -}}
-                            {{- /* https://github.com/dillonzq/LoveIt/issues/378 */ -}}
-                            {{- range .Sites -}}
-                                {{- $link := printf "%v/404.html" .LanguagePrefix -}}
-                                <option value="{{ $link }}"{{ if eq . $.Site }} selected{{ end }}>
-                                    {{- .Language.LanguageName -}}
-                                </option>
-                            {{- end -}}
-                        {{- else -}}
-                            {{- range .AllTranslations -}}
-                                <option value="{{ .RelPermalink }}"{{ if eq .Lang $.Lang }} selected{{ end }}>
-                                    {{- .Language.LanguageName -}}
-                                </option>
-                            {{- end -}}
-                        {{- end -}}
-                    </select>
-                </a>
-            {{- end -}}
         </div>
     </div>
 </header>

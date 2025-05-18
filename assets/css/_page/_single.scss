@@ -152,6 +152,11 @@
 
     ul {
       list-style-type: disc;
+
+      svg {
+        width: 1em;
+        height: 1em;
+      }
     }
 
     ruby {
@@ -306,16 +311,7 @@
       height: 1.25em;
       vertical-align: text-bottom;
     }
-
-    .person-mention.h-card {
-      display: inline-block;
-      img {
-        vertical-align: -12%;
-        max-height: 1.1em;
-        margin-right: 0;
-        border-radius: 50%;
-      }
-    }
+    
   }
 
   @import "../_partial/_single/footer";

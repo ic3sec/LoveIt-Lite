@@ -22,6 +22,7 @@ Compared to the original LoveIt theme, the following changes have been made:
 * **Removed** i18n configs and lunr language/segmentit
 * **Removed** Lightbox support
 * **Removed** Mapbox support
+* **Removed** person shortcode
 
 LoveIt-Lite is meant to be as lightweight and secure as possible with all dynamic content generation options removed.
 
