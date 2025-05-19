@@ -62,7 +62,6 @@ math:
 * **Diagrams** shortcode supported by [mermaid](https://github.com/mermaid-js/mermaid)
 * **Interactive data visualization** shortcode supported by [ECharts](https://echarts.apache.org/)
 * **Music player** shortcode supported by [APlayer](https://github.com/MoePlayer/APlayer) and [MetingJS](https://github.com/metowolf/MetingJS)
-* **Bilibili player** shortcode
 * Kinds of **admonitions** shortcode
 * **Custom style** shortcode
 * **Custom script** shortcode

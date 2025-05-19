@@ -460,7 +460,6 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     Gitea = ""
     XMPP = ""
     Matrix = ""
-    Bilibili = ""
     Discord = ""
     DiscordInvite = ""
     Lichess = ""

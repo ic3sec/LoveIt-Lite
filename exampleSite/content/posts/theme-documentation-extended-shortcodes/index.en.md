@@ -227,14 +227,6 @@ The `music` shortcode embeds a responsive music player based on [APlayer](https:
 
 The full documentation is provided in [Theme Documentation - music Shortcode](../theme-documentation-music-shortcode).
 
-## 8 bilibili
-
-{{< version 0.2.0 changed >}}
-
-The `bilibili` shortcode embeds a responsive video player for bilibili videos.
-
-The full documentation is provided in [Theme Documentation - bilibili Shortcode](../theme-documentation-bilibili-shortcode).
-
 ## 9 typeit
 
 The `typeit` shortcode provides typing animation based on [TypeIt](https://typeitjs.com/) library.
