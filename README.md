@@ -20,6 +20,7 @@ Compared to the original LoveIt theme, the following changes have been made:
 * **Removed** all comment system support
 * **Removed** Algolia search support
 * **Removed** AnimateCSS support (replaced with pure CSS animations)
+* **Removed** Bilibili player support
 * **Removed** CDN support
 * **Removed** Gravatar support
 * **Removed** i18n configs and lunr language/segmentit
