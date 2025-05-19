@@ -543,7 +543,6 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       Flipboard = false
       Weibo = true
       Blogger = false
-      Baidu = false
       Odnoklassniki = false
       Evernote = false
       Skype = false
@@ -584,7 +583,6 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     google = ""
     bing = ""
     pinterest = ""
-    baidu = ""
 
   # {{< version 0.2.10 >}} Site SEO config
   [params.seo]
