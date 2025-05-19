@@ -19,13 +19,6 @@
 {{- $source := "lib/lazysizes/lazysizes.min.js" -}}
 {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
 
-{{- /* twemoji */ -}}
-{{- if $params.twemoji -}}
-    {{- $source := "lib/twemoji/twemoji.min.js" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-    {{- $config = dict "twemoji" true | merge $config -}}
-{{- end -}}
-
 {{- /* clipboard.js */ -}}
 {{- if $params.code.copy | default true -}}
     {{- $source := "lib/clipboard/clipboard.min.js" -}}

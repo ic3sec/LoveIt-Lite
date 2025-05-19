@@ -79,11 +79,6 @@ var Theme = /*#__PURE__*/function () {
       });
     }
   }, {
-    key: "initTwemoji",
-    value: function initTwemoji() {
-      if (this.config.twemoji) twemoji.parse(document.body);
-    }
-  }, {
     key: "initMenuMobile",
     value: function initMenuMobile() {
       var $menuToggleMobile = document.getElementById('menu-toggle-mobile');
@@ -688,7 +683,6 @@ var Theme = /*#__PURE__*/function () {
       try {
         this.initRaw();
         this.initSVGIcon();
-        this.initTwemoji();
         this.initMenuMobile();
         this.initSwitchTheme();
         this.initSearch();

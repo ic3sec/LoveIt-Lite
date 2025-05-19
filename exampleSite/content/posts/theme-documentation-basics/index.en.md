@@ -487,8 +487,6 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     hiddenFromHomePage = false
     # {{< version 0.2.0 >}} whether to hide a page from search results
     hiddenFromSearch = false
-    # {{< version 0.2.0 >}} whether to enable twemoji
-    twemoji = false
     # {{< version 0.2.0 >}} whether to enable the ruby extended syntax
     ruby = true
     # {{< version 0.2.0 >}} whether to enable the fraction extended syntax

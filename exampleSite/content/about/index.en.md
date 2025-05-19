@@ -55,7 +55,6 @@ math:
 ### Extended Features
 
 * **Search** supported by [Lunr.js](https://lunrjs.com/)
-* **Twemoji** supported
 * Automatically **highlighting** code
 * **Copy code** to clipboard with one click
 * Extended Markdown syntax for **ruby annotation**
@@ -87,7 +86,6 @@ Thanks to the authors of following resources included in the theme:
 * [Lunr.js](https://lunrjs.com/)
 * [lazysizes](https://github.com/aFarkas/lazysizes)
 * [object-fit-images](https://github.com/fregante/object-fit-images)
-* [Twemoji](https://github.com/twitter/twemoji)
 * [emoji-data](https://github.com/iamcal/emoji-data)
 * [clipboard.js](https://github.com/zenorocha/clipboard.js)
 * [Sharer.js](https://github.com/ellisonleao/sharer.js)

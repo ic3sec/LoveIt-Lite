@@ -87,7 +87,6 @@ featuredImagePreview: ""
 
 hiddenFromHomePage: false
 hiddenFromSearch: false
-twemoji: false
 ruby: true
 fraction: true
 linkToMarkdown: true
@@ -137,7 +136,6 @@ seo:
 
 * **hiddenFromHomePage**: if `true`, the content will not be shown in the home page.
 * **hiddenFromSearch**: {{< version 0.2.0 >}} if `true`, the content will not be shown in the search results.
-* **twemoji**: {{< version 0.2.0 >}} if `true`, the content will enable the twemoji.
 * **ruby**: {{< version 0.2.0 >}} if `true`, the content will enable the [ruby extended syntax](#ruby).
 * **fraction**: {{< version 0.2.0 >}} if `true`, the content will enable the [fraction extended syntax](#fraction).
 * **linkToMarkdown**: if `true`, the footer of the content will be shown the link to the orignal Markdown file.

@@ -26,6 +26,7 @@ Compared to the original LoveIt theme, the following changes have been made:
 * **Removed** Lightbox support
 * **Removed** Mapbox support
 * **Removed** person shortcode
+* **Removed** Twemoji support
 
 LoveIt-Lite is meant to be as lightweight and secure as possible with all dynamic content generation options and external calls removed.
 

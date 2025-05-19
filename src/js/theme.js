@@ -55,10 +55,6 @@ class Theme {
         });
     }
 
-    initTwemoji() {
-        if (this.config.twemoji) twemoji.parse(document.body);
-    }
-
     initMenuMobile() {
         const $menuToggleMobile = document.getElementById('menu-toggle-mobile');
         const $menuMobile = document.getElementById('menu-mobile');
@@ -593,7 +589,6 @@ class Theme {
         try {
             this.initRaw();
             this.initSVGIcon();
-            this.initTwemoji();
             this.initMenuMobile();
             this.initSwitchTheme();
             this.initSearch();
