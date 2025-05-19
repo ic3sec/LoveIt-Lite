@@ -301,10 +301,9 @@
       [params.page.library.css]
         # someCSS = "some.css"
         # located in "assets/"
-        # someCSS = "https://cdn.example.com/some.css"
       [params.page.library.js]
         # someJavascript = "some.js"
-        # someJavascript = "https://cdn.example.com/some.js"
+        # located in "assets/"
     # Page SEO config
     [params.page.seo]
       # image URL
@@ -367,15 +366,6 @@
       message = ""
       dismiss = ""
       link = ""
-
-  # CDN config for third-party library files
-  [params.cdn]
-    # CDN data file name, disabled by default
-    # ["jsdelivr.yml"]
-    # located in "themes/LoveIt/assets/data/cdn/" directory
-    # you can store your own data files in the same path under your project:
-    # "assets/data/cdn/"
-    data = "jsdelivr.yml"
 
   # Compatibility config
   [params.compatibility]

@@ -20,13 +20,14 @@ Compared to the original LoveIt theme, the following changes have been made:
 * **Removed** all comment system support
 * **Removed** Algolia search support
 * **Removed** AnimateCSS support (replaced with pure CSS animations)
+* **Removed** CDN support
 * **Removed** Gravatar support
 * **Removed** i18n configs and lunr language/segmentit
 * **Removed** Lightbox support
 * **Removed** Mapbox support
 * **Removed** person shortcode
 
-LoveIt-Lite is meant to be as lightweight and secure as possible with all dynamic content generation options removed.
+LoveIt-Lite is meant to be as lightweight and secure as possible with all dynamic content generation options and external calls removed.
 
 Some small style changes have been made including **colored headings** and **collapsing Table of Contents**.
 

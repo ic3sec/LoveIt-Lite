@@ -34,7 +34,6 @@ math:
 * **[Plausible Analytics](https://plausible.io/)** supported
 * **[Yandex Metrica](https://metrica.yandex.com/)** supported
 * Search engine **verification** supported (Google, Bind, Yandex and Baidu)
-* **CDN** for third-party libraries supported
 * Automatically converted images with **Lazy Load** by [lazysizes](https://github.com/aFarkas/lazysizes)
 
 ### Appearance and Layout

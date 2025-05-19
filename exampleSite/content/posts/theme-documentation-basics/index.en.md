@@ -559,13 +559,9 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       [params.page.library.css]
         # someCSS = "some.css"
         # located in "assets/"
-        # Or
-        # someCSS = "https://cdn.example.com/some.css"
       [params.page.library.js]
         # someJavascript = "some.js"
         # located in "assets/"
-        # Or
-        # someJavascript = "https://cdn.example.com/some.js"
     # {{< version 0.2.10 changed >}} Page SEO config
     [params.page.seo]
       # image URL
@@ -632,15 +628,6 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       message = ""
       dismiss = ""
       link = ""
-
-  # {{< version 0.2.7 changed >}} CDN config for third-party library files
-  [params.cdn]
-    # CDN data file name, disabled by default
-    # ["jsdelivr.yml"]
-    # located in "themes/LoveIt-Lite/assets/data/cdn/" directory
-    # you can store your own data files in the same path under your project:
-    # "assets/data/cdn/"
-    data = ""
 
   # {{< version 0.2.8 >}} Compatibility config
   [params.compatibility]
@@ -727,23 +714,9 @@ Note that some of these parameters are explained in details in other sections of
 Default environments are `development` with `hugo serve` and `production` with `hugo`.
 
 Due to limitations in the local `development` environment,
-the **CDN** and **fingerprint** will not be enabled in the `development` environment.
+the **fingerprint** will not be enabled in the `development` environment.
 
 You could enable these features with `hugo serve -e production`.
-{{< /admonition >}}
-
-{{< admonition tip "Tips about CDN Configuration" >}}
-{{< version 0.2.7 changed >}}
-
-```toml
-[params.cdn]
-  # CDN data file name, disabled by default
-  # ["jsdelivr.yml"]
-  data = ""
-````
-
-The default CDN data file is located in `themes/LoveIt-Lite/assets/data/cdn/` directory.
-You can store your own data file in the same path under your project: `assets/data/cdn/`.
 {{< /admonition >}}
 
 {{< admonition tip "Tips about social Configuration" >}}
