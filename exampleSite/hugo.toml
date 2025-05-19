@@ -370,13 +370,11 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # cursor duration after typing finishing (measured in milliseconds, "-1" means unlimited)
     duration = -1
 
-  # Site verification code for Google/Bing/Yandex/Pinterest/Baidu
+  # Site verification code for Google/Bing/Pinterest
   [params.verification]
     google = ""
     bing = ""
-    yandex = ""
     pinterest = ""
-    baidu = ""
 
   # Site SEO config
   [params.seo]
@@ -400,10 +398,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # Plausible Analytics
     [params.analytics.plausible]
       dataDomain = ""
-    # Yandex Metrica
-    [params.analytics.yandexMetrica]
-      id = ""
-
+      
   # Cookie consent config
   [params.cookieconsent]
     enable = false

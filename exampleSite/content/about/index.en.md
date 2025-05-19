@@ -32,8 +32,7 @@ math:
 * **[Google Analytics](https://analytics.google.com/analytics)** supported
 * **[Fathom Analytics](https://usefathom.com/)** supported
 * **[Plausible Analytics](https://plausible.io/)** supported
-* **[Yandex Metrica](https://metrica.yandex.com/)** supported
-* Search engine **verification** supported (Google, Bind, Yandex and Baidu)
+* Search engine **verification** supported (Google and Bing supported)
 * Automatically converted images with **Lazy Load** by [lazysizes](https://github.com/aFarkas/lazysizes)
 
 ### Appearance and Layout
