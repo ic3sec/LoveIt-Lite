@@ -10,18 +10,14 @@ math:
 ---
 
 {{< style "img { height: 1.25rem; }" >}}
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/dillonzq/LoveIt?style=flat-square)](https://github.com/ic3sec/LoveIt-Lite/releases)
-[![Hugo](https://img.shields.io/badge/Hugo-%5E0.128.0-ff4088?style=flat-square&logo=hugo)](https://gohugo.io/)
-[![License](https://img.shields.io/github/license/dillonzq/LoveIt?style=flat-square)](https://github.com/dillonzq/LoveIt/blob/master/LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/dillonzq/LoveIt?style=social)](https://github.com/dillonzq/LoveIt)
-[![GitHub forks](https://img.shields.io/github/forks/dillonzq/LoveIt?style=social)](https://github.com/dillonzq/LoveIt/fork)
+[GitHub Release](https://github.com/ic3sec/LoveIt-Lite/releases) |
+[Hugo v0.145.0](https://gohugo.io/) |
+[License](https://github.com/ic3sec/LoveIt-Lite/blob/master/LICENSE)
 {{< /style >}}
 
 > [LoveIt-Lite](https://github.com/ic3sec/LoveIt-Lite) is a **clean**, **elegant** but **advanced** blog theme for [Hugo](https://gohugo.io/).
 >
-> It is based on the original [LeaveIt Theme](https://github.com/liuzc/LeaveIt) and [KeepIt Theme](https://github.com/Fastbyte01/KeepIt).
-
-![Hugo Theme LoveIt](/images/Apple-Devices-Preview.png "Hugo Theme LoveIt")
+> It is based on the [LoveIt Theme](https://github.com/dillonzp/LoveIt), with a trimmed feature set and some stylistic changes.
 
 ## Features
 
@@ -41,15 +37,12 @@ math:
 * **[Light]/[Dark]** mode
 * Globally consistent **design language**
 * **Pagination** supported
-* Easy-to-use and self-expanding **table of contents**
-* **Multilanguage** supported and i18n ready
-* Beautiful **CSS animation**
+* Easy-to-use, self-expanding and collapsible **table of contents**
+* **Coloured** headers
 
 ### Social Systems
 
-* Local **Avatar** supported
-* Up to **81** social links supported
-* Up to **27** share sites supported
+* Social sharing on major platforms supported
 
 ### Extended Features
 
@@ -73,7 +66,7 @@ math:
 
 LoveIt is licensed under the **MIT** license.
 
-Check the [LICENSE file](https://github.com/dillonzq/LoveIt/blob/master/LICENSE) for details.
+Check the [LICENSE file](https://github.com/ic3sec/LoveIt-Lite/blob/master/LICENSE) for details.
 
 ## Special Thanks
 
