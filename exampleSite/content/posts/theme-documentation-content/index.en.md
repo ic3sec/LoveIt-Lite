@@ -2,11 +2,11 @@
 weight: 2
 title: "Theme Documentation - Content"
 date: 2020-03-05T15:58:26+08:00
-lastmod: 2020-03-05T15:58:26+08:00
+lastmod: 2025-05-20T21:12:32-08:00
 draft: false
-author: "Dillon"
-authorLink: "https://dillonzq.com"
-description: "Find out how to create and organize your content quickly and intuitively in LoveIt theme."
+author: "Dillon/ic3sec"
+authorLink: ""
+description: "Find out how to create and organize your content quickly and intuitively in LoveIt-Lite theme."
 images: []
 resources:
 - name: "featured-image"
@@ -21,11 +21,11 @@ math:
   enable: true
 ---
 
-Find out how to create and organize your content quickly and intuitively in **LoveIt** theme.
+Find out how to create and organize your content quickly and intuitively in **LoveIt-Lite** theme.
 
 <!--more-->
 
-## 1 Contents Organization {#contents-organization}
+## Contents Organization {#contents-organization}
 
 A few suggestions to help you get a good looking site quickly:
 
@@ -55,7 +55,7 @@ will be supported in the future.
 It's really cool!
 {{< /admonition >}}
 
-## 2 Front Matter {#front-matter}
+## Front Matter {#front-matter}
 
 **Hugo** allows you to add front matter in `yaml`, `toml` or `json` to your content files.
 
@@ -165,9 +165,9 @@ resources:
 ```
 {{< /admonition >}}
 
-## 3 Content Summaries
+## Content Summaries
 
-**LoveIt** theme uses the summary of the content to display abstract information in the home page. Hugo can generate summaries of your content.
+**LoveIt-Lite** theme uses the summary of the content to display abstract information in the home page. Hugo can generate summaries of your content.
 
 ![Summary Preview](summary.png "Summary Preview")
 
@@ -176,8 +176,6 @@ resources:
 By default, Hugo automatically takes the first 70 words of your content as its summary.
 
 You may customize the summary length by setting `summaryLength` in the [site configuration](../theme-documentation-basics#site-configuration).
-
-If you are creating content in a [CJK]^(Chinese/Japanese/Korean) language and want to use Hugo’s automatic summary splitting, set `hasCJKLanguage` to `true` in your [site configuration](../theme-documentation-basics#site-configuration).
 
 ### Manual Summary Splitting
 
@@ -197,7 +195,7 @@ You might want your summary to be something other than the text that starts the 
 
 You might want your description in the `description` variable of the article front matter as the summary.
 
-You may add the `<!--more-->` summary divider at the start of the article. Keep content that comes before the summary divider empty. Then **LoveIt** theme will use your description as the summary.
+You may add the `<!--more-->` summary divider at the start of the article. Keep content that comes before the summary divider empty. Then **LoveIt-Lite** theme will use your description as the summary.
 
 ### Priority Order of Summary Selection
 
@@ -212,13 +210,13 @@ Because there are multiple ways in which a summary can be specified it is useful
 It is not recommended to include rich text block elements in the summary, which will cause typographic errors. Such as code blocks, pictures, tables, etc.
 {{< /admonition >}}
 
-## 4 Basic Markdown Syntax
+## Basic Markdown Syntax
 
 This part is shown in the [basic markdown syntax page](../basic-markdown-syntax/).
 
-## 5 Extended Markdown Syntax {#extended-markdown-syntax}
+## Extended Markdown Syntax {#extended-markdown-syntax}
 
-**LoveIt** theme has some extended syntax elements for you to write articles.
+**LoveIt-Lite** theme has some extended syntax elements for you to write articles.
 
 ### Diagrams
 
@@ -255,7 +253,7 @@ This part is shown in the [emoji support page](../emoji-support/).
 
 {{< version 0.2.11 changed >}}
 
-**LoveIt** theme supports mathematical formulas based on [$\KaTeX$](https://katex.org/).
+**LoveIt-Lite** theme supports mathematical formulas based on [$\KaTeX$](https://katex.org/).
 
 Set the property `enable = true` under `[params.math]` in your [site configuration](../theme-documentation-basics#site-configuration)
 and the property `math: true` of the article front matter to enable the automatic rendering of mathematical formulas.
@@ -443,7 +441,7 @@ $$ \ce{Hg^2+ ->[I-] HgI2 ->[I-] [Hg^{II}I4]^2-} $$
 
 ### Ruby Annotation {#ruby}
 
-An extended Markdown syntax for **ruby annotation** is supported in **LoveIt** theme:
+An extended Markdown syntax for **ruby annotation** is supported in **LoveIt-Lite** theme:
 
 ```markdown
 [Hugo]{?^}(An open-source static site generator)
@@ -457,7 +455,7 @@ The rendered output looks like this:
 
 {{< version 0.2.0 >}}
 
-An extended Markdown syntax for **fraction** is supported in **LoveIt** theme:
+An extended Markdown syntax for **fraction** is supported in **LoveIt-Lite** theme:
 
 ```markdown
 [Light]{?/}[Dark]
@@ -471,9 +469,15 @@ The rendered output looks like this:
 
 [90]/[100]
 
-### Font Awesome SVGS {#fontawesome}
+### Font Awesome SVGs {#fontawesome}
 
-**LoveIt-Lite** theme uses SVG icons from [Font Awesome](https://fontawesome.com/) as the icon library.
+**LoveIt-Lite** theme uses SVG icons from [Font Awesome](https://fontawesome.com/) as the icon library in the form of an SVG sprite sheet (/layouts/partials/svg-sprite.html) that is loaded as part of the theme base.
+
+Icons can be accessed with the `icon` shortcode or directly referencing them in an SVG + use tag pair as follows:
+
+`<svg class='icon NAME icon-NAME' aria-hidden='true'><use href='#icon-NAME'></use></svg>`
+
+General styling for all SVGs with the **icon** class is applied, but further styling will need to be added manually for any newly added icons.
 
 ### Escape character {#escape-character}
 
