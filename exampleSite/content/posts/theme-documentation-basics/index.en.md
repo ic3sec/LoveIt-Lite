@@ -2,10 +2,10 @@
 weight: 1
 title: "Theme Documentation - Basics"
 date: 2020-03-06T21:29:01+08:00
-lastmod: 2020-03-06T21:29:01+08:00
+lastmod: 2025-05-20T17:22:36-08:00
 draft: false
-author: "Dillon"
-authorLink: "https://dillonzq.com"
+author: "Dillon/ic3sec"
+authorLink: ""
 description: "Discover what the Hugo - LoveIt-Lite theme is all about and the core-concepts behind it."
 images: []
 resources:
@@ -23,17 +23,17 @@ Discover what the Hugo - **LoveIt-Lite** theme is all about and the core-concept
 
 <!--more-->
 
-## 1 Requirements
+## Requirements
 
 Thanks to the simplicity of Hugo, [Hugo](https://gohugo.io/) is the only dependency of this theme.
 
 Install [Hugo Extended v0.145.0](https://github.com/gohugoio/hugo/releases/tag/v0.145.0) for your OS (**Windows**, **Linux**, **macOS**).
 
-## 2 Installation
+## Installation
 
 The following steps are here to help you initialize your new website. If you don’t know Hugo at all, we strongly suggest you learn more about it by following this [great documentation for beginners](https://gohugo.io/getting-started/quick-start/).
 
-### 2.1 Create Your Project
+### Create Your Project
 
 Hugo provides a `new` command to create a new website:
 
@@ -42,7 +42,7 @@ hugo new site my_website
 cd my_website
 ```
 
-### 2.2 Install the Theme
+### Install the Theme
 
 The **LoveIt-Lite** theme's repository is: [https://github.com/ic3sec/LoveIt-Lite](https://github.com/ic3sec/LoveIt-Lite).
 
@@ -69,7 +69,7 @@ git submodule add https://github.com/ic3sec/LoveIt-Lite.git themes/LoveIt-Lite
 
 {{< /admonition >}}
 
-### 2.3 Basic Configuration {#basic-configuration}
+### Basic Configuration {#basic-configuration}
 
 The following is a basic configuration for the LoveIt-Lite theme:
 
@@ -82,9 +82,9 @@ theme = "LoveIt-Lite"
 # website title
 title = "My New Hugo Site"
 
-# language code ["en", "zh-CN", "fr", "pl", ...]
+# language code ["en"]
 languageCode = "en"
-# language name ["English", "简体中文", "Français", "Polski", ...]
+# language name ["English"]
 languageName = "English"
 
 # Menu config
@@ -129,7 +129,7 @@ languageName = "English"
 When building the website, you can set a theme by using `--theme` option. However, we suggest you modify the configuration file (**hugo.toml**) and set the theme as the default.
 {{< /admonition >}}
 
-### 2.4 Create Your First Post
+### Create Your First Post
 
 Here is the way to create your first post:
 
@@ -143,7 +143,7 @@ Feel free to edit the post file by adding some sample content and replacing the 
 By default all posts and pages are created as a draft. If you want to render these pages, remove the property `draft: true` from the metadata, set the property `draft: false` or add `-D`/`--buildDrafts` parameter to `hugo` command.
 {{< /admonition >}}
 
-### 2.5 Launching the Website Locally
+### Launching the Website Locally
 
 Launch by using the following command:
 
@@ -169,7 +169,7 @@ hugo serve --disableFastRender
 
 {{< /admonition >}}
 
-### 2.6 Build the Website
+### Build the Website
 
 When your site is ready to deploy, run the following command:
 
@@ -184,9 +184,9 @@ The website can be automatically published and hosted with [Netlify](https://www
 Alternatively, you can use [AWS Amplify](https://gohugo.io/hosting-and-deployment/hosting-on-aws-amplify/), [Github pages](https://gohugo.io/hosting-and-deployment/hosting-on-github/), [Render](https://gohugo.io/hosting-and-deployment/hosting-on-render/) and more...
 {{< /admonition >}}
 
-## 3 Configuration
+## Configuration
 
-### 3.1 Site Configuration {#site-configuration}
+### Site Configuration {#site-configuration}
 
 In addition to [Hugo global configuration](https://gohugo.io/overview/configuration/) and [menu configuration](#basic-configuration), **LoveIt-Lite** lets you define the following parameters in your site configuration (here is a `hugo.toml`, whose values are default).
 
@@ -201,12 +201,10 @@ theme = "LoveIt-Lite"
 # website title
 title = "My New Hugo Site"
 
-# language code ["en", "zh-CN", "fr", "pl", ...]
+# language code ["en"]
 languageCode = "en"
-# language name ["English", "简体中文", "Français", "Polski", ...]
+# language name ["English"]
 languageName = "English"
-# whether to include Chinese/Japanese/Korean
-hasCJKLanguage = false
 
 # copyright description used only for seo schema
 copyright = ""
@@ -685,7 +683,7 @@ which is you can refer to.
 
 ![Complete configuration preview](complete-configuration-preview.png "Complete configuration preview")
 
-### 3.2 Favicons, Browserconfig, Manifest
+### Favicons, Browserconfig, Manifest
 
 It is recommended to put your own favicons:
 
@@ -700,7 +698,7 @@ into `/static`. They’re easily created via [https://realfavicongenerator.net/]
 
 Customize `browserconfig.xml` and `site.webmanifest` to set theme-color and background-color.
 
-### 3.3 Style Customization {#style-customization}
+### Style Customization {#style-customization}
 
 {{< version 0.2.8 changed >}}
 
@@ -724,13 +722,13 @@ $code-font-family: Fira Mono, Source Code Pro, Menlo, Consolas, Monaco, monospac
 
 In `assets/css/_custom.scss`, you can add some css style code to customize the style.
 
-## 4 Search
+## Search
 
 {{< version 0.2.0 >}}
 
 Based on [Lunr.js](https://lunrjs.com/), searching is supported in **LoveIt-Lite** theme.
 
-### 4.1 Output Configuration
+### Output Configuration
 
 In order to generate `index.json` for searching, add `JSON` output file type to the `home` of the `outputs` part in your [site configuration](#site-configuration).
 
@@ -739,7 +737,7 @@ In order to generate `index.json` for searching, add `JSON` output file type to 
   home = ["HTML", "RSS", "JSON"]
 ```
 
-### 4.2 Search Configuration
+### Search Configuration
 
 Based on `index.json` generated by Hugo, you could activate searching.
 

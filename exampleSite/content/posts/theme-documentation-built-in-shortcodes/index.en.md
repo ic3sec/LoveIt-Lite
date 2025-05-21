@@ -2,10 +2,10 @@
 weight: 3
 title: "Theme Documentation - Built-in Shortcodes"
 date: 2020-03-04T16:29:41+08:00
-lastmod: 2020-03-04T16:29:41+08:00
+lastmod: 2025-05-20T17:27:29-08:00
 draft: false
-author: "Dillon"
-authorLink: "https://dillonzq.com"
+author: "Dillon/ic3sec"
+authorLink: ""
 description: "Hugo provides multiple built-in shortcodes for author convenience and to keep your markdown content clean."
 images: []
 resources:
@@ -30,7 +30,7 @@ A shortcode is a simple snippet that can generate reasonable HTML code and confo
 
 Hugo ships with a set of predefined shortcodes that represent very common usage. These shortcodes are provided for author convenience and to keep your markdown content clean.
 
-## 1 figure {#figure}
+## figure
 
 [Documentation of `figure`](https://gohugo.io/shortcodes/figure/)
 
@@ -69,7 +69,7 @@ The HTML looks like this:
 </figure>
 ```
 
-## 2 gist
+## gist
 
 [Documentation of `gist`](https://gohugo.io/shortcodes/gist/)
 
@@ -89,7 +89,7 @@ The HTML looks like this:
 <script type="application/javascript" src="https://gist.github.com/spf13/7896402.js"></script>
 ```
 
-## 3 highlight
+## highlight
 
 [Documentation of `highlight`](https://gohugo.io/shortcodes/highlight/)
 
@@ -119,7 +119,7 @@ func main() {
 }
 {{< /highlight >}}
 
-## 4 instagram
+## instagram
 
 [Documentation of `instagram`](https://gohugo.io/shortcodes/instagram/)
 
@@ -133,7 +133,7 @@ The rendered output looks like this:
 
 {{< instagram CxOWiQNP2MO >}}
 
-## 5 param
+## param
 
 [Documentation of `param`](https://gohugo.io/shortcodes/param/)
 
@@ -147,7 +147,7 @@ The rendered output looks like this:
 
 {{< param description >}}
 
-## 6 x
+## x
 
 [Documentation of `x`](https://gohugo.io/shortcodes/x/)
 
@@ -161,7 +161,7 @@ The rendered output looks like this:
 
 {{< x user=GoHugoIO id=917359331535966209 >}}
 
-## 7 vimeo
+## vimeo
 
 [Documentation of `vimeo`](https://gohugo.io/shortcodes/vimeo/)
 
@@ -175,7 +175,7 @@ The rendered output looks like this:
 
 {{< vimeo 146022717 >}}
 
-## 8 youtube
+## youtube
 
 [Documentation of `youtube`](https://gohugo.io/shortcodes/youtube/)
 
@@ -189,10 +189,10 @@ The rendered output looks like this:
 
 {{< youtube w7Ft2ymGmfc >}}
 
-## 9 ref
+## ref
 
 [Documentation of `ref`](https://gohugo.io/shortcodes/ref/)
 
-## 10  relref
+## relref
 
 [Documentation of `relref`](https://gohugo.io/shortcodes/relref/)
