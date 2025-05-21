@@ -2,11 +2,11 @@
 weight: 4
 title: "Theme Documentation - Extended Shortcodes"
 date: 2020-03-03T16:29:41+08:00
-lastmod: 2020-06-12T10:10:13+03:00
+lastmod: 2025-05-20T22:32:26-08:00
 draft: false
-author: "Dillon"
-authorLink: "https://dillonzq.com"
-description: "LoveIt theme provides multiple shortcodes on top of built-in ones in Hugo."
+author: "Dillon/ic3sec"
+authorLink: ""
+description: "LoveIt-Lite theme provides multiple shortcodes on top of built-in ones in Hugo."
 images: []
 resources:
 - name: "featured-image"
@@ -21,11 +21,11 @@ math:
   enable: true
 ---
 
-**LoveIt** theme provides multiple shortcodes on top of built-in ones in Hugo.
+**LoveIt-Lite** theme provides multiple shortcodes on top of built-in ones in Hugo.
 
 <!--more-->
 
-## 1 style
+## style
 
 {{< version 0.2.0 changed >}}
 
@@ -57,7 +57,7 @@ The rendered output looks like this:
 This is a **right-aligned** paragraph.
 {{< /style >}}
 
-## 2 link
+## link
 
 {{< version 0.2.0 >}}
 
@@ -123,7 +123,7 @@ The rendered output looks like this (hover over the link, there should be a tool
 
 {{< link "https://github.com/upstage/" Upstage "Visit Upstage!" >}}
 
-## 3 admonition
+## admonition
 
 The `admonition` shortcode supports **12** types of banners to help you put notice in your page.
 
@@ -209,31 +209,31 @@ The rendered output looks like this:
 A **tip** banner
 {{< /admonition >}}
 
-## 4 mermaid
+## mermaid
 
 The `mermaid` shortcode supports diagrams in Hugo with [Mermaid](https://mermaidjs.github.io/) library.
 
 The full documentation is provided in [Theme Documentation - mermaid Shortcode](../theme-documentation-mermaid-shortcode).
 
-## 5 echarts
+## echarts
 
 The `echarts` shortcode supports data visualization in Hugo with [ECharts](https://echarts.apache.org/) library.
 
 The full documentation is provided in [Theme Documentation - echarts Shortcode](../theme-documentation-echarts-shortcode).
 
-## 7 music
+## music
 
 The `music` shortcode embeds a responsive music player based on [APlayer](https://github.com/MoePlayer/APlayer) and [MetingJS](https://github.com/metowolf/MetingJS) library.
 
 The full documentation is provided in [Theme Documentation - music Shortcode](../theme-documentation-music-shortcode).
 
-## 9 typeit
+## typeit
 
 The `typeit` shortcode provides typing animation based on [TypeIt](https://typeitjs.com/) library.
 
 The full documentation is provided in [Theme Documentation - typeit Shortcode](../theme-documentation-typeit-shortcode).
 
-## 10 script
+## script
 
 {{< version 0.2.8 >}}
 
@@ -257,7 +257,7 @@ You can see the output in the console of the developer tool.
 console.log('Hello LoveIt!');
 {{< /script >}}
 
-## 11 raw
+## raw
 
 {{< version 0.2.11 >}}
 

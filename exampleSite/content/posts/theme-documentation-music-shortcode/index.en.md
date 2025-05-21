@@ -2,10 +2,10 @@
 weight: 8
 title: "Theme Documentation - music Shortcode"
 date: 2020-03-03T12:29:41+08:00
-lastmod: 2020-03-03T12:29:41+08:00
+lastmod: 2025-05-20T17:35:36-08:00
 draft: false
-author: "Dillon"
-authorLink: "https://dillonzq.com"
+author: "Dillon/ic3sec"
+authorLink: ""
 description: "The music shortcode embeds a responsive music player based on APlayer and MetingJS library."
 images: []
 resources:
@@ -24,7 +24,7 @@ The `music` shortcode embeds a responsive music player based on [APlayer](https:
 
 There are three ways to use it the `music` shortcode.
 
-## 1 Custom Music URL {#custom-music-url}
+## Custom Music URL {#custom-music-url}
 
 {{< version 0.2.10 >}} The complete usage of [local resource references](../theme-documentation-content#contents-organization) is supported.
 
@@ -56,7 +56,7 @@ The rendered output looks like this:
 
 {{< music url="/music/Wavelength.mp3" name=Wavelength artist=oldmanyoung cover="/images/Wavelength.jpg" >}}
 
-## 2 Music Platform URL Automatic Identification {#automatic-identification}
+## Music Platform URL Automatic Identification {#automatic-identification}
 
 The `music` shortcode has one named parameter by music platform URL automatic identification:
 
@@ -77,7 +77,7 @@ The rendered output looks like this:
 
 {{< music auto="https://music.163.com/#/playlist?id=60198" >}}
 
-## 3 Custom Server, Type and ID {#custom-server}
+## Custom Server, Type and ID {#custom-server}
 
 The `music` shortcode has the following named parameters by custom music platform:
 
@@ -109,7 +109,7 @@ The rendered output looks like this:
 
 {{< music netease song 1868553 >}}
 
-## 4 Other Parameters {#other-parameters}
+## Other Parameters {#other-parameters}
 
 The `music` shortcode has other named parameters applying to the above three ways:
 
