@@ -6,16 +6,14 @@ theme = "LoveIt-Lite"
 themesDir = "../.."
 
 # website title
-title = "LoveIt"
+title = "LoveIt-Lite"
 
-# determines default content language ["en", "zh-cn", "fr", "pl", ...]
+# determines default content language ["en"]
 defaultContentLanguage = "en"
-# language code ["en", "zh-CN", "fr", "pl", ...]
+# language code ["en"]
 languageCode = "en"
-# language name ["English", "简体中文", "Français", "Polski", ...]
+# language name ["English"]
 languageName = "English"
-# whether to include Chinese/Japanese/Korean
-hasCJKLanguage = false
 
 # copyright description used only for seo schema
 copyright = ""
@@ -147,7 +145,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   # App icon config
   [params.app]
     # optional site title override for the app when added to an iOS home screen or Android launcher
-    title = "LoveIt"
+    title = "LoveIt-Lite"
     # whether to omit favicon resource links
     noFavicon = false
     # modern SVG favicon to use in place of older style .png and .ico files
@@ -273,7 +271,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         mermaid = true
     # KaTeX mathematical formulas config (KaTeX https://katex.org/)
     [params.page.math]
-      enable = false
+      enable = true
       # default inline delimiter is $ ... $ and \( ... \)
       inlineLeftDelimiter = ""
       inlineRightDelimiter = ""
@@ -354,7 +352,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       
   # Cookie consent config
   [params.cookieconsent]
-    enable = false
+    enable = true
     # text strings used for Cookie consent banner
     [params.cookieconsent.content]
       message = ""

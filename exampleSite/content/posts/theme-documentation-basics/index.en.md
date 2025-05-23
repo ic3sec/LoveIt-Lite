@@ -193,14 +193,18 @@ In addition to [Hugo global configuration](https://gohugo.io/overview/configurat
 Please open the code block below to view the complete sample configuration:
 
 ```toml
-baseURL = "http://example.org/"
+baseURL = "https://example.com"
 
-# Change the default theme to be use when building the site with Hugo
+# theme
 theme = "LoveIt-Lite"
+# themes directory
+themesDir = "../.."
 
 # website title
-title = "My New Hugo Site"
+title = "LoveIt-Lite"
 
+# determines default content language ["en"]
+defaultContentLanguage = "en"
 # language code ["en"]
 languageCode = "en"
 # language name ["English"]
@@ -259,20 +263,20 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   # site default theme ["auto", "light", "dark"]
   defaultTheme = "auto"
   # public git repo url only then enableGitInfo is true
-  gitRepo = ""
-  # {{< version 0.1.1 >}} which hash function used for SRI, when empty, no SRI is used
+  gitRepo = "https://github.com/ic3sec/LoveIt-Lite"
+  # which hash function used for SRI, when empty, no SRI is used
   # ["sha256", "sha384", "sha512", "md5"]
   fingerprint = ""
-  # {{< version 0.2.0 >}} date format
+  # date format
   dateFormat = "2006-01-02"
   # website title for Open Graph and Twitter Cards
-  title = "My cool site"
+  title = "LoveIt-Lite"
   # website description for RSS, SEO, Open Graph and Twitter Cards
-  description = "This is my cool site"
+  description = "Hugo theme - LoveIt-Lite"
   # website images for Open Graph and Twitter Cards
   images = ["/logo.png"]
 
-# Author config
+  # Author config
   [params.author]
     name = "xxxx"
     email = ""
@@ -284,38 +288,38 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     desktopMode = "fixed"
     # mobile header mode ["fixed", "normal", "auto"]
     mobileMode = "auto"
-    # {{< version 0.2.0 >}} Header title config
+    # Header title config
     [params.header.title]
       # URL of the LOGO
       logo = ""
       # title name
-      name = ""
-      # you can add extra information before the name (HTML format is supported), such as icons
+      name = "LoveIt-Lite"
+      # you can add extra information before the name (HTML format is supported)
       pre = ""
-      # you can add extra information after the name (HTML format is supported), such as icons
+      # you can add extra information after the name (HTML format is supported)
       post = ""
-      # {{< version 0.2.5 >}} whether to use typeit animation for title name
+      # whether to use typeit animation for title name
       typeit = false
 
   # Footer config
   [params.footer]
     enable = true
-    # {{< version 0.2.0 >}} Custom content (HTML format is supported)
-    custom = ''
-    # {{< version 0.2.0 >}} whether to show Hugo and theme info
+    # Custom content (HTML format is supported)
+    custom = ""
+    # whether to show Hugo and theme info
     hugo = true
-    # {{< version 0.2.0 >}} whether to show copyright info
+    # whether to show copyright info
     copyright = true
-    # {{< version 0.2.0 >}} whether to show the author
+    # whether to show the author
     author = true
-    # Site creation time
-    since = 2019
+    # site creation time
+    since = 2025
     # ICP info only in China (HTML format is supported)
     icp = ""
     # license info (HTML format is supported)
-    license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+    license= '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
 
-  # {{< version 0.2.0 >}} Section (all posts) page config
+  # Section (all posts) page config
   [params.section]
     # special amount of posts in each section page
     paginate = 20
@@ -324,7 +328,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # amount of RSS pages
     rss = 10
 
-  # {{< version 0.2.0 >}} List (category or tag) page config
+  # List (category or tag) page config
   [params.list]
     # special amount of posts in each list page
     paginate = 20
@@ -333,10 +337,10 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # amount of RSS pages
     rss = 10
 
-  # {{< version 0.2.0 >}} App icon config
+  # App icon config
   [params.app]
     # optional site title override for the app when added to an iOS home screen or Android launcher
-    title = "My cool site"
+    title = "LoveIt-Lite"
     # whether to omit favicon resource links
     noFavicon = false
     # modern SVG favicon to use in place of older style .png and .ico files
@@ -345,10 +349,10 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     themeColor = "#ffffff"
     # Safari mask icon color
     iconColor = "#5bbad5"
-    # Windows v8-10 tile color
+    # Windows v8-11 tile color
     tileColor = "#da532c"
 
-  # {{< version 0.2.0 >}} Search config
+  # Search config
   [params.search]
     enable = true
     # type of search engine ["lunr"]
@@ -357,52 +361,47 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     contentLength = 4000
     # placeholder of the search bar
     placeholder = ""
-    # {{< version 0.2.1 >}} max number of results length
+    # max number of results length
     maxResultLength = 10
-    # {{< version 0.2.3 >}} snippet length of the result
+    # snippet length of the result
     snippetLength = 30
-    # {{< version 0.2.1 >}} HTML tag name of the highlight part in results
+    # HTML tag name of the highlight part in results
     highlightTag = "em"
-    # {{< version 0.2.4 >}} whether to use the absolute URL based on the baseURL in search index
+    # whether to use the absolute URL based on the baseURL in search index
     absoluteURL = false
 
   # Home page config
   [params.home]
-    # {{< version 0.2.0 >}} amount of RSS pages
+    # amount of RSS pages
     rss = 10
     # Home page profile
     [params.home.profile]
       enable = true
       # URL of avatar shown in home page
       avatarURL = "/images/avatar.png"
-      # {{< version 0.2.7 changed >}} title shown in home page (HTML format is supported)
+      # title shown in home page (HTML format is supported)
       title = ""
       # subtitle shown in home page (HTML format is supported)
-      subtitle = "This is My New Hugo Site"
+      subtitle = "A Clean, Elegant but Advanced Hugo Theme"
       # whether to use typeit animation for subtitle
       typeit = true
       # whether to show social links
       social = true
-      # {{< version 0.2.0 >}} disclaimer (HTML format is supported)
+      # disclaimer (HTML format is supported)
       disclaimer = ""
     # Home page posts
     [params.home.posts]
       enable = true
       # special amount of posts in each home posts page
       paginate = 6
-      # {{< version 0.2.0 deleted >}} replaced with hiddenFromHomePage in params.page
-      # default behavior when you don't set "hiddenFromHomePage" in front matter
-      defaultHiddenFromHomePage = false
-
-  # Social config about the author
+  # Social config in home page
   [params.social]
-    GitHub = "xxxx"
+    GitHub = ""
     Linkedin = ""
-    X = "xxxx" # {{< version 0.3.1 >}}
-    Twitter = "" # {{< version 0.3.1 deprecated >}}
-    Instagram = "xxxx"
-    Facebook = "xxxx"
-    Telegram = "xxxx"
+    X = ""
+    Instagram = ""
+    Facebook = ""
+    Telegram = ""
     Medium = ""
     Gitlab = ""
     Youtubelegacy = ""
@@ -425,72 +424,71 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     Discord = ""
     DiscordInvite = ""
     HackTheBox = ""
-    RootMe = ""
-    TikTok = "" # {{< version 0.3.0 >}}
-    TryHackMe = "" # {{< version 0.3.0 >}}
-    Codeberg = "" # {{< version 0.3.0 >}}
-    HuggingFace = "" # {{< version 0.3.1 >}}
-    Threads = "" # {{< version 0.3.1 >}}
-    Phone = ""
-    Email = "xxxx@xxxx.com"
-    RSS = true # {{< version 0.2.0 >}}
+    RootMe= ""
+    TikTok = ""
+    TryHackMe = ""
+    Codeberg = ""
+    HuggingFace = ""
+    Threads = ""
+    Email = ""
+    RSS = ""
 
-  # {{< version 0.2.0 changed >}} Page global config
+  # Page global config
   [params.page]
-    # {{< version 0.2.0 >}} whether to hide a page from home page
+    # whether to hide a page from home page
     hiddenFromHomePage = false
-    # {{< version 0.2.0 >}} whether to hide a page from search results
+    # whether to hide a page from search results
     hiddenFromSearch = false
-    # {{< version 0.2.0 >}} whether to enable the ruby extended syntax
+    # whether to enable the ruby extended syntax
     ruby = true
-    # {{< version 0.2.0 >}} whether to enable the fraction extended syntax
+    # whether to enable the fraction extended syntax
     fraction = true
     # whether to show link to Raw Markdown content of the content
     linkToMarkdown = true
-    # {{< version 0.2.4 >}} whether to show the full text content in RSS
+    # whether to show the full text content in RSS
     rssFullText = false
-    # {{< version 0.2.0 >}} Table of the contents config
+    # Table of the contents config
     [params.page.toc]
       # whether to enable the table of the contents
       enable = true
-      # {{< version 0.2.9 >}} whether to keep the static table of the contents in front of the post
+      # whether to keep the static table of the contents in front of the post
       keepStatic = false
       # whether to make the table of the contents in the sidebar automatically collapsed
       auto = true
-    # {{< version 0.2.0 changed >}} {{< link "https://katex.org/" KaTeX >}} mathematical formulas
+    # Code config
+    [params.page.code]
+      # whether to show the copy button of the code block
+      copy = true
+      # the maximum number of lines of displayed code by default
+      maxShownLines = 50
+      [params.page.code.render]
+        goat = true
+        mermaid = true
+    # KaTeX mathematical formulas config (KaTeX https://katex.org/)
     [params.page.math]
       enable = true
-      # {{< version 0.2.11 changed >}} default inline delimiter is $ ... $ and \( ... \)
+      # default inline delimiter is $ ... $ and \( ... \)
       inlineLeftDelimiter = ""
       inlineRightDelimiter = ""
-      # {{< version 0.2.11 changed >}} default block delimiter is $$ ... $$, \[ ... \], \begin{equation} ... \end{equation} and some other functions
+      # default block delimiter is $$ ... $$, \[ ... \], \begin{equation} ... \end{equation} and some other functions
       blockLeftDelimiter = ""
       blockRightDelimiter = ""
       # KaTeX extension copy_tex
       copyTex = true
       # KaTeX extension mhchem
       mhchem = true
-    # {{< version 0.2.0 >}} Code config
-    [params.page.code]
-      # whether to show the copy button of the code block
-      copy = true
-      # the maximum number of lines of displayed code by default
-      maxShownLines = 50
-    # {{< version 0.2.0 changed >}} social share links in post page
+    # Social share links in post page
     [params.page.share]
       enable = true
-      X = true # {{< version 0.3.1 >}}
-      Twitter = false # {{< version 0.3.1 deprecated >}}
-      Threads = true # {{< version 0.3.1 >}}
+      X = true
+      Threads = true
       Facebook = true
       Linkedin = false
       Whatsapp = false
-      Pinterest = false
-      Tumblr = false
       HackerNews = true
-      Reddit = false
-      Telegram = true # {{< version 0.3.1 >}}
-    # {{< version 0.2.7 >}} Third-party library config
+      Reddit = true
+      Telegram = true
+    # Third-party library config
     [params.page.library]
       [params.page.library.css]
         # someCSS = "some.css"
@@ -498,16 +496,16 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       [params.page.library.js]
         # someJavascript = "some.js"
         # located in "assets/"
-    # {{< version 0.2.10 changed >}} Page SEO config
+    # Page SEO config
     [params.page.seo]
       # image URL
       images = []
       # Publisher info
       [params.page.seo.publisher]
-        name = ""
-        logoUrl = ""
+        name = "xxxx"
+        logoUrl = "/images/avatar.png"
 
-  # {{< version 0.2.5 >}} TypeIt config
+  # TypeIt config
   [params.typeit]
     # typing speed between each step (measured in milliseconds)
     speed = 100
@@ -518,30 +516,26 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # cursor duration after typing finishing (measured in milliseconds, "-1" means unlimited)
     duration = -1
 
-  # Site verification code config for Google/Bing/Pinterest
+  # Site verification code for Google/Bing/Pinterest
   [params.verification]
     google = ""
     bing = ""
     pinterest = ""
 
-  # {{< version 0.2.10 >}} Site SEO config
+  # Site SEO config
   [params.seo]
     # image URL
-    image = ""
+    image = "/images/Apple-Devices-Preview.png"
     # thumbnail URL
-    thumbnailUrl = ""
+    thumbnailUrl = "/images/screenshot.png"
 
-  # {{< version 0.2.0 >}} Analytics config
+  # Analytics config
   [params.analytics]
-    # {{< version 0.3.1 deleted >}}
-    enable = true
     # Google Analytics
     [params.analytics.google]
       id = ""
-      # {{< version 0.3.1 deleted >}} whether to anonymize IP
-      anonymizeIP = true
-      # {{< version 0.3.1 >}} whether to respect the browser’s “do not track” setting
-      respectDoNotTrack = false
+      # whether to respect the browser’s “do not track” setting
+      respectDoNotTrack = true
     # Fathom Analytics
     [params.analytics.fathom]
       id = ""
@@ -550,8 +544,8 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # Plausible Analytics
     [params.analytics.plausible]
       dataDomain = ""
-
-  # {{< version 0.2.7 >}} Cookie consent config
+      
+  # Cookie consent config
   [params.cookieconsent]
     enable = true
     # text strings used for Cookie consent banner
@@ -560,24 +554,23 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       dismiss = ""
       link = ""
 
-  # {{< version 0.2.8 >}} Compatibility config
+  # Compatibility config
   [params.compatibility]
     # whether to use Polyfill.io to be compatible with older browsers
     polyfill = false
     # whether to use object-fit-images to be compatible with older browsers
     objectFit = false
 
-# Markup related config in Hugo
+# Markup related configuration in Hugo
 [markup]
-  # {{< link "https://gohugo.io/content-management/syntax-highlighting" "Syntax Highlighting" >}}
+  # Syntax Highlighting (https://gohugo.io/content-management/syntax-highlighting)
   [markup.highlight]
+    anchorLineNos = false
     codeFences = true
-    guessSyntax = true
-    lineNos = true
+    guessSyntax = false
+    lineNos = false
     lineNumbersInTable = true
-    # false is a necessary configuration
-    # ({{< link "https://github.com/dillonzq/LoveIt-Lite/issues/158" >}})
-    noClasses = false
+    noClasses = true
   # Goldmark is from Hugo 0.60 the default library used for Markdown
   [markup.goldmark]
     [markup.goldmark.extensions]
@@ -602,14 +595,14 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   filename = "sitemap.xml"
   priority = 0.5
 
-# {{< link "https://gohugo.io/content-management/urls#permalinks" "Permalinks config" >}}
-[Permalinks]
+# Permalinks config (https://gohugo.io/content-management/urls/#permalinks)
+[permalinks]
   # posts = ":year/:month/:filename"
   posts = ":filename"
 
-# {{< link "https://gohugo.io/about/hugo-and-gdpr/" "Privacy config" >}}
+# Privacy config (https://gohugo.io/configuration/privacy/)
 [privacy]
-  # {{< version 0.3.1 changed >}} privacy of the Google Analytics (can also be configured in params.analytics.google)
+  # privacy of the Google Analytics (can also be configured in params.analytics.google)
   [privacy.googleAnalytics]
     # ...
   [privacy.twitter]
@@ -630,11 +623,92 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 
 # Options to make hugo output files
 [outputs]
-  # {{< version 0.2.0 changed >}}
   home = ["HTML", "RSS", "JSON"]
   page = ["HTML", "MarkDown"]
   section = ["HTML", "RSS"]
   taxonomy = ["HTML", "RSS"]
+
+# Multilingual
+[languages]
+  [languages.en]
+    weight = 1
+    languageCode = "en"
+    languageName = "English"
+    hasCJKLanguage = false
+    copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        weight = 1
+        identifier = "posts"
+        pre = ""
+        post = ""
+        name = "Posts"
+        url = "/posts/"
+        title = ""
+      [[languages.en.menu.main]]
+        weight = 2
+        identifier = "tags"
+        pre = ""
+        post = ""
+        name = "Tags"
+        url = "/tags/"
+        title = ""
+      [[languages.en.menu.main]]
+        weight = 3
+        identifier = "categories"
+        pre = ""
+        post = ""
+        name = "Categories"
+        url = "/categories/"
+        title = ""
+      [[languages.en.menu.main]]
+        weight = 4
+        identifier = "documentation"
+        pre = ""
+        post = ""
+        name = "Docs"
+        url = "/categories/documentation/"
+        title = ""
+      [[languages.en.menu.main]]
+        weight = 5
+        identifier = "about"
+        pre = ""
+        post = ""
+        name = "About"
+        url = "/about/"
+        title = ""
+      [[languages.en.menu.main]]
+        weight = 6
+        identifier = "github"
+        pre = "<svg class='icon github icon-github' aria-hidden='true'><use href='#icon-github'></use></svg>"
+        post = ""
+        name = ""
+        url = "https://github.com/ic3sec/LoveIt-Lite"
+        title = "GitHub"
+    [languages.en.params]
+      [languages.en.params.search]
+        enable = true
+        type = "lunr"
+        contentLength = 4000
+        placeholder = ""
+        maxResultLength = 10
+        snippetLength = 30
+        highlightTag = "em"
+        absoluteURL = false
+      [languages.en.params.home]
+        rss = 10
+        [languages.en.params.home.profile]
+          enable = true
+          avatarURL = "/images/avatar.png"
+          title = ""
+          subtitle = "A Clean, Elegant but Advanced Hugo Theme"
+          typeit = true
+          social = true
+          disclaimer = ""
+      [languages.en.params.social]
+        GitHub = "xxxx"
+        Youtubelegacy = "xxxx"
+        RSS = true
 ```
 
 {{< admonition >}}
