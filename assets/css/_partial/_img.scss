@@ -1,4 +1,14 @@
 img {
+
+  /* alignment for images in lists/blockquotes */
+  ul &, ol &, blockquote & {
+    display: block;
+    margin-left: 0;
+    margin-right: auto;
+    max-width: 100%;
+    max-height: auto;
+  }
+
   &.lazyload, &.lazyloading {
     @include object-fit(scale-down);
   }
