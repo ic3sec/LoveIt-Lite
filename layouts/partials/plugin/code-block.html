@@ -4,7 +4,7 @@
 {{- $maxShownLines := $params.code.maxShownLines | default 10 | int -}}
 {{- $copy := $params.code.copy | default true -}}
 {{- $lines := split $content "\n" | len -}}
-{{- $options := dict "lineNoStart" 1 "lineNos" true -}}
+{{- $options := dict "lineNoStart" 1 "lineNos" ($params.code.showLineNos | default false) -}}
 {{- $options = .Options | partial "function/dict.html" | merge $options -}}
 {{- $lineNoStart := $options.lineNoStart | int -}}
 {{- $lineNos := $options.lineNos | partial "function/bool.html" -}}

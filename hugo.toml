@@ -24,6 +24,13 @@
     name = "xxxx"
     email = ""
     link = ""
+	
+  # Code config
+  [params.code]
+	# default max lines shown
+    maxShownLines = 50
+	# line numbers shown/hidden (default = false)
+	showLineNos = false
 
   # Header config
   [params.header]
