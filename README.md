@@ -8,6 +8,7 @@ LoveIt-Lite is made to work with [Hugo Extended v0.145.0](https://github.com/goh
 
 Compared to the original LoveIt theme, the following changes have been made:
 
+* **Added** custom code block title support
 * **Added** collapsing Table of Contents based on scroll location
 * **Added** colored html headings (with light/dark mode and exclude options)
 * **Added** Firefox FOUC workaround fix (prevents icons loading incorrectly)
