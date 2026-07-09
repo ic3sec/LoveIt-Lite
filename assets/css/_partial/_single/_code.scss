@@ -76,6 +76,11 @@ code, pre {
         content: $text;
       }
     }
+	
+	.code-title[code-block-title]::after {
+	  padding-left: .2rem;
+	  content: attr(code-block-title);
+	}
 
     .arrow {
       height: 1em;
